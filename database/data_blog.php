@@ -10,16 +10,16 @@ if (isset($_POST['submit'])) {
     $status = (isset($_POST['status']) && $_POST['status'] != "") ? $_POST['status'] : "";
     $added_on = (isset($_POST['added_on']) && $_POST['added_on'] != "") ? $_POST['added_on'] : "";
 
-    // $newsimage = "";
+    // $uploadFile = "";
     // $fileMsg = "";
-    // if(isset($_FILES['newsimage']) && !empty($_FILES['newsimage'])){
-    //     $file = $_FILES['newsimage'];
+    // if(isset($_FILES['uploadFile']) && !empty($_FILES['uploadFile'])){
+    //     $file = $_FILES['uploadFile'];
 
-    //     $fileName = $_FILES['newsimage']['name'];
-    //     $fileTempName = $_FILES['newsimage']['tmp_name'];
-    //     $fileSize = $_FILES['newsimage']['size'];
-    //     $fileError = $_FILES['newsimage']['error'];
-    //     $fileType = $_FILES['newsimage']['type'];
+    //     $fileName = $_FILES['uploadFile']['name'];
+    //     $fileTempName = $_FILES['uploadFile']['tmp_name'];
+    //     $fileSize = $_FILES['uploadFile']['size'];
+    //     $fileError = $_FILES['uploadFile']['error'];
+    //     $fileType = $_FILES['uploadFile']['type'];
 
     //     //Getting the file ext
     //     $fileExt = explode('.',$fileName);
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
     //                 //Creating a unique name for file
     //                 $fileNemeNew = uniqid('',true).".".$fileActualExt;
     //                 //File destination
-    //                 $fileDestination = 'photostore/'.$fileNemeNew;
+    //                 $fileDestination = '/admin/assets/img/store_image/'.$fileNemeNew;
     //                 //function to move temp location to permanent location
     //                 if(move_uploaded_file($fileTempName, $fileDestination)){
     //                     $newsimage = $fileNemeNew;

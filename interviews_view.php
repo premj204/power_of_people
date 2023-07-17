@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+include "./database/database.php";
 ?>
 
 
@@ -19,17 +20,28 @@ include "header.php";
 </section>
 <section class="utf_block_wrapper">
     <div class="container">
+ 
+    <?php
+                if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            $id=$_GET['id']; 
+                $sql = "SELECT * FROM `interviews` WHERE `id` = $id"; 
+             $result = mysqli_query($conn, $sql);
+             $row = mysqli_fetch_assoc($result);
+             $sno = 0;
+             ?>
+
+
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="single-post">
                     <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">Food</a>
-                        <h2 class="utf_post_title">Lorem Ipsum is simply dummy text of the printing and type setting
-                            industry simply dummy text type.</h2>
+                        <h2 class="utf_post_title"><?php echo" " . $row['details'] ." " ?></h2>
                         <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">Prem Jadhav</a> </span>
-                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 15 Jan, 2022</span> <span
-                                class="post-hits"><i class="fa fa-eye"></i> 21</span> <span class="post-comment"><i
-                                    class="fa fa-comments-o"></i> <a href="#"
-                                    class="comments-link"><span>01</span></a></span>
+                            <span class="utf_post_date"><i class="fa fa-clock-o"></i><?php echo" " . $row['upload_date'] ." " ?></span>
+                             <span class="post-hits"><i class="fa fa-eye"></i> 21</span> <span class="post-comment">
+                             <i class="fa fa-comments-o"></i> <a href="#" class="comments-link"><span>01</span></a></span>
                         </div>
                     </div>
 
@@ -37,14 +49,11 @@ include "header.php";
                         <div class="entry-content">
                             <div class="post-media post-video">
                                 <div class="embed-responsive">
-                                    <iframe src="https://www.youtube.com/embed/ZC4bgO-SoVg" width="500"
+                                    <iframe src="<?php echo" " . $row['video_link'] ." " ?>" width="500"
                                         height="281" allowfullscreen=""></iframe> <!-- ?autoplay=1  video auto play-->
                                 </div>
                             </div>
-                            <p> <span class="dropcap">L</span> orem Ipsum is simply dummy text of the printing and type
-                                setting industry. Lorem Ipsum has been the industry's standard Lorem Ipsum is simply
-                                dummy text of the printing and type setting industry. Lorem Ipsum has been the
-                                industry's standard.</p>
+                            <p><?php echo" " . $row['description'] ." " ?></p>
                         </div>
 
                         <div class="tags-area clearfix">

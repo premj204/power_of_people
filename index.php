@@ -155,13 +155,12 @@ include "./database/database.php";
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
-                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `status`, `added_on` FROM `blog`";//(innerjoin)
+                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog`";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          while ($row = mysqli_fetch_assoc($result)) {
                             $sno = $sno + 1;
                             echo "
-                         
                           <div class='item'>
                     <ul class='utf_list_post'>
                         <li class='clearfix'>
@@ -171,9 +170,9 @@ include "./database/database.php";
                                         <div class='video-icon'> <i class='fa fa-play'></i> </div>
                                     </a>
                                 </div>
-                                <a class='utf_post_cat' href='#'>Health</a>
+                                <a class='utf_post_cat' href='#'>" . $row['category'] ."</a>
                                 <div class='utf_post_content'>
-                                    <h2 class='utf_post_title title-medium'> <a href='detailsview.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> " . $row['headline'] ." </a> </h2>
+                                    <h2 class='utf_post_title title-medium'> <a href='blog_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> " . $row['headline'] ." </a> </h2>
                                     <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
                                             <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
                                                 class='fa fa-clock-o'></i> " . $row['added_on'] ."</span> </div>
@@ -586,90 +585,64 @@ include "./database/database.php";
                         <div class="col-lg-6 col-md-6">
                             <h3 class="utf_block_title"><span class="bg-title-green">Interviews</span> <span><a href=""
                                         class="float-right">See More</a></span></h3>
-                            <div class="utf_post_overaly_style last clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/1.jpg"
-                                            alt="" /> </a> </div>
-                                <div class="utf_post_content"> <a class="utf_post_cat" href="#">Architecture</a>
-                                    <h2 class="utf_post_title"> <a href="#">Zhang social media pop also known
-                                            when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan,
-                                            2022</span> </div>
+
+
+
+                                        <?php
+                if (!$conn) {
+                 
+                    die("Connection failed: " . mysqli_connect_error());
+                     }
+                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `uploadThumbnail`, `status`, `upload_date` FROM `interviews`";//(innerjoin)
+                       $result = mysqli_query($conn, $sql);
+                         $sno = 0;
+                         $row = mysqli_fetch_assoc($result) 
+                            ?>
+                            <div class='utf_post_overaly_style last clearfix'>
+                                <div class='utf_post_thumb'> <img class='img-fluid' src='images/news/video2.jpg' alt=''>
+                                    <a href=<?php echo "interviews_view.php?id=" . $row['id'] . ""?> >
+                                        <div class='video-icon'> <i class='fa fa-play'></i> </div>
+                                    </a>
+                                </div>
+                                <div class='utf_post_content'> <a class='utf_post_cat' href='#'>Architecture</a>
+                                    <h2 class='utf_post_title'> <a href='<?php echo "interviews_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . ""?>'><?php echo" " . $row['details'] ." " ?></a> </h2>
+                                    <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
+                                            <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
+                                                class='fa fa-clock-o'></i>  <?php echo"" . $row['upload_date'] ."" ?></span>
+                                    </div>
                                 </div>
                             </div>
-
+                            
                             <div class="utf_list_post_block">
                                 <ul class="utf_list_post">
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/3.jpg" alt="" /> </a>
-                                                <a class="utf_post_cat" href="#">Health</a>
-                                            </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/2.jpg" alt="" /> </a> <a class="utf_post_cat"
-                                                    href="#">Food</a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/health5.jpg" alt="" />
-                                                </a> <a class="utf_post_cat" href="#">Architecture</a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/health5.jpg" alt="" /> </a>
-                                                <a class="utf_post_cat" href="#">Travel</a>
-                                            </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                             <?php
+                            if (!$conn) {                 
+                             die("Connection failed: " . mysqli_connect_error());
+                                  }
+                                $sql = "SELECT * FROM `interviews` LIMIT 4";//(innerjoin)
+                                $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $sno = $sno + 1;
+                                        echo "
+                            <li class='clearfix'>
+                            <div class='utf_post_block_style post-float clearfix'>
+                                <div class='utf_post_thumb'> <a href='#'> <img class='img-fluid'
+                                            src='images/news/3.jpg' alt='' /> </a>
+                                            <div class='video-icon video-icon-small'> <i class='fa fa-play'></i> </div>
+                                   
+                                </div>
+                                <div class='utf_post_content'>
+                                    <h2 class='utf_post_title title-small'> <a href='interviews_view.php?id=" . $row['id'] . "'>
+                                    " . $row['details'] ."</a> </h2>
+                                    <div class='utf_post_meta'> <span class='utf_post_author'><i
+                                                class='fa fa-user'></i> <a href='#'>Prem Jadhav</a></span>
+                                        <span class='utf_post_date'><i class='fa fa-clock-o'></i> " . $row['upload_date'] ."</span>
+                                        <span class='utf_post_categ'>Health</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>"; } ?>
                                 </ul>
                             </div>
                         </div>
@@ -805,7 +778,7 @@ include "./database/database.php";
                     </div>
 
                     <div class="widget color-default m-bottom-0">
-                        <h3 class="utf_block_title"><span class="bg-title-green">POPULAR</span></h3>
+                        <h3 class="utf_block_title"><span class="bg-title-green">Gallery</span></h3>
                         <div id="utf_post_slide" class="owl-carousel owl-theme utf_post_slide">
                             <div class="item">
                                 <div class="utf_post_overaly_style text-center clearfix">
@@ -814,11 +787,6 @@ include "./database/database.php";
                                     <div class="utf_post_content"> <a class="utf_post_cat" href="#">Lifestyle</a>
                                         <h2 class="utf_post_title"> <a href="#">The best MacBook Pro
                                                 alternatives in 2022 for Appl…</a> </h2>
-                                        <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -830,11 +798,6 @@ include "./database/database.php";
                                     <div class="utf_post_content"> <a class="utf_post_cat" href="#">Health</a>
                                         <h2 class="utf_post_title"> <a href="#">Netcix cuts out the chill with
                                                 an integrated perso…</a> </h2>
-                                        <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

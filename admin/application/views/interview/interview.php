@@ -66,7 +66,3 @@ $(document).ready(function() {
 });
 
 </script> -->
-
-<script>
-new DataTable('#interview');
-</script>

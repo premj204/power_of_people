@@ -32,6 +32,7 @@
         // }
 
  	function index(){
+        $data['title'] = "";
  		$data['nav']='Interviews';
 		$data['main_content']='interview/interview';
 		$this->load->view('includes/templates',$data);
@@ -40,31 +41,23 @@
  		$data['nav']='interview';
 		$data['main_content']='interview/new_interview';
 		$this->load->view('includes/templates',$data);
- 	}
+ 	}  
 
-     
-
-     function new_interviews(){
+     function add_interview(){
         $video_link = $this->input->get_post('video_link'); 
         $details = $this->input->get_post('details'); 
         $description = $this->input->get_post('description'); 
-        $uploadThumbnail = $this->input->get_post('uploadThumbnail'); 
        
-       
-
         if($video_link!= "" && $details!="" ){
            $interviewsData = array(
                'video_link' => $video_link,
                'details' => $details,
-               'description' => $description,
-               'uploadThumbnail' => $uploadThumbnail,                 
+               'description' => $description,                
            );
 
-            $this->model->insert_into(' interviews',$interviewsData);
-            
-
-           $data['status'] = 200;
-           $data[ 'msg'] = 'New interview Added successfully.';
+            $this->model->insert_into('interviews',$interviewsData);
+                $data['status'] = 200;
+                $data[ 'msg'] = 'New interview Added successfully.';
            }else{
                $data['status'] = 400;
                $data['msg'] = 'Invalid data. Please check with Plan Data.';

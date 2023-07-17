@@ -2518,10 +2518,20 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 	display: inline-block;
 	border-radius: 100%;
 }
-
+.video-icon-small{
+	width: 40px !important;
+    left: 57%!important;
+    top: 90%!important;
+    border: 3px solid #fff;
+    height: 40px !important;
+}
 .video-icon i {
 	margin-left: 5px;
 }
+.video-icon-small i {
+	position: relative;
+    top: -20%;
+ 	}
 
 /* More news
 ================================================== */
@@ -2536,7 +2546,14 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 	max-width: 300px;
 	min-height: 200px;
 }
-
+.utf_post_categ{
+	font-size: 12px !important;
+    padding: 5px;
+    background: #f79431;
+    text-transform: uppercase;
+    color: white !important;
+    border-radius: 4px;
+}
 /* Footer
 ================================================== */
 .footer {

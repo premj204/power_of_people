@@ -17,8 +17,13 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return validateBlogsFrm(this);"
-                id="BlogFrm" name="BlogFrm">
+        <form method="POST" action="<?php echo base_url() ?>blog/update_blog" id="frmEditblog" name="frmEditblog" onsubmit="return ValidateEditblog(this);" enctype="multipart/form-data">
+        <input type="" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
+               <?php 
+                  $soc = "SELECT id,name FROM blog WHERE id = $id"; 
+                  $Data = $this->model->doQuery($soc);
+                ?>
+
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
@@ -44,7 +49,7 @@
                             <div class="col-lg-12">
                                 <div class="mb-3 form-group">
                                     <label for="headline" class="form-label">Headline :</label>
-                                    <input type="text" value="<?php echo "".$row['headline'].""; ?>" class="form-control" name="headline" id="headline">
+                                    <input type="text" value="<?php echo['headline']; ?>" class="form-control" name="headline" id="headline">
                                 </div>
                             </div>
                             <div class="col-lg-12">

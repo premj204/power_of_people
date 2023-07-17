@@ -1,9 +1,7 @@
 <?php
 include "header.php";
 include "./database/database.php";
-
 ?>
-
 
 <section>
     <div class="page-title">
@@ -24,17 +22,16 @@ include "./database/database.php";
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12">
-            <?php
-                        if (!$conn) {
+             <?php
+                if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
             $id=$_GET['id']; 
                 $sql = "SELECT * FROM `blog` WHERE `id` = $id"; 
-           $result = mysqli_query($conn, $sql);
-          $sno = 0;
-         $row = mysqli_fetch_assoc($result);
-         
-        ?>
+             $result = mysqli_query($conn, $sql);
+             $row = mysqli_fetch_assoc($result);
+             $sno = 0;
+             ?>
                 <div class="single-post">
                     <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">Health</a>
                         <h2 class="utf_post_title"> <?php echo "".$row['headline'].""; ?></h2>

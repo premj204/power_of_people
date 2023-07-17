@@ -17,8 +17,9 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return validateBlogsFrm(this);"
-                id="BlogFrm" name="BlogFrm">
+            <form method="POST" onsubmit="return ValidateEditblog(this);"
+                id="frmEditblog" name="frmEditblog">
+                <input type="" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
@@ -38,13 +39,13 @@
                             <div class="col-lg-6">
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">#Tags :</label>
-                                    <input type="text" class="form-control" name="tags" id="tags">
+                                    <input type="text" class="form-control" name="tags" id="tags" value="">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="mb-3 form-group">
                                     <label for="headline" class="form-label">Headline :</label>
-                                    <input type="text" value="<?php echo "".$row['headline'].""; ?>" class="form-control" name="headline" id="headline">
+                                    <input type="text" value="<?php echo $blog[0]['headline']; ?>" class="form-control" name="headline" id="headline">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -52,7 +53,7 @@
                                     <label for="description" class="form-label">Description :</label>
                                     <div id="uploadFile" class="datainputs">
                                         <textarea name="description"  rows="3" class="form-control mb-2" id="description"
-                                            type="text"></textarea>
+                                            type="text"><?php echo $blog[0]['description']; ?></textarea>
                                         <script>
                                         CKEDITOR.replace('description');
                                         </script>

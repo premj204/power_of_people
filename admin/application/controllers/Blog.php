@@ -43,63 +43,78 @@
  	}
 
      function edit_blog(){
-        $data['nav']='blog';
+        $id = $this->input->get_post('id');
+        $data['blog'] = array();
+        if(isset($id) && !empty($id)){
+             $data['blog'] = $this->model->getData('blog',array('id'=> $id));
+            //  print_r($data['blog']); exit;
+        }
+       $data['nav']='blog';
        $data['main_content']='blog/edit_blog';
        $this->load->view('includes/templates',$data);
+
     }
 
-    //  public function uploadFiles($rowId, $filename, $tmp_name, $position){
-    //     $data['status'] = 400;
-    //     $file1 = explode(".",$filename);
+    public function uploadFile($rowId, $filename, $tmp_name, $position){
+        $data['status'] = 400;
+        $file1 = explode(".",$filename);
         
-    //     $ext = $file1[1];
-    //     $newfilename = "";
-    //     $allowed = array("jpg","jpeg","png","pdf");
-    //     if(in_array($ext, $allowed)){
-    //         $uploadPath = "/assets/img/store_image/".$rowId;
-    //         $savePath = "/assets/img/store_image/".$rowId;
-    //         if($position == "photo"){
-    //             $newfilename = date('Ymd')."_photo_".round(microtime(true)). '.' . end($file1);
-    //             $uploadPath = $uploadPath."/photo/";
-    //             $savePath = $savePath."/photo/".$newfilename;
-    //             if(!file_exists($uploadPath)){
-    //                 mkdir($uploadPath,0777,true);
-    //             }
-    //             $path = $uploadPath.$newfilename;
-    //             $docData['photo'] = $newfilename;
-    //         }
-    //         if(move_uploaded_file($tmp_name, $path)){
-    //             //echo $rowId; print_r($docData);
-    //             $last_Id = $this->model->update_where('blog',  $docData , 'id', $rowId);
-    //             if($last_Id){
-    //                 $data['status'] = 200;
-    //                 $data['msg'] = 'File has been uploaded successfully.';
-    //             }else{
-    //                 $data['status'] = 400;
-    //                 $data['msg'] = 'Error while update. Please connect to administrator';
-    //             }
-    //         }else{
-    //             $data['status'] = 400;
-    //             $data['msg'] = 'Error while update.';
-    //         }
-    //     }
-    //     return $data;
-    // }
-
+        $ext = $file1[1];
+        $newfilename = "";
+        $allowed = array("jpg","jpeg","png");
+        if(in_array($ext, $allowed)){
+            $uploadPath = "/admin/assets/img/store_image/".$rowId;
+            $savePath = "/admin/assets/img/store_image/".$rowId;
+            if($position == "uploadFile"){
+                $newfilename = date('Ymd')."_uploadFile_".round(microtime(true)). '.' . end($file1);
+                $uploadPath = $uploadPath."/admin/assets/img/store_image/";
+                $savePath = $savePath."/admin/assets/img/store_image/".$newfilename;
+                if(!file_exists($uploadPath)){
+                    mkdir($uploadPath,0777,true);
+                }
+                $path = $uploadPath.$newfilename;
+                $docData['uploadFile'] = $newfilename;
+            }
+            if(move_uploaded_file($tmp_name, $path)){
+                //echo $rowId; print_r($docData);
+                $last_Id = $this->model->update_where('blog',  $docData , 'id', $rowId);
+                if($last_Id){
+                    $data['status'] = 200;
+                    $data['msg'] = 'File has been uploaded successfully.';
+                }else{
+                    $data['status'] = 400;
+                    $data['msg'] = 'Error while update. Please connect to administrator';
+                }
+            }else{
+                $data['status'] = 400;
+                $data['msg'] = 'Error while update.';
+            }
+        }
+        return $data;
+    }
+    
      function add_blog(){
         $headline = $this->input->get_post('headline'); 
         $description = $this->input->get_post('description'); 
-        // $uploadFile = $this->input->get_post('uploadFile'); 
+        $category = $this->input->get_post('category'); 
+        $uploadFile = $this->input->get_post('uploadFile'); 
        
 
         if($headline != "" && $description!="" ){
            $blogData = array(
                'headline' => $headline,
                'description' => $description,   
-            //    'uploadFile' => $uploadFile,   
+               'category' => $category,   
+               'uploadFile' => $uploadFile, 
            );
 
+           
             $this->model->insert_into('blog',$blogData);
+            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+            //     $file = $_FILES["uploadFile"]["name"];
+            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            // } 
             
 
            $data['status'] = 200;
@@ -117,14 +132,14 @@
         $requestData= $_REQUEST;
         $date = date('Y-m-d');
         $baseurl = base_url();
-        $columnarray = array(`id`, `headline`, `description`, `uploadFile`,`status`,`added_on`);
+        $columnarray = array(`id`, `headline`, `description`,`category`, `uploadFile`,`status`,`added_on`);
 
         foreach($columnarray as $key=>$value){
             if($requestData['order'][0]['column']==$key){
                 $column = $value;
             }
         }
-        $sql="SELECT `id`, `headline`, `description`, `uploadFile`, `status` ,`added_on` FROM `blog`";
+        $sql="SELECT `id`, `headline`, `description`, `category`, `uploadFile`,`status` ,`added_on` FROM `blog`";
 
         if(!empty($requestData['search']['value'])){
             $sql.=" WHERE (name LIKE '%".$requestData['search']['value']."%')";      
@@ -145,10 +160,23 @@
             $nestedData[] = $i++;
             $nestedData[] = $value['headline'];
             $nestedData[] = date('d-m-Y',strtotime($value['added_on']));
-            $nestedData[] = $value['status'];
-            $nestedData[] = '<a class="btn btn-action btn-orange" title="Edit Blog" href="'.base_url('blog/edit_blog?id='.base64_encode($value["id"])).'"><i class="bx bx-edit-alt me-1" ></i></a>
-            <a class="btn btn-action btn-primary" title="View Data" href="'.base_url('staff/view_staff?id='.base64_encode($value["id"])).'"><i class="bx bx bx-show-alt me-1" ></i></a>
-                               ';
+
+
+
+            $nestedData[] = ($value['status']=='1') ? '<span class="badge text-success me-1">ACTIVE</span>' : '<span class="badge text-danger me-1">IN-ACTIVE</span>';
+            $deleteRestoreBtn = '<a class="btn btn-action btn-danger" title="Block Society" href="javascript:void(0);" onclick="return deleteblog('.$value["id"].',0,this);"><i class="bx bx-block me-1" ></i></a>';
+            if($value['status']=='0'){
+                $deleteRestoreBtn =  '<a class="btn btn-action btn-danger" title="Unblock Society" href="javascript:void(0);" onclick="return deleteblog('.$value["id"].',1,this);"><i class="bx bxs-right-arrow me-1" ></i></a>';
+            } 
+            
+            
+
+
+
+            $nestedData[] = '<a class="btn btn-action btn-orange" title="Edit Blog" href="'.base_url('blog/edit_blog?id='.$value["id"]).'"><i class="bx bx-edit-alt me-1" ></i></a>
+            <a class="btn btn-action btn-primary" title="View Data" href="'.base_url('blog/view_blog?id='.$value["id"]).'"><i class="bx bx bx-show-alt me-1" ></i></a>
+                              
+            '.$deleteRestoreBtn.'';
             $data[] = $nestedData;
         }
 
@@ -159,5 +187,83 @@
             "data"            => $data
         );
         echo json_encode($json_data);
+    }
+
+
+    function update_blog(){
+        $id = $this->input->get_post('id'); 
+        $headline = $this->input->get_post('headline'); 
+        $description	 = $this->input->get_post('description	'); 
+        $category = $this->input->get_post('category'); 
+     
+       
+        if($id!="" && $headline!="" && $description!=""){
+            $blogData = array(
+               'headline' => $headline,
+               'description' => $description,
+               'category' => $category,
+               'uploadFile' => $uploadFile,
+               
+            );
+            $hasUpdated = $this->model->update_where('blog',$blogData,'id',$id);
+
+            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+            //     $file = $_FILES["uploadFile"]["name"];
+            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            // } 
+
+            $data['status'] = 200;
+            $data[ 'msg'] = 'blog update successfully.';
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid data. Please check with blog Data.';
+        }
+        echo json_encode($data);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function delete_blog(){
+        $id = $this->input->get_post('id');
+        $status = $this->input->get_post('status');
+        if(isset($id) && $id!=""){
+            $blogData = array('status'=>$status);
+            $this->model->update_where('blog',$blogData, 'id', $id );
+            $data['status'] = 200;
+            $data['msg'] = 'Service provider has been suspend successfully.';
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid society  ids.';
+        }
+        echo json_encode($data);
     }
 }?>

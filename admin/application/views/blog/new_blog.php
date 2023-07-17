@@ -16,19 +16,19 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return validateBlogsFrm(this);"
-                id="BlogFrm" name="BlogFrm">
+            <form method="POST" onsubmit="return validateBlogsFrm(this);" id="BlogFrm" name="BlogFrm" enctype="multipart/form-data">
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
                         <div id="preview"></div>
                         <div class="uploadOuter form-group">
-                            <label for="uploadFile" class="btn btn-outline-success"> <i
+                            <label for="uploadFile" name="uploadFile" class="btn btn-outline-success"> <i
                                     class="bi bi-upload me-1"></i>Upload
                                 Image</label>
                             <span>
                                 <input type="file" style="display: none;" onChange="dragNdrop10(event)"
-                                    ondragover="drag()" ondrop="drop()" id="uploadFile" name="uploadFile" />
+                                    ondragover="drag()" ondrop="drop()" id="uploadFile" name="uploadFile"
+                                    accept=".png, .jpg, .jpeg" />
                             </span>
                         </div>
                     </div>
@@ -38,6 +38,17 @@
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">#Tags :</label>
                                     <input type="text" class="form-control" name="tags" id="tags">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3 form-group">
+                                    <label for="tags" class="form-label">Category :</label>
+                                    <select id="category" name="category" class="form-select" aria-label="Default select example">
+                                        <option selected disabled>select category</option>
+                                        <option value="Health">Health</option>
+                                        <option value="Life Style">Lifestyle</option>
+                                        <option value="Life Style">Bussiness</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-12">
