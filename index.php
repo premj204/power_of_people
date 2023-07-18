@@ -42,8 +42,7 @@ include "./database/database.php";
                         <div class="utf_featured_post">
                             <div class="utf_post_content"> <a class="utf_post_cat" href="#">Travel</a>
                                 <h2 class="utf_post_title title-extra-large"> <a href="detailsview.php">Zhang social
-                                        media
-                                        pop
+                                        media pop
                                         also known when smart innocent...</a> </h2>
                                 <span class="utf_post_author"><i class="fa fa-user"></i> <a href="#">John
                                         Wick</a></span>
@@ -593,7 +592,7 @@ include "./database/database.php";
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
-                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `uploadThumbnail`, `status`, `upload_date` FROM `interviews`";//(innerjoin)
+                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadThumbnail`, `status`, `upload_date` FROM `interview`";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          $row = mysqli_fetch_assoc($result) 
@@ -604,7 +603,7 @@ include "./database/database.php";
                                         <div class='video-icon'> <i class='fa fa-play'></i> </div>
                                     </a>
                                 </div>
-                                <div class='utf_post_content'> <a class='utf_post_cat' href='#'>Architecture</a>
+                                <div class='utf_post_content'> <a class='utf_post_cat' href='#'><?php echo"" . $row['category'] ."" ?></a>
                                     <h2 class='utf_post_title'> <a href='<?php echo "interviews_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . ""?>'><?php echo" " . $row['details'] ." " ?></a> </h2>
                                     <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
                                             <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
@@ -619,7 +618,7 @@ include "./database/database.php";
                             if (!$conn) {                 
                              die("Connection failed: " . mysqli_connect_error());
                                   }
-                                $sql = "SELECT * FROM `interviews` LIMIT 4";//(innerjoin)
+                                $sql = "SELECT * FROM `interview` LIMIT 4";//(innerjoin)
                                 $result = mysqli_query($conn, $sql);
                                     $sno = 0;
                                     while ($row = mysqli_fetch_assoc($result)) {
@@ -638,7 +637,7 @@ include "./database/database.php";
                                     <div class='utf_post_meta'> <span class='utf_post_author'><i
                                                 class='fa fa-user'></i> <a href='#'>Prem Jadhav</a></span>
                                         <span class='utf_post_date'><i class='fa fa-clock-o'></i> " . $row['upload_date'] ."</span>
-                                        <span class='utf_post_categ'>Health</span>
+                                        <span class='utf_post_categ'>" . $row['category'] ."</span>
                                     </div>
                                 </div>
                             </div>

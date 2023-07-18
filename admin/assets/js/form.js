@@ -344,18 +344,19 @@ function validateBlogsFrm(ele) {
     let headline = jQuery("#headline").val();
     let description = jQuery("#description").val();
     let uploadFile = jQuery("#uploadFile").val();
+    let category = jQuery("#category").val();
     
     if (jQuery.trim(headline) == "") { showErrorArrow("Please enter headline.", "headline"); hasError = 1; } else { changeErrorArrow("headline"); } 
     if (jQuery.trim(description) == "") { showErrorArrow("Please enter description.", "description"); hasError = 1; } else { changeErrorArrow("description"); }    
     if (jQuery.trim(uploadFile) == "") { showErrorArrow("Please upload image.", "uploadFile"); hasError = 1; } else { changeErrorArrow("uploadFile"); }    
+    if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("uploadFile"); }    
     
     if (hasError == 1) {
         $(".alert-success").css('display', 'none').find("span").html("");
         $(".alert-danger").css('display', 'none').find("span").html("");
         return false;
     } else {
-
-        let newFormData = jQuery("#BlogFrm").serialize();
+            let newFormData = jQuery("#BlogFrm").serialize();
             jQuery.ajax({
             dataType: 'json',
             url: baseURL + "blog/add_blog",
@@ -382,10 +383,12 @@ function ValidateEditblog(ele) {
     let headline = jQuery("#headline").val();
     let description = jQuery("#description").val();
     let uploadFile = jQuery("#uploadFile").val();
+    let category = jQuery("#category").val();
     
     if (jQuery.trim(headline) == "") { showErrorArrow("Please enter headline.", "headline"); hasError = 1; } else { changeErrorArrow("headline"); } 
     if (jQuery.trim(description) == "") { showErrorArrow("Please enter description.", "description"); hasError = 1; } else { changeErrorArrow("description"); }    
     if (jQuery.trim(uploadFile) == "") { showErrorArrow("Please upload image.", "uploadFile"); hasError = 1; } else { changeErrorArrow("uploadFile"); }    
+    if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("uploadFile"); }    
     
     if (hasError == 1) {
         $(".alert-success").css('display', 'none').find("span").html("");
@@ -458,13 +461,13 @@ function validateInterviewFrm(ele) {
     let video_link = jQuery("#video_link").val();
     let details = jQuery("#details").val();
     let description = jQuery("#description").val();
-    // let category = jQuery("#category").val();
+    let category = jQuery("#category").val();
     let uploadThumbnail = jQuery("#uploadThumbnail").val();
     
-    if (jQuery.trim(video_link) == "") { showErrorArrow("Please enter video_link.", "video_link"); hasError = 1; } else { changeErrorArrow("video_link"); } 
+    if (jQuery.trim(video_link) == "") { showErrorArrow("Please enter video link.", "video_link"); hasError = 1; } else { changeErrorArrow("video_link"); } 
     if (jQuery.trim(details) == "") { showErrorArrow("Please enter details.", "details"); hasError = 1; } else { changeErrorArrow("details"); }    
     if (jQuery.trim(description) == "") { showErrorArrow("Please enter description.", "description"); hasError = 1; } else { changeErrorArrow("description"); }    
-    // if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("category"); }    
+    if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("category"); }    
     if (jQuery.trim(uploadThumbnail) == "") { showErrorArrow("Please upload image.", "uploadThumbnail"); hasError = 1; } else { changeErrorArrow("uploadThumbnail"); }    
     
     if (hasError == 1) {
@@ -496,9 +499,100 @@ function validateInterviewFrm(ele) {
 }
 
 
+function ValidateEditinterview(ele) {
+    let hasError = 0;
+   
+    let video_link = jQuery("#video_link").val();
+    let details = jQuery("#details").val();
+    let description = jQuery("#description").val();
+    let category = jQuery("#category").val();
+    let uploadThumbnail = jQuery("#uploadThumbnail").val();
+    
+    if (jQuery.trim(video_link) == "") { showErrorArrow("Please enter video link.", "video_link"); hasError = 1; } else { changeErrorArrow("video_link"); } 
+    if (jQuery.trim(details) == "") { showErrorArrow("Please enter details.", "details"); hasError = 1; } else { changeErrorArrow("details"); }    
+    if (jQuery.trim(description) == "") { showErrorArrow("Please enter description.", "description"); hasError = 1; } else { changeErrorArrow("description"); }    
+    if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("category"); }    
+    if (jQuery.trim(uploadThumbnail) == "") { showErrorArrow("Please upload image.", "uploadThumbnail"); hasError = 1; } else { changeErrorArrow("uploadThumbnail"); }    
+    
+
+    if (hasError == 1) {
+        $(".alert-success").css('display', 'none').find("span").html("");
+        $(".alert-danger").css('display', 'none').find("span").html("");
+        return false;
+    } else {
+
+        let newFormData = jQuery("#IntereditFrm").serialize();
+            jQuery.ajax({
+            dataType: 'json',
+            url: baseURL + "interview/update_interview",
+            type: "POST",
+            data: newFormData,
+            cache: false,
+            success: function (res) {
+                if (typeof (res.status) != "undefined" && res.status == 200) {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                    document.getElementById("IntereditFrm").reset();
+                } else {
+                    $(".alert-success").css('display', 'none').find("span").html("");
+                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+                }
+            }
+        });
+        return false;
+    }
+}
 
 
 
+// story 
+
+function validatestoryFrm(ele) {
+    let hasError = 0;
+    let title = jQuery("#title").val();
+    let description = jQuery("#description").val();
+    let uploadFile = jQuery("#uploadFile").val();
+    let type = jQuery("#type").val();
+    let category = jQuery("#category").val();
+    // let tags = jQuery("#tags").val();
+ 
+    
+    if (jQuery.trim(title) == "") { showErrorArrow("Please enter title.", "title"); hasError = 1; } else { changeErrorArrow("title"); } 
+    if (jQuery.trim(description) == "") { showErrorArrow("Please enter description.", "description"); hasError = 1; } else { changeErrorArrow("description"); }    
+    if (jQuery.trim(uploadFile) == "") { showErrorArrow("Please upload image.", "uploadFile"); hasError = 1; } else { changeErrorArrow("uploadFile"); }    
+    if (jQuery.trim(type) == "") { showErrorArrow("Please select type.", "type"); hasError = 1; } else { changeErrorArrow("type"); }    
+    if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("category"); }    
+    // if (jQuery.trim(tags) == "") { showErrorArrow("Please enter category.", "tags"); hasError = 1; } else { changeErrorArrow("tags"); }    
+   
+   
+    
+    if (hasError == 1) {
+        $(".alert-success").css('display', 'none').find("span").html("");
+        $(".alert-danger").css('display', 'none').find("span").html("");
+        return false;
+    } else {
+
+        let newFormData = jQuery("#StoryFrm").serialize();
+            jQuery.ajax({
+            dataType: 'json',
+            url: baseURL + "story/add_story",
+            type: "POST",
+            data: newFormData,
+            cache: false,
+            success: function (res) {
+                if (typeof (res.status) != "undefined" && res.status == 200) {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                    document.getElementById("StoryFrm").reset();
+                } else {
+                    $(".alert-success").css('display', 'none').find("span").html("");
+                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+                }
+            }
+        });
+        return false;
+    }
+}
 
 
 

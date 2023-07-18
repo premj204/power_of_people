@@ -3,11 +3,11 @@
 
 <section>
     <div class="pagetitle">
-        <h1>Edit Blog Form</h1>
+        <h1>Story Form</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Edit Blog Form</li>
+                <li class="breadcrumb-item"><a href="">Home</a></li>
+                <li class="breadcrumb-item active">Story Form</li>
             </ol>
         </nav>
     </div>
@@ -15,19 +15,20 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return ValidateEditblog(this);" id="frmEditblog" name="frmEditblog">
-                <input type="hidden" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
+            <form method="POST" onsubmit="return validatestoryFrm(this);" id="StoryFrm" name="StoryFrm"
+                enctype="multipart/form-data">
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
                         <div id="preview"></div>
                         <div class="uploadOuter form-group">
-                            <label for="uploadFile" class="btn btn-outline-success"> <i
+                            <label for="uploadFile" name="uploadFile" class="btn btn-outline-success"> <i
                                     class="bi bi-upload me-1"></i>Upload
                                 Image</label>
                             <span>
                                 <input type="file" style="display: none;" onChange="dragNdrop10(event)"
-                                    ondragover="drag()" ondrop="drop()" id="uploadFile" name="uploadFile" />
+                                    ondragover="drag()" ondrop="drop()" id="uploadFile" name="uploadFile"
+                                    accept=".png, .jpg, .jpeg" />
                             </span>
                         </div>
                     </div>
@@ -35,37 +36,34 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="mb-3 form-group">
-                                    <label for="tags" class="form-label">#Tags :</label>
-                                    <input type="text" class="form-control" name="tags" id="tags" value="">
+                                    <label for="type" class="form-label">Type :</label>
+                                    <select id="type" name="type" class="form-select"
+                                        aria-label="Default select example">
+                                        <option selected disabled>select type</option>
+                                        <option value="Power Of Words">Power Of Words</option>
+                                        <option value="Power Of Action">Power Of Action</option>
+                                        <option value="Power Of Charity">Power Of Charity</option>
+                                        <option value="Power Of Health">Power Of Health</option>
+                                        <option value="Power Of Life's Work">Power Of Life's Work</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
-                                    <select id="category" name="category" class="form-select">
-                                        <option selected disabled>Select Category </option>
-                                        <option value="Lifestyle"
-                                            <?php if($blog[0]['category'] == 'Lifestyle'){ echo "selected";} ?>>
-                                            Lifestyle
-                                        </option>
-                                        <option value="Health"
-                                            <?php if($blog[0]['category'] == 'Health'){ echo "selected"; } ?>>Health
-                                        </option>
-                                        <option value="Bussiness"
-                                            <?php if($blog[0]['category'] == 'Bussiness'){ echo "selected"; } ?>>
-                                            Bussiness</option>
+                                    <select id="category" name="category" class="form-select"
+                                        aria-label="Default select example">
+                                        <option selected disabled>select category</option>
+                                        <option value="Health">Health</option>
+                                        <option value="Life Style">Lifestyle</option>
+                                        <option value="Life Style">Bussiness</option>
                                     </select>
-
-
-
-
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="mb-3 form-group">
-                                    <label for="headline" class="form-label">Headline :</label>
-                                    <input type="text" value="<?php echo $blog[0]['headline']; ?>" class="form-control"
-                                        name="headline" id="headline">
+                                    <label for="title" class="form-label">Title :</label>
+                                    <input type="text" class="form-control" name="title" id="title">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -73,7 +71,7 @@
                                     <label for="description" class="form-label">Description :</label>
                                     <div id="uploadFile" class="datainputs">
                                         <textarea name="description" rows="3" class="form-control mb-2" id="description"
-                                            type="text"><?php echo $blog[0]['description']; ?></textarea>
+                                            type="text"></textarea>
                                         <script>
                                         CKEDITOR.replace('description');
                                         </script>
@@ -81,15 +79,21 @@
 
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3 form-group">
+                                    <label for="tags" class="form-label">#Tags :</label>
+                                    <input type="text" class="form-control" name="tags" id="tags">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <hr>
-                <div class="">
+                <div>
                     <a href="articles.php"><button type="button" class="btn btn-outline-secondary">Back</button></a>
                     <button type="submit" class="btn btn-outline-success float-end">Submit</button>
                 </div>
-            </form><!-- End floating Labels Form -->
+            </form>
 
         </div>
     </div>

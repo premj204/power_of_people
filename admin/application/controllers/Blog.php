@@ -55,7 +55,7 @@
 
     }
 
-    public function uploadFile($rowId, $filename, $tmp_name, $position){
+    public function uploadFiles($id, $filename, $tmp_name, $position){
         $data['status'] = 400;
         $file1 = explode(".",$filename);
         
@@ -63,8 +63,8 @@
         $newfilename = "";
         $allowed = array("jpg","jpeg","png");
         if(in_array($ext, $allowed)){
-            $uploadPath = "/admin/assets/img/store_image/".$rowId;
-            $savePath = "/admin/assets/img/store_image/".$rowId;
+            $uploadPath = "/admin/assets/img/store_image/".$id;
+            $savePath = "/admin/assets/img/store_image/".$id;
             if($position == "uploadFile"){
                 $newfilename = date('Ymd')."_uploadFile_".round(microtime(true)). '.' . end($file1);
                 $uploadPath = $uploadPath."/admin/assets/img/store_image/";
@@ -77,7 +77,7 @@
             }
             if(move_uploaded_file($tmp_name, $path)){
                 //echo $rowId; print_r($docData);
-                $last_Id = $this->model->update_where('blog',  $docData , 'id', $rowId);
+                $last_Id = $this->model->update_where('blog',  $blogData , 'id', $id);
                 if($last_Id){
                     $data['status'] = 200;
                     $data['msg'] = 'File has been uploaded successfully.';
@@ -169,10 +169,6 @@
                 $deleteRestoreBtn =  '<a class="btn btn-action btn-danger" title="Unblock Society" href="javascript:void(0);" onclick="return deleteblog('.$value["id"].',1,this);"><i class="bx bxs-right-arrow me-1" ></i></a>';
             } 
             
-            
-
-
-
             $nestedData[] = '<a class="btn btn-action btn-orange" title="Edit Blog" href="'.base_url('blog/edit_blog?id='.$value["id"]).'"><i class="bx bx-edit-alt me-1" ></i></a>
             <a class="btn btn-action btn-primary" title="View Data" href="'.base_url('blog/view_blog?id='.$value["id"]).'"><i class="bx bx bx-show-alt me-1" ></i></a>
                               
@@ -189,15 +185,15 @@
         echo json_encode($json_data);
     }
 
-
+    
     function update_blog(){
         $id = $this->input->get_post('id'); 
         $headline = $this->input->get_post('headline'); 
-        $description	 = $this->input->get_post('description	'); 
+        $description = $this->input->get_post('description'); 
         $category = $this->input->get_post('category'); 
      
        
-        if($id!="" && $headline!="" && $description!=""){
+        if($id!="" && $headline!=""){
             $blogData = array(
                'headline' => $headline,
                'description' => $description,
@@ -222,35 +218,18 @@
         echo json_encode($data);
     }
 
+    function view_blog(){
+        $id = $this->input->get_post('id');
+        $data['blog'] = array();
+        if(isset($id) && !empty($id)){
+             $data['blog'] = $this->model->getData('blog',array('id'=> $id));
+            //  print_r($data['blog']); exit;
+        }
+       $data['nav']='blog';
+       $data['main_content']='blog/view_blog';
+       $this->load->view('includes/templates',$data);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
     function delete_blog(){
         $id = $this->input->get_post('id');

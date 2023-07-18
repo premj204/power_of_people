@@ -1,14 +1,13 @@
-
 <script src="<?php echo base_url(); ?>assets/editor/ckeditor/ckeditor.js"></script>
 
 
 <section>
     <div class="pagetitle">
-        <h1>View Blog Form</h1>
+        <h1>View Blog</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">View Blog Form</li>
+                <li class="breadcrumb-item active">View Blog</li>
             </ol>
         </nav>
     </div>
@@ -17,63 +16,50 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-        <form method="POST" action="<?php echo base_url() ?>blog/update_blog" id="frmEditblog" name="frmEditblog" onsubmit="return ValidateEditblog(this);" enctype="multipart/form-data">
-        <input type="" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
-               <?php 
-                  $soc = "SELECT id,name FROM blog WHERE id = $id"; 
-                  $Data = $this->model->doQuery($soc);
-                ?>
 
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label for="image" class="form-label">Upload Image :</label>
-                        <div id="preview"></div>
-                        <div class="uploadOuter form-group">
-                            <label for="uploadFile" class="btn btn-outline-success"> <i
-                                    class="bi bi-upload me-1"></i>Upload
-                                Image</label>
-                            <span>
-                                <input type="file" style="display: none;" onChange="dragNdrop10(event)"
-                                    ondragover="drag()" ondrop="drop()" id="uploadFile" name="uploadFile" />
-                            </span>
-                        </div>
+            <input type="hidden" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="image" class="form-label">Upload Image :</label>
+                    <div id="preview"></div>
+                    <div class="uploadOuter form-group">
+                        <label for="uploadFile" class="btn btn-outline-success"> <i class="bi bi-upload me-1"></i>Upload
+                            Image</label>
+                        <span>
+                            <input type="file" style="display: none;" onChange="dragNdrop10(event)" ondragover="drag()"
+                                ondrop="drop()" id="uploadFile" name="uploadFile" />
+                        </span>
                     </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-lg-6">
+                </div>               
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-3 py-3 form-group">
+                                <label for="tags" class="form-label">#Tags :</label>
+                                <p class=""> </p>
+                            </div>
+                        </div><div class="col-lg-6">
                                 <div class="mb-3 form-group">
-                                    <label for="tags" class="form-label">#Tags :</label>
-                                    <input type="text" class="form-control" name="tags" id="tags">
+                                    <label for="tags" class="form-label">Category :</label>
+                                    <p class=""><?php echo $blog[0]['category']; ?> </p>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3 form-group">
-                                    <label for="headline" class="form-label">Headline :</label>
-                                    <input type="text" value="<?php echo['headline']; ?>" class="form-control" name="headline" id="headline">
-                                </div>
+                        <div class="col-lg-12">
+                            <div class="mb-3 form-group">
+                                <label for="headline" class="form-label">Headline :</label>
+                                <p class=""><?php echo $blog[0]['headline']; ?> </p>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3 form-group">
-                                    <label for="description" class="form-label">Description :</label>
-                                    <div id="uploadFile" class="datainputs">
-                                        <textarea name="description"  rows="3" class="form-control mb-2" id="description"
-                                            type="text"></textarea>
-                                        <script>
-                                        CKEDITOR.replace('description');
-                                        </script>
-                                    </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="mb-3 py-3 form-group">
+                                <label for="description" class="form-label">Description :</label>
+                                <p class=""> <?php echo $blog[0]['description']; ?></p>
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="">
-                    <a href="articles.php"><button type="button" class="btn btn-outline-secondary">Back</button></a>
-                    <button type="submit" class="btn btn-outline-success float-end">Submit</button>
-                </div>
-            </form><!-- End floating Labels Form -->
+            </div>
 
         </div>
     </div>

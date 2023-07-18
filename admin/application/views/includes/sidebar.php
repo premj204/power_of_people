@@ -20,10 +20,10 @@
           <span>Interviews</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="articles.php">
+      <li class="nav-item <?php if($nav=='pop_story'){ echo "active"; } ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('Story') ?>">
           <i class="bi bi-newspaper"></i>
-          <span>Articles</span>
+          <span>Story</span>
         </a>
       </li>
       <li class="nav-item <?php if($nav=='blog'){ echo "active"; } ?>">

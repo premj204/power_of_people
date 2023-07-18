@@ -2,11 +2,11 @@
 
 <section>
 <div class="pagetitle">
-    <h1>Blogs</h1>
+    <h1>Story</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Blog List</li>
+            <li class="breadcrumb-item active">Story List</li>
         </ol>
     </nav>
 </div>
@@ -14,16 +14,17 @@
 
 <div class="card">
     <div class="card-body">
-        <a href="<?php echo base_url('blog/new_blog'); ?>"><button type="button" class="btn btn-success float-end my-3">
-                <i class="bi bi-plus-square"></i> Add
+        <a href="<?php echo base_url('story/new_story'); ?>"><button type="button" class="btn btn-success float-end my-3">
+                <i class="bi bi-plus-square"></i> Add Story
             </button></a>
-        <h5 class="card-title">Blog list</h5>
+        <h5 class="card-title">Story list</h5>
 
-        <table id="blog" class="table cell-border hover table-bordered">
+        <table id="story" class="table cell-border hover table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Sr. No.</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Upload Date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
@@ -43,7 +44,7 @@
 
 <script>
   $(document).ready(function () {
-    $('#blog').DataTable({
+    $('#story').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,
@@ -51,7 +52,7 @@
       "info": true,
       "autoWidth": true,
       "responsive": true,
-      ajax: 'blog/fetch_blog_list',
+      ajax: 'story/fetch_story_list',
     });
   });
 </script>
