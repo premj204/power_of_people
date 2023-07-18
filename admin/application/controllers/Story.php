@@ -20,12 +20,85 @@
              $data['story'] = $this->model->getData('story',array('id'=> $id));
             //  print_r($data['blog']); exit;
         }
-       $data['nav']='blog';
-       $data['main_content']='blog/edit_blog';
+       $data['nav']='story';
+       $data['main_content']='story/edit_story';
        $this->load->view('includes/templates',$data);
 
     }
+    function update_story(){
+        $title = $this->input->get_post('title'); 
+        $description = $this->input->get_post('description'); 
+         $type = $this->input->get_post('type'); 
+        $category = $this->input->get_post('category'); 
+        // $tags = $this->input->get_post('tags'); 
+       
+
+        if($title != "" && $description!="" ){
+           $storyData = array(
+               'title' => $title,
+               'description' => $description,   
+                'type' => $type, 
+               'category' => $category, 
+            //    'tags' => $tags, 
+           );
+            $hasUpdated = $this->model->update_where('story',$storyData,'id',$id);
+
+            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+            //     $file = $_FILES["uploadFile"]["name"];
+            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            // } 
+
+            $data['status'] = 200;
+            $data[ 'msg'] = 'blog update successfully.';
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid data. Please check with blog Data.';
+        }
+        echo json_encode($data);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      
+    function view_story(){
+        $id = $this->input->get_post('id');
+        $data['story'] = array();
+        if(isset($id) && !empty($id)){
+             $data['story'] = $this->model->getData('story',array('id'=> $id));
+            //  print_r($data['blog']); exit;
+        }
+       $data['nav']='story';
+       $data['main_content']='story/view_story';
+       $this->load->view('includes/templates',$data);
+
+    }
+
+
+
+
+
+
+
+
+
 
     function add_story(){
         $title = $this->input->get_post('title'); 

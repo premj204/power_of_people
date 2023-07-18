@@ -594,7 +594,52 @@ function validatestoryFrm(ele) {
     }
 }
 
+function validateeditFrm(ele) {
+    let hasError = 0;
+    let title = jQuery("#title").val();
+    let description = jQuery("#description").val();
+    let uploadFile = jQuery("#uploadFile").val();
+    let type = jQuery("#type").val();
+    let category = jQuery("#category").val();
+    // let tags = jQuery("#tags").val();
+ 
+    
+    if (jQuery.trim(title) == "") { showErrorArrow("Please enter title.", "title"); hasError = 1; } else { changeErrorArrow("title"); } 
+    if (jQuery.trim(description) == "") { showErrorArrow("Please enter description.", "description"); hasError = 1; } else { changeErrorArrow("description"); }    
+    if (jQuery.trim(uploadFile) == "") { showErrorArrow("Please upload image.", "uploadFile"); hasError = 1; } else { changeErrorArrow("uploadFile"); }    
+    if (jQuery.trim(type) == "") { showErrorArrow("Please select type.", "type"); hasError = 1; } else { changeErrorArrow("type"); }    
+    if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("category"); }    
+    // if (jQuery.trim(tags) == "") { showErrorArrow("Please enter category.", "tags"); hasError = 1; } else { changeErrorArrow("tags"); }    
+   
+   
+    
+    if (hasError == 1) {
+        $(".alert-success").css('display', 'none').find("span").html("");
+        $(".alert-danger").css('display', 'none').find("span").html("");
+        return false;
+    } else {
 
+        let newFormData = jQuery("#StoryeditFrm").serialize();
+            jQuery.ajax({
+            dataType: 'json',
+            url: baseURL + "story/update_story",
+            type: "POST",
+            data: newFormData,
+            cache: false,
+            success: function (res) {
+                if (typeof (res.status) != "undefined" && res.status == 200) {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                    document.getElementById("StoryeditFrm").reset();
+                } else {
+                    $(".alert-success").css('display', 'none').find("span").html("");
+                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+                }
+            }
+        });
+        return false;
+    }
+}
 
 
 

@@ -43,7 +43,7 @@
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
                                     <select id="category" name="category" class="form-select">
-                                        <option selected disabled>Select Category </option>
+                                        <option  disabled>Select Category </option>
                                         <option value="Lifestyle"
                                             <?php if($blog[0]['category'] == 'Lifestyle'){ echo "selected";} ?>>
                                             Lifestyle
@@ -55,10 +55,6 @@
                                             <?php if($blog[0]['category'] == 'Bussiness'){ echo "selected"; } ?>>
                                             Bussiness</option>
                                     </select>
-
-
-
-
                                 </div>
                             </div>
                             <div class="col-lg-12">
