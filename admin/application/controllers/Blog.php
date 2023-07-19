@@ -32,7 +32,7 @@
         // }
 
  	function index(){
- 		$data['nav']='blog';
+        $data['nav']='blog';
 		$data['main_content']='blog/blog';
 		$this->load->view('includes/templates',$data);
  	}
@@ -55,43 +55,43 @@
 
     }
 
-    public function uploadFiles($id, $filename, $tmp_name, $position){
-        $data['status'] = 400;
-        $file1 = explode(".",$filename);
+    // public function uploadFiles($id, $filename, $tmp_name, $position){
+    //     $data['status'] = 400;
+    //     $file1 = explode(".",$filename);
         
-        $ext = $file1[1];
-        $newfilename = "";
-        $allowed = array("jpg","jpeg","png");
-        if(in_array($ext, $allowed)){
-            $uploadPath = "/admin/assets/img/store_image/".$id;
-            $savePath = "/admin/assets/img/store_image/".$id;
-            if($position == "uploadFile"){
-                $newfilename = date('Ymd')."_uploadFile_".round(microtime(true)). '.' . end($file1);
-                $uploadPath = $uploadPath."/admin/assets/img/store_image/";
-                $savePath = $savePath."/admin/assets/img/store_image/".$newfilename;
-                if(!file_exists($uploadPath)){
-                    mkdir($uploadPath,0777,true);
-                }
-                $path = $uploadPath.$newfilename;
-                $docData['uploadFile'] = $newfilename;
-            }
-            if(move_uploaded_file($tmp_name, $path)){
-                //echo $rowId; print_r($docData);
-                $last_Id = $this->model->update_where('blog',  $blogData , 'id', $id);
-                if($last_Id){
-                    $data['status'] = 200;
-                    $data['msg'] = 'File has been uploaded successfully.';
-                }else{
-                    $data['status'] = 400;
-                    $data['msg'] = 'Error while update. Please connect to administrator';
-                }
-            }else{
-                $data['status'] = 400;
-                $data['msg'] = 'Error while update.';
-            }
-        }
-        return $data;
-    }
+    //     $ext = $file1[1];
+    //     $newfilename = "";
+    //     $allowed = array("jpg","jpeg","png");
+    //     if(in_array($ext, $allowed)){
+    //         $uploadPath = "/admin/assets/img/store_image/".$id;
+    //         $savePath = "/admin/assets/img/store_image/".$id;
+    //         if($position == "uploadFile"){
+    //             $newfilename = date('Ymd')."_uploadFile_".round(microtime(true)). '.' . end($file1);
+    //             $uploadPath = $uploadPath."/admin/assets/img/store_image/";
+    //             $savePath = $savePath."/admin/assets/img/store_image/".$newfilename;
+    //             if(!file_exists($uploadPath)){
+    //                 mkdir($uploadPath,0777,true);
+    //             }
+    //             $path = $uploadPath.$newfilename;
+    //             $docData['uploadFile'] = $newfilename;
+    //         }
+    //         if(move_uploaded_file($tmp_name, $path)){
+    //             //echo $rowId; print_r($docData);
+    //             $last_Id = $this->model->update_where('blog',  $blogData , 'id', $id);
+    //             if($last_Id){
+    //                 $data['status'] = 200;
+    //                 $data['msg'] = 'File has been uploaded successfully.';
+    //             }else{
+    //                 $data['status'] = 400;
+    //                 $data['msg'] = 'Error while update. Please connect to administrator';
+    //             }
+    //         }else{
+    //             $data['status'] = 400;
+    //             $data['msg'] = 'Error while update.';
+    //         }
+    //     }
+    //     return $data;
+    // }
     
      function add_blog(){
         $headline = $this->input->get_post('headline'); 
@@ -191,6 +191,7 @@
         $headline = $this->input->get_post('headline'); 
         $description = $this->input->get_post('description'); 
         $category = $this->input->get_post('category'); 
+        $uploadFile = $this->input->get_post('uploadFile'); 
      
        
         if($id!="" && $headline!=""){

@@ -20,11 +20,10 @@
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
-                        <div id="preview"></div>
+                        <div id="preview"> <img src="" alt=""></div>
                         <div class="uploadOuter form-group">
-                            <label for="uploadFile" class="btn btn-outline-success"> <i
-                                    class="bi bi-upload me-1"></i>Upload
-                                Image</label>
+                            <label for="uploadFile" class="btn float-start btn-outline-success"> <i
+                                    class="bi bi-upload me-1"></i>Upload Image</label>
                             <span>
                                 <input type="file" style="display: none;" onChange="dragNdrop10(event)"
                                     ondragover="drag()" ondrop="drop()" id="uploadFile" name="uploadFile" />

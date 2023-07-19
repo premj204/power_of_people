@@ -15,7 +15,7 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return validateeditFrm(this);" id="StoryeditFrm" name="StoryeditFrm"
+            <form method="POST" onsubmit="return validatestoryeditFrm(this);" id="StoryeditFrm" name="StoryeditFrm"
                 enctype="multipart/form-data">
                 <input type="" name="id" id="id" value="<?php echo $story[0]['id']; ?>">
 

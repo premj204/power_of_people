@@ -594,7 +594,7 @@ function validatestoryFrm(ele) {
     }
 }
 
-function validateeditFrm(ele) {
+function validatestoryeditFrm(ele) {
     let hasError = 0;
     let title = jQuery("#title").val();
     let description = jQuery("#description").val();

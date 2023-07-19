@@ -808,10 +808,59 @@ h6 {
   flex-shrink: 0;
   flex-grow: 0;
 }
-
+.utf_post_block_style.post-float .utf_post_thumb {
+  float: left;
+  position: relative;
+  z-index: 1;
+  margin-right: 20px;
+}
+.utf_post_thumb {
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.utf_post_block_style.post-float .utf_post_thumb img {
+  max-width: 100px;
+  min-height: 75px;
+}
+.utf_post_thumb img {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  -webkit-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+.video-icon {
+  text-align: center;
+  color: #fd8618;
+  margin-top: -50px;
+  font-size: 24px;
+  z-index: 1;
+  position: absolute;
+  margin-left: -47px;
+  line-height: 48px;
+  border: 3px solid #fd8618;
+  display: inline-block;
+  border-radius: 100%;
+}
+.video-icon-small {
+  width: 30px !important;
+  left: 57%!important;
+  height: 30px !important;
+}
+.video-icon i {
+  margin-left: 2px;
+  color: #fd8618;
+}
+.video-icon-small i {
+  position: relative;
+  top: -50%;
+}
 .dashboard .sales-card .card-icon {
   color: #4154f1;
-  background: #f6f6fe;
+  background: #d5d5ff !important;
 }
 
 .dashboard .revenue-card .card-icon {

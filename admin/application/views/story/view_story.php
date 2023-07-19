@@ -45,7 +45,7 @@
                         <div class="col-lg-12">
                             <div class="mb-3 py-2 form-group">
                                 <label for="description" class="form-label">Description :</label>
-                                <p class=""><?php echo $story[0]['description']; ?> </p>
+                                <textarea class="form-control"><?php echo $story[0]['description']; ?></textarea>
                             </div>
                         </div>
                         <div class="col-lg-12">

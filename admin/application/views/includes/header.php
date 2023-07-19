@@ -29,6 +29,7 @@
   <link href="<?php echo base_url(); ?>assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link href="<?php echo base_url(); ?>assets/css/colorbox.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 </head>
 

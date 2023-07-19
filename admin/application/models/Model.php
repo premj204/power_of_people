@@ -337,5 +337,25 @@ error_reporting(E_ERROR | E_PARSE);
 						->get()->row_array();
 	}
 
+
+	function count_story(){
+		return $this->db->select('COUNT(id) as total_story')
+						->from('story')
+						// ->where(array('status'=>'1'))
+						->get()->row_array();
+	}
+	function count_blog(){
+		return $this->db->select('COUNT(id) as total_blog')
+						->from('blog')
+						// ->where(array('status'=>'1'))
+						->get()->row_array();
+	}
+	function count_interview(){
+		return $this->db->select('COUNT(id) as total_interview')
+						->from('interview')
+						// ->where(array('status'=>'1'))
+						->get()->row_array();
+	}
 // SELECT COUNT( id ) FROM daily_visitor WHERE status = '1';
+
 }?>

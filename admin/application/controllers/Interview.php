@@ -85,19 +85,11 @@
         if(isset($id) && !empty($id)){
              $data['interview'] = $this->model->getData('interview',array('id'=> $id));
         }
-       $data['nav']='blog';
+       $data['nav']='interview';
        $data['main_content']='interview/view_interview';
        $this->load->view('includes/templates',$data);
 
     }
-
-
-
-
-
-
-
-
     function update_interview(){
         $id = $this->input->get_post('id');
         $video_link = $this->input->get_post('video_link'); 
@@ -105,7 +97,7 @@
         $description = $this->input->get_post('description'); 
         $category = $this->input->get_post('category');    
        
-        if($video_link!= "" && $details!="" ){
+        if($video_link!= "" && $description!="" ){
            $interviewData = array(
                'video_link' => $video_link,
                'details' => $details,

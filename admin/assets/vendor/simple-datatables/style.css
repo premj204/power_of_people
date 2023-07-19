@@ -26,11 +26,15 @@
 }
 
 .datatable-selector {
+    border: 1px solid rgb(219, 219, 219);
 	padding: 6px;
 }
 
 .datatable-input {
-	padding: 6px 12px;
+	border-radius: 0.5rem;
+    box-shadow: 0 0 10px #dddddd;
+    border: navajowhite;
+    padding: 6px 12px;
 }
 
 .datatable-info {
