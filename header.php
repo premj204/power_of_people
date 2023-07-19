@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="css/glightbox copy.css">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/colorbox.css">
 
     <!-- Google Fonts -->
     <link href="https://db.onlinewebfonts.com/c/1db72198459b1d419ae5940598a2bad5?family=Paralucent+W00+Bold"
@@ -88,7 +87,7 @@
                                         <ul class="utf_dropdown_menu list-box" role="menu">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <li><a href=""><i class="fa fa-angle-double-right"></i>
+                                                    <li><a href="power_of_story.php"><i class="fa fa-angle-double-right"></i>
                                                             Power Of Words</a>
                                                     </li>
                                                     <li><a href=""><i class="fa fa-angle-double-right"></i>
@@ -119,7 +118,7 @@
                                             <li><a href=""><i class="fa fa-angle-double-right"></i>
                                                     Media</a>
                                             </li>
-                                            <li><a href=""><i class="fa fa-angle-double-right"></i>
+                                            <li><a href="gallery.php"><i class="fa fa-angle-double-right"></i>
                                                     Gallery</a>
                                             </li>
                                         </ul>

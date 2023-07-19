@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 10:12 AM
+-- Generation Time: Jul 19, 2023 at 12:02 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -120,15 +120,15 @@ CREATE TABLE `story` (
   `category` varchar(150) DEFAULT NULL,
   `tags` varchar(150) DEFAULT NULL,
   `status` enum('0','1') NOT NULL DEFAULT '1',
-  `addes_on` datetime DEFAULT NULL
+  `added_on` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `story`
 --
 
-INSERT INTO `story` (`id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `addes_on`) VALUES
-(1, 'Elit sed est enim q', '<p>asdasdasdas</p>\r\n', NULL, 'Power Of Charity', 'Health', NULL, '1', NULL);
+INSERT INTO `story` (`id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on`) VALUES
+(1, 'Elit sed est enim q', '<p>asdasdasdas</p>\r\n', NULL, 'Power Of Charity', 'Health', NULL, '1', '2023-07-13 15:28:06');
 
 --
 -- Indexes for dumped tables
