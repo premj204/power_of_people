@@ -4,35 +4,38 @@
     <div class="container">
         <div class="card p-5 m-auto ">
             <div class="modal-body">
-                <form method="POST" onsubmit="return ValidateEditinterview(this);" id="IntereditFrm" name="IntereditFrm">
-                <input type="" name="id" id="id" value="<?php echo $interview[0]['id']; ?>">
+                <form method="POST" onsubmit="return ValidateEditinterview(this);" id="IntereditFrm"
+                    name="IntereditFrm">
                     <div class="row">
                         <div class="col-lg-7">
-                        <div class="mb-3 py-3 form-group">
+                            <div class="mb-3 py-3 form-group">
                                 <iframe src="<?php echo $interview[0]['video_link']; ?>" width="100%" height="300px"
                                     frameborder="0"></iframe>
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="details" class="form-label">Youtube Video Link</label>
-                                <input type="text" class="form-control" name="video_link" id="video_link"value="<?php echo $interview[0]['video_link']; ?>">
+                                <input type="text" class="form-control" name="video_link" id="video_link"
+                                    value="<?php echo $interview[0]['video_link']; ?>">
                                 <small>(example : https://www.youtube.com/embed/x56adyd)</small>
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="details" class="form-label">Details</label>
-                                <input type="text" class="form-control" name="details" id="details"value="<?php echo $interview[0]['details']; ?>">
+                                <input type="text" class="form-control" name="details" id="details"
+                                    value="<?php echo $interview[0]['details']; ?>">
                             </div>
                             <div class="col-lg-12">
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
 
                                     <select id="category" name="category" class="form-select">
-                                        <option  disabled>Select Category </option>
+                                        <option disabled>Select Category </option>
                                         <option value="Lifestyle"
                                             <?php if($interview[0]['category'] == 'Lifestyle'){ echo "selected";} ?>>
                                             Lifestyle
                                         </option>
                                         <option value="Health"
-                                            <?php if($interview[0]['category'] == 'Health'){ echo "selected"; } ?>>Health
+                                            <?php if($interview[0]['category'] == 'Health'){ echo "selected"; } ?>>
+                                            Health
                                         </option>
                                         <option value="Bussiness"
                                             <?php if($interview[0]['category'] == 'Bussiness'){ echo "selected"; } ?>>
@@ -65,7 +68,8 @@
                         <div class="col-lg-12">
                             <div class="mb-3 form-group">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" name="description" id="description" rows="3"><?php echo $interview[0]['description']; ?></textarea>
+                                <textarea class="form-control" name="description" id="description"
+                                    rows="3"><?php echo $interview[0]['description']; ?></textarea>
                                 <script>
                                 CKEDITOR.replace('description');
                                 </script>
@@ -74,6 +78,7 @@
                         <div>
                             <button type="submit" class="btn btn-outline-success">Upload</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

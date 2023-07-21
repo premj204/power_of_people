@@ -6,27 +6,24 @@
             <div class="modal-body">
                 <form method="POST" onsubmit="return ValidateEditinterview(this);" id="IntereditFrm"
                     name="IntereditFrm">
-                    <input type="" name="id" id="id" value="<?php echo $interview[0]['id']; ?>">
                     <div class="row">
                         <div class="col-lg-7">
-                            <div class="mb-3 py-3 form-group">
+                            <div class="mb-3 form-group">
                                 <iframe src="<?php echo $interview[0]['video_link']; ?>" width="100%" height="300px"
                                     frameborder="0"></iframe>
                             </div>
-                            <div class="mb-3 py-3 form-group">
-                                <label for="details" class="form-label">Youtube Video Link</label>
-                                <input type="text" class="form-control" name="video_link" id="video_link"
-                                    value="<?php echo $interview[0]['video_link']; ?>">
-                                <small>(example : https://www.youtube.com/embed/x56adyd)</small>
+                            <div class="mb-3 form-group">
+                                <label for="details" class="form-label fw-bold">Youtube Video Link</label>
+                                <p class="border p-2"><?php echo $interview[0]['video_link']; ?></p>
                             </div>
-                            <div class="mb-3 py-3 form-group">
-                                <label for="details" class="form-label">Details</label>
-                                <p><?php echo $interview[0]['details']; ?></p>
+                            <div class="mb-3 form-group">
+                                <label for="details" class="form-label fw-bold">Details</label>
+                                <p class="border p-2"> <?php echo $interview[0]['details']; ?></p>
                             </div>
                             <div class="col-lg-12">
-                                <div class="mb-3 py-3 form-group">
-                                    <label for="tags" class="form-label">Category :</label>
-                                    <p><?php echo $interview[0]['category']; ?></p>
+                                <div class="mb-3 form-group">
+                                    <label for="tags" class="form-label fw-bold">Category :</label>
+                                    <p class="border p-2"><?php echo $interview[0]['category']; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -40,8 +37,8 @@
 
                     <div class="col-lg-12">
                         <div class="mb-3 form-group">
-                            <label for="description" class="form-label">Description</label>
-                            <p><?php echo $interview[0]['description']; ?></p>
+                            <label for="description" class="form-label fw-bold">Description</label>
+                            <p ><?php echo $interview[0]['description']; ?></p>
                         </div>
                     </div>
                     <div>

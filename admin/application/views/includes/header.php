@@ -34,7 +34,10 @@
 </head>
 
 <body>
+<?php 
+        $society_id = $this->session->userdata('staff');
 
+    ?>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -55,14 +58,11 @@
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
         <li class="nav-item d-block d-lg-none">
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-        </li><!-- End Search Icon-->
-
-        
+        </li>       
 
         <!-- <li class="nav-item dropdown">
 
@@ -112,15 +112,15 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6><?php echo $this->session->userdata('fname'); ?></h6>
+              <span><?php echo $this->session->userdata('position'); ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url('staff/profile'); ?>">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -130,7 +130,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="user_login.php">
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url(); ?>dashboard/logout">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>

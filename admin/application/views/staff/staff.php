@@ -2,11 +2,11 @@
 
 <section>
 <div class="pagetitle">
-    <h1>Blogs</h1>
+    <h1>Staff</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Blog List</li>
+            <li class="breadcrumb-item active">Staff List</li>
         </ol>
     </nav>
 </div>
@@ -14,17 +14,18 @@
 
 <div class="card">
     <div class="card-body">
-        <a href="<?php echo base_url('blog/new_blog'); ?>"><button type="button" class="btn btn-success float-end my-3">
-                <i class="bi bi-plus-square"></i> Add Blog
+        <a href="<?php echo base_url('staff/new_staff'); ?>"><button type="button" class="btn btn-success float-end my-3">
+                <i class="bi bi-plus-square"></i> Add Staff
             </button></a>
-        <h5 class="card-title">Blog list</h5>
+        <h5 class="card-title">Story list</h5>
 
-        <table id="blog" class="table cell-border hover table-bordered">
+        <table id="staff" class="table cell-border hover table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Sr. No.</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Upload Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Gender</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -43,7 +44,7 @@
 
 <script>
   $(document).ready(function () {
-    $('#blog').DataTable({
+    $('#staff').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,
@@ -51,8 +52,10 @@
       "info": true,
       "autoWidth": true,
       "responsive": true,
-      ajax: 'blog/fetch_blog_list',
+      ajax:'staff/fetch_staff_list',
     });
   });
 </script>
-
+<!-- <script>
+new DataTable('#blog');
+</script> -->

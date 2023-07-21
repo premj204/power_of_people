@@ -1,6 +1,4 @@
 <script src="<?php echo base_url(); ?>assets/editor/ckeditor/ckeditor.js"></script>
-
-
 <section>
     <div class="pagetitle">
         <h1>Story Form</h1>

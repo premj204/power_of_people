@@ -56,13 +56,4 @@
     });
   });
 </script>
-<!-- <script type="text/javascript">
-$(document).ready(function() {
-    $('#interview').DataTable()({
-        processing: true,
-        serverSide: true,
-        ajax: 'interview/fetch_interviews_list',
-    });
-});
 
-</script> -->

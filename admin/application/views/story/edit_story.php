@@ -17,8 +17,6 @@
         <div class="card-body">
             <form method="POST" onsubmit="return validatestoryeditFrm(this);" id="StoryeditFrm" name="StoryeditFrm"
                 enctype="multipart/form-data">
-                <input type="" name="id" id="id" value="<?php echo $story[0]['id']; ?>">
-
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
@@ -41,7 +39,7 @@
                                     <label for="type" class="form-label">Type :</label>
                                     <select id="type" name="type" class="form-select"
                                         aria-label="Default select example">
-                                        <option  disabled>Select Category </option>
+                                        <option disabled>Select Category </option>
                                         <option value="Power Of Words"
                                             <?php if($story[0]['category'] == 'Power Of Words'){ echo "selected";} ?>>
                                             Power Of Words
@@ -68,7 +66,7 @@
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
                                     <select id="category" name="category" class="form-select">
-                                        <option  disabled>Select Category </option>
+                                        <option disabled>Select Category </option>
                                         <option value="Lifestyle"
                                             <?php if($story[0]['category'] == 'Lifestyle'){ echo "selected";} ?>>
                                             Lifestyle

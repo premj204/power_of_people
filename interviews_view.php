@@ -26,7 +26,7 @@ include "./database/database.php";
                 die("Connection failed: " . mysqli_connect_error());
             }
             $id=$_GET['id']; 
-                $sql = "SELECT * FROM `interviews` WHERE `id` = $id"; 
+                $sql = "SELECT * FROM `interview` WHERE `id` = $id"; 
              $result = mysqli_query($conn, $sql);
              $row = mysqli_fetch_assoc($result);
              $sno = 0;

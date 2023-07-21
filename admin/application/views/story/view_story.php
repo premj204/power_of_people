@@ -45,13 +45,13 @@
                         <div class="col-lg-12">
                             <div class="mb-3 py-2 form-group">
                                 <label for="description" class="form-label">Description :</label>
-                                <textarea class="form-control"><?php echo $story[0]['description']; ?></textarea>
+                              <p ><?php echo $story[0]['description']; ?></p>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="mb-3 py-2 form-group">
                                 <label for="tags" class="form-label">#Tags :</label>
-                                <p class="border p-2"><?php echo $story[0]['tags']; ?></p>
+                                <p><?php echo $story[0]['tags']; ?></p>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,35 @@
 <?php 
  if (! defined('BASEPATH')) exit('No direct script access allowed');
  error_reporting(E_ERROR | E_PARSE);
- class story extends CI_Controller{
+ class Story extends CI_Controller{
+    public function __construct(){
+        parent::__construct();
+        $this->no_cache();
+		if(!$this->is_logged_in()){
+	        redirect('login');
+	    } 
+	    date_default_timezone_set("Asia/Kolkata");
+	}
+    protected function no_cache(){
+    	header("cache-Control: no-store, no-cache, must-revalidate");
+		header("cache-Control: post-check=0, pre-check=0", false);
+		header("Pragma: no-cache");
+		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    }
 
+        function is_logged_in(){
+            $is_logged_in = $this->session->userdata('is_logged_in');
+            if(!isset($is_logged_in) || $is_logged_in != TRUE){
+                return FALSE;
+            }
+            return TRUE;
+        }
+
+        function logout(){    	
+            $this->session->set_userdata(array('is_logged_in' => FALSE));
+            $this->session->sess_destroy();
+            redirect(base_url('login'));
+        }
  	function index(){
  		$data['nav']='story';
 		$data['main_content']='story/story';
@@ -18,7 +45,6 @@
         $data['story'] = array();
         if(isset($id) && !empty($id)){
              $data['story'] = $this->model->getData('story',array('id'=> $id));
-            //  print_r($data['blog']); exit;
         }
        $data['nav']='story';
        $data['main_content']='story/edit_story';
@@ -26,20 +52,20 @@
 
     }
     function update_story(){
+        $id = $this->input->get_post('id'); 
         $title = $this->input->get_post('title'); 
         $description = $this->input->get_post('description'); 
          $type = $this->input->get_post('type'); 
         $category = $this->input->get_post('category'); 
-        // $tags = $this->input->get_post('tags'); 
+ 
        
 
-        if($title != "" && $description!="" ){
+        if($title != "" && $type!="" ){
            $storyData = array(
                'title' => $title,
                'description' => $description,   
                 'type' => $type, 
                'category' => $category, 
-            //    'tags' => $tags, 
            );
             $hasUpdated = $this->model->update_where('story',$storyData,'id',$id);
 
@@ -71,15 +97,6 @@
        $this->load->view('includes/templates',$data);
 
     }
-
-
-
-
-
-
-
-
-
 
     function add_story(){
         $title = $this->input->get_post('title'); 
@@ -116,29 +133,19 @@
         echo json_encode($data);
     }
 
-
-
-
-
-
-
-
-
-
-
     function fetch_story_list(){
 
         $requestData= $_REQUEST;
         $date = date('Y-m-d');
         $baseurl = base_url();
-        $columnarray = array(`id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `addes_on`);
+        $columnarray = array(`id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on`);
 
         foreach($columnarray as $key=>$value){
             if($requestData['order'][0]['column']==$key){
                 $column = $value;
             }
         }
-        $sql="SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `addes_on` FROM `story`";
+        $sql="SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`";
 
         if(!empty($requestData['search']['value'])){
             $sql.=" WHERE (name LIKE '%".$requestData['search']['value']."%')";      
@@ -182,23 +189,4 @@
         );
         echo json_encode($json_data);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }?>

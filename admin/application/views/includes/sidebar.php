@@ -8,8 +8,8 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+      <li class="nav-item <?php if($nav=='staff'){ echo "active"; } ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('Staff') ?>">
           <i class="bi bi-person"></i>
           <span>Staff</span>
         </a>
@@ -45,7 +45,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="<?php echo base_url(); ?>dashboard/logout">
         <i class="bi bi-door-open-fill"></i>
           <span>Sign Out</span>
         </a>

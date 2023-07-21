@@ -311,6 +311,27 @@ function validateLogin(ele) {
         $(".alert-danger").css('display', 'none').find("span").html("");
         return false;
 
+    } else {
+
+        let newFormData = jQuery("#login").serialize();
+        jQuery.ajax({
+            dataType: 'json',
+            url: baseURL + "login/validate",
+            type: "POST",
+            data: newFormData,
+            cache: false,
+            success: function (res) {
+                if (typeof (res.status) != "undefined" && res.status == 200) {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                    setTimeout(function () { window.location.href = "dashboard"; }, 1500);
+                } else {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                }
+            }
+        });
+        return false;
     }
 }
 
@@ -417,44 +438,6 @@ function ValidateEditblog(ele) {
         return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function validateInterviewFrm(ele) {
     let hasError = 0;
@@ -640,6 +623,125 @@ function validatestoryeditFrm(ele) {
         return false;
     }
 }
+
+function validatestaffFrm(ele) {
+    let hasError = 0;
+    let fname = jQuery("#fname").val();
+    let lname = jQuery("#lname").val();
+    let email = jQuery("#email").val();
+    let position = jQuery("#position").val();
+    let password = jQuery("#password").val();   
+    
+    if (jQuery.trim(fname) == "") { showErrorArrow("Please enter first name.", "fname"); hasError = 1; } else { changeErrorArrow("fname"); } 
+   
+    if (jQuery.trim(lname) == "") { showErrorArrow("Please enter last name.", "lname"); hasError = 1; } else { changeErrorArrow("lname"); } 
+   
+    if (jQuery.trim(email) == "") {
+        showErrorArrow("Please enter your email Id.", "email"); hasError = 1;
+    } else if (!isValidEmail(email)) {
+        showErrorArrow("Please enter valid email Id.", "email"); hasError = 1;
+    } else { changeErrorArrow("email"); }
+   
+    if (jQuery.trim(position) == "") { showErrorArrow("Please select position.", "position"); hasError = 1; } else { changeErrorArrow("position"); }
+    
+    if (jQuery.trim(password) == "") { showErrorArrow("Please enter your secret  password.", "password"); hasError = 1; } else { changeErrorArrow("password"); }
+
+    if (hasError == 1) {
+        $(".alert-success").css('display', 'none').find("span").html("");
+        $(".alert-danger").css('display', 'none').find("span").html("");
+        return false;
+    } else {
+            let newFormData = jQuery("#StaffFrm").serialize();
+            jQuery.ajax({
+            dataType: 'json',
+            url: baseURL + "staff/add_staff",
+            type: "POST",
+            data: newFormData,
+            cache: false,
+            success: function (res) {
+                if (typeof (res.status) != "undefined" && res.status == 200) {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                    document.getElementById("StaffFrm").reset();
+                } else {
+                    $(".alert-success").css('display', 'none').find("span").html("");
+                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+                }
+            }
+        });
+        return false;
+    }
+}
+
+function ValidateEditprofile(ele) {
+    let hasError = 0;
+    let fname = jQuery("#fname").val();
+    let lname = jQuery("#lname").val();
+    let about = jQuery("#about").val();
+    let email = jQuery("#email").val();
+    let mobile = jQuery("#mobile").val();
+    let address = jQuery("#address").val();  
+    
+    if (jQuery.trim(fname) == "") { showErrorArrow("Please enter first name.", "fname"); hasError = 1; } else { changeErrorArrow("fname"); } 
+
+    if (jQuery.trim(lname) == "") { showErrorArrow("Please enter last name.", "lname"); hasError = 1; } else { changeErrorArrow("lname"); } 
+    
+    if (jQuery.trim(about) == "") { showErrorArrow("Please enter your about.", "about"); hasError = 1; } else { changeErrorArrow("about"); } 
+   
+    if (jQuery.trim(email) == "") {
+        showErrorArrow("Please enter your email Id.", "email"); hasError = 1;
+    } else if (!isValidEmail(email)) {
+        showErrorArrow("Please enter valid email Id.", "email"); hasError = 1;
+    } else { changeErrorArrow("email"); }
+   
+    if (jQuery.trim(mobile) == "") {
+        showErrorArrow("Please enter mobile no.", "mobile"); hasError = 1;
+    } else if (!isValidMobileNbr(mobile)) {
+        showErrorArrow("Please enter valid mobile no.", "mobile"); hasError = 1;
+    } else { changeErrorArrow("mobile"); }
+
+    if (jQuery.trim(address) == "") { showErrorArrow("Please enter your address.", "address"); hasError = 1; } else { changeErrorArrow("address"); } 
+    
+   
+    if (hasError == 1) {
+        $(".alert-success").css('display', 'none').find("span").html("");
+        $(".alert-danger").css('display', 'none').find("span").html("");
+        return false;
+    } else {
+            let newFormData = jQuery("#ProfileeditFrm").serialize();
+            jQuery.ajax({
+            dataType: 'json',
+            url: baseURL + "staff/update_profile",
+            type: "POST",
+            data: newFormData,
+            cache: false,
+            success: function (res) {
+                if (typeof (res.status) != "undefined" && res.status == 200) {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                    document.getElementById("ProfileeditFrm").reset();
+                } else {
+                    $(".alert-success").css('display', 'none').find("span").html("");
+                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+                }
+            }
+        });
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
