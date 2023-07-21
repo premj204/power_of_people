@@ -19,7 +19,7 @@
             </button></a>
         <h5 class="card-title">Story list</h5>
 
-        <table id="story" class="table cell-border hover table-bordered">
+        <table id="story_power" class="table cell-border hover table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Sr. No.</th>
@@ -44,7 +44,7 @@
 
 <script>
   $(document).ready(function () {
-    $('#story').DataTable({
+    $('#story_power').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,
@@ -52,7 +52,7 @@
       "info": true,
       "autoWidth": true,
       "responsive": true,
-      ajax: 'story/fetch_story_list',
+      ajax:'story/fetch_story_list',
     });
   });
 </script>

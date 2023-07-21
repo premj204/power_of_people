@@ -93,6 +93,7 @@
     //     return $data;
     // }
     
+    
      function add_blog(){
         $headline = $this->input->get_post('headline'); 
         $description = $this->input->get_post('description'); 
