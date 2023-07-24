@@ -688,13 +688,11 @@ include "./database/database.php";
                                                 <small>Dec, 2023</small>
                                             </div>
                                             <div class='col-lg-9 event-name'>
-                                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum hic
-                                                    repellendus autem, asperiores rem nobis aperiam ea. Quam iusto rerum quasi
-                                                    maiores doloremque, eveniet obcaecati nisi, in, deserunt nemo accusamus?</h3>
+                                                <h3>" . $row['title'] ."</h3>
                                                 <ul class='dat-time'>
-                                                    <li><i class='fa fa-clock-o'></i> 10:30pm</li>
-                                                    <li><i class='fa fa-calendar'></i> 2 dec,2023</li>
-                                                    <li><i class='fa fa-map-marker'></i> Mumbai</li>
+                                                    <li><i class='fa fa-clock-o'></i> " . $row['time'] ."</li>
+                                                    <li><i class='fa fa-calendar'></i>" . $row['date'] ."</li>
+                                                    <li><i class='fa fa-map-marker'></i> " . $row['city'] ."</li>
                                                 </ul>
                                             </div>
                                         </div>
