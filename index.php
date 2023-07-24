@@ -491,7 +491,7 @@ include "./database/database.php";
                     </ul> -->
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
-                            <h3 class="utf_block_title"><span class="bg-title-orange">Inspiration</span> <span><a
+                            <h3 class="utf_block_title"><span class="bg-title-orange">Power Of Action</span> <span><a
                                         href="" class="float-right">See More</a></span></h3>
                             <div class="utf_post_overaly_style clearfix">
                                 <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/2.jpg"
@@ -587,7 +587,7 @@ include "./database/database.php";
 
 
 
-                                        <?php
+                            <?php
                 if (!$conn) {
                  
                     die("Connection failed: " . mysqli_connect_error());
@@ -599,22 +599,26 @@ include "./database/database.php";
                             ?>
                             <div class='utf_post_overaly_style last clearfix'>
                                 <div class='utf_post_thumb'> <img class='img-fluid' src='images/news/video2.jpg' alt=''>
-                                    <a href=<?php echo "interviews_view.php?id=" . $row['id'] . ""?> >
+                                    <a href=<?php echo "interviews_view.php?id=" . $row['id'] . ""?>>
                                         <div class='video-icon'> <i class='fa fa-play'></i> </div>
                                     </a>
                                 </div>
-                                <div class='utf_post_content'> <a class='utf_post_cat' href='#'><?php echo"" . $row['category'] ."" ?></a>
-                                    <h2 class='utf_post_title'> <a href='<?php echo "interviews_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . ""?>'><?php echo" " . $row['details'] ." " ?></a> </h2>
+                                <div class='utf_post_content'> <a class='utf_post_cat'
+                                        href='#'><?php echo"" . $row['category'] ."" ?></a>
+                                    <h2 class='utf_post_title'> <a
+                                            href='<?php echo "interviews_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . ""?>'><?php echo" " . $row['details'] ." " ?></a>
+                                    </h2>
                                     <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
                                             <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
-                                                class='fa fa-clock-o'></i>  <?php echo"" . $row['upload_date'] ."" ?></span>
+                                                class='fa fa-clock-o'></i>
+                                            <?php echo"" . $row['upload_date'] ."" ?></span>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="utf_list_post_block">
                                 <ul class="utf_list_post">
-                             <?php
+                                    <?php
                             if (!$conn) {                 
                              die("Connection failed: " . mysqli_connect_error());
                                   }
@@ -665,40 +669,45 @@ include "./database/database.php";
 
                     <div class="widget color-default">
                         <h3 class="utf_block_title"><span class="bg-title-orange">Events</span></h3>
-                        <!-- <div class="utf_post_overaly_style clearfix">
-                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/3.jpg"
-                                        alt="" /> </a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Health</a>
-                                <h2 class="utf_post_title"> <a href="#">Smart packs parking sensor tech and
-                                        beeps when col…</a> </h2>
-                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                            href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
-                                            class="fa fa-clock-o"></i> 25 Jan, 2022</span>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="shadow clearfix">
-                            <div class="card">
-                                <div class="event_date">
-                                    <h3>12</h3>
-                                    <h5>Feb</h5>
-                                </div>
-                                <div class="p-3">
-                                    <div class="event-name mb-3">
-                                        <h3>Event Name</h3>
-                                        <p>Event Description</p>
-                                    </div>
-                                    <hr>
-                                    <div class="speaker-name text-center">
-                                        <h3>Speaker Name</h3>
-                                        <p>Position</p>
-                                    </div>
-                                </div>
 
 
+                        <?php
+                            if (!$conn) {                 
+                             die("Connection failed: " . mysqli_connect_error());
+                                  }
+                                $sql = "SELECT * FROM `event` LIMIT 3";//(innerjoin)
+                                $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $sno = $sno + 1;
+                                        echo "
+                                        <div class='border mb-3'>
+                                        <div class='row'>
+                                            <div class='col-lg-3 text-center event_date'>
+                                                <p class=''>02 </p>
+                                                <small>Dec, 2023</small>
+                                            </div>
+                                            <div class='col-lg-9 event-name'>
+                                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum hic
+                                                    repellendus autem, asperiores rem nobis aperiam ea. Quam iusto rerum quasi
+                                                    maiores doloremque, eveniet obcaecati nisi, in, deserunt nemo accusamus?</h3>
+                                                <ul class='dat-time'>
+                                                    <li><i class='fa fa-clock-o'></i> 10:30pm</li>
+                                                    <li><i class='fa fa-calendar'></i> 2 dec,2023</li>
+                                                    <li><i class='fa fa-map-marker'></i> Mumbai</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        "; } ?>
+                        
+                        <div>
+                            <div class="event_comimg_soon mb-3">
+                                <h3>
+                                    Comming Soom..
+                                </h3>
                             </div>
                         </div>
-
                         <div class="utf_list_post_block">
                             <ul class="utf_list_post">
                                 <li class="clearfix">
@@ -815,7 +824,7 @@ include "./database/database.php";
         <div class="row">
             <div class="col-lg-3">
                 <div class="block ">
-                    <h3 class="utf_block_title"><span class="bg-title-green">Food</span> <span><a href=""
+                    <h3 class="utf_block_title"><span class="bg-title-green">Power Of Words</span> <span><a href=""
                                 class="float-right">See More</a></span></h3>
                     <div class="utf_post_overaly_style clearfix">
                         <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/health5.jpg"
@@ -885,7 +894,7 @@ include "./database/database.php";
 
             <div class="col-lg-3">
                 <div class="block">
-                    <h3 class="utf_block_title"><span class="bg-title-orange">Lifestyle</span> <span><a href=""
+                    <h3 class="utf_block_title"><span class="bg-title-orange">Power Of Charity</span> <span><a href=""
                                 class="float-right">See More</a></span></h3>
                     <div class="utf_post_overaly_style clearfix">
                         <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/health5.jpg"
@@ -955,7 +964,7 @@ include "./database/database.php";
 
             <div class="col-lg-3">
                 <div class="block">
-                    <h3 class="utf_block_title"><span class="bg-title-green">Health</span> <span><a href=""
+                    <h3 class="utf_block_title"><span class="bg-title-green">Power Of Health</span> <span><a href=""
                                 class="float-right">See More</a></span></h3>
                     <div class="utf_post_overaly_style clearfix">
                         <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/health5.jpg"
@@ -1024,8 +1033,8 @@ include "./database/database.php";
             </div>
             <div class="col-lg-3">
                 <div class="block">
-                    <h3 class="utf_block_title"><span class="bg-title-orange">Society</span> <span><a href=""
-                                class="float-right">See More</a></span></h3>
+                    <h3 class="utf_block_title"><span class="bg-title-orange">Power Of Life's Work</span> <span><a
+                                href="" class="float-right">See More</a></span></h3>
                     <div class="utf_post_overaly_style clearfix">
                         <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/health5.jpg"
                                     alt="" /> </a> </div>

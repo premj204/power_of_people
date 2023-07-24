@@ -21,7 +21,7 @@
                 <i class="bi bi-plus-square"></i>&nbsp; Add Interview
             </button></a>
         <h5 class="card-title">Interview list</h5>
-        <table id="interview_list" class="table cell-border hover table-bordered">
+        <table id="interview" class="table cell-border hover table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Sr. No</th>
@@ -44,7 +44,7 @@
 
 <script>
   $(document).ready(function () {
-    $('#interview_list').DataTable({
+    $('#interview').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,

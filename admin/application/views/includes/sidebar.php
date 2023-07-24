@@ -8,7 +8,7 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item <?php if($nav=='staff'){ echo "active"; } ?>">
+      <li class="nav-item  <?php if($nav=='staff'){ echo "active"; } ?>">
         <a class="nav-link collapsed" href="<?php echo base_url('Staff') ?>">
           <i class="bi bi-person"></i>
           <span>Staff</span>
@@ -32,8 +32,8 @@
           <span>Blogs</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+      <li class="nav-item <?php if($nav=='event'){ echo "active"; } ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('Event') ?>">
         <i class="bi bi-camera-reels-fill"></i>
           <span>Events</span>
         </a>

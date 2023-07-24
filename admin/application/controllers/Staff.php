@@ -100,7 +100,7 @@
                 $column = $value;
             }
         }
-        $sql="SELECT `id`, `fname`, `lname`, `email`, `mobile`, `address`, `position`, `twitter`, `facebook`, `instagram`, `linkedin`, `password`, `added_on` FROM `staff`";
+        $sql="SELECT `id`, `fname`, `lname`, `email`, `mobile`, `address`, `position`, `gender`, `twitter`, `facebook`,`status`, `instagram`, `linkedin`, `password`, `added_on` FROM `staff`";
 
         if(!empty($requestData['search']['value'])){
             $sql.=" WHERE (name LIKE '%".$requestData['search']['value']."%')";      
@@ -122,14 +122,13 @@
             $nestedData[] = $value['fname']." ".$value['lname'];
             $nestedData[] = $value['position'];
             $nestedData[] = $value['gender'];
-            // $nestedData[] = date('d-m-Y',strtotime($value['added_on']));
-
+           
             $nestedData[] = ($value['status']=='1') ? '<span class="badge text-success me-1">ACTIVE</span>' : '<span class="badge text-danger me-1">IN-ACTIVE</span>';
-            $deleteRestoreBtn = '<a class="btn btn-action btn-danger" title="Block Story" href="javascript:void(0);" onclick="return deletestory('.$value["id"].',0,this);"><i class="bx bx-block me-1" ></i></a>';
+            $deleteRestoreBtn = '<a class="btn btn-action btn-danger" title="Block Staff" href="javascript:void(0);" onclick="return deletestaff('.$value["id"].',0,this);"><i class="bx bx-block me-1" ></i></a>';
             if($value['status']=='0'){
-                $deleteRestoreBtn =  '<a class="btn btn-action btn-danger" title="Unblock Story" href="javascript:void(0);" onclick="return deletestory('.$value["id"].',1,this);"><i class="bx bxs-right-arrow me-1" ></i></a>';
+                $deleteRestoreBtn =  '<a class="btn btn-action btn-danger" title="Unblock Staff" href="javascript:void(0);" onclick="return deletestaff('.$value["id"].',1,this);"><i class="bx bxs-right-arrow me-1" ></i></a>';
             } 
-            
+
             $nestedData[] = '<a class="btn btn-action btn-primary" title="View Data" href="'.base_url('staff/profile?id='.$value["id"]).'"><i class="bx bx bx-show-alt me-1" ></i></a>
                               
             '.$deleteRestoreBtn.'';
@@ -211,4 +210,6 @@
         }
         echo json_encode($data);
     }
+
+    
 }?>

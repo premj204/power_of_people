@@ -67,63 +67,6 @@
            }
         echo json_encode($data);
     }
-
-    
-    function edit_interview(){
-        $id = $this->input->get_post('id');
-        $data['interview'] = array();
-        if(isset($id) && !empty($id)){
-             $data['interview'] = $this->model->getData('interview',array('id'=> $id));
-                 }
-       $data['nav']='interview';
-       $data['main_content']='interview/edit_interview';
-       $this->load->view('includes/templates',$data);
-    }
-    function view_interview(){
-        $id = $this->input->get_post('id');
-        $data['interview'] = array();
-        if(isset($id) && !empty($id)){
-             $data['interview'] = $this->model->getData('interview',array('id'=> $id));
-        }
-       $data['nav']='interview';
-       $data['main_content']='interview/view_interview';
-       $this->load->view('includes/templates',$data);
-
-    }
-    function update_interview(){
-        $id = $this->input->get_post('id');
-        $video_link = $this->input->get_post('video_link'); 
-        $details = $this->input->get_post('details'); 
-        $description = $this->input->get_post('description'); 
-        $category = $this->input->get_post('category');    
-       
-        if($video_link!= "" && $description!="" ){
-           $interviewData = array(
-               'video_link' => $video_link,
-               'details' => $details,
-               'description' => $description,  
-               'category' => $category,
-                         
-           ); 
-            $hasUpdated = $this->model->update_where('interview',$interviewData,'id',$id);
-
-            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
-            //     $file = $_FILES["uploadFile"]["name"];
-            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
-            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
-            // } 
-
-            $data['status'] = 200;
-            $data[ 'msg'] = 'interview update successfully.';
-        }else{
-            $data['status'] = 400;
-            $data['msg'] = 'Invalid data. Please check with interview Data.';
-        }
-        echo json_encode($data);
-    }
-
-
-
     function fetch_interviews_list(){
 
         $requestData= $_REQUEST;
@@ -157,14 +100,15 @@
             $nestedData[] = $i++;
             $nestedData[] = $value['details'];
             $nestedData[] = $value['upload_date'];
-            $nestedData[] = $value['status'];
+            $nestedData[] = ($value['status']=='1') ? '<span class="badge text-success me-1">ACTIVE</span>' : '<span class="badge text-danger me-1">IN-ACTIVE</span>';
+            $deleteRestoreBtn = '<a class="btn btn-action btn-danger" title="Block Society" href="javascript:void(0);" onclick="return deleteinterview('.$value["id"].',0,this);"><i class="bx bx-block me-1" ></i></a>';
+            if($value['status']=='0'){
+                $deleteRestoreBtn =  '<a class="btn btn-action btn-danger" title="Unblock Society" href="javascript:void(0);" onclick="return deleteinterview('.$value["id"].',1,this);"><i class="bx bxs-right-arrow me-1" ></i></a>';
+            } 
            
             $nestedData[] = '<a class="btn btn-action btn-orange" title="Edit Interview" href="'.base_url('interview/edit_interview?id='.$value["id"]).'"><i class="bx bx-edit-alt me-1" ></i></a>
             <a class="btn btn-action btn-primary" title="View Interview" href="'.base_url('interview/view_interview?id='.$value["id"]).'"><i class="bx bx bx-show-alt me-1" ></i></a>
-                               ';
-            
-            
-     
+            '.$deleteRestoreBtn.'';
             $data[] = $nestedData;
         }
 
@@ -176,26 +120,65 @@
         );
         echo json_encode($json_data);
     }
+    function edit_interview(){
+        $id = $this->input->get_post('id');
+        $data['interview'] = array();
+        if(isset($id) && !empty($id)){
+             $data['interview'] = $this->model->getData('interview',array('id'=> $id));
+                 }
+       $data['nav']='interview';
+       $data['main_content']='interview/edit_interview';
+       $this->load->view('includes/templates',$data);
+    }
+    function view_interview(){
+        $id = $this->input->get_post('id');
+        $data['interview'] = array();
+        if(isset($id) && !empty($id)){
+             $data['interview'] = $this->model->getData('interview',array('id'=> $id));
+        }
+       $data['nav']='interview';
+       $data['main_content']='interview/view_interview';
+       $this->load->view('includes/templates',$data);
+    }
+        function update_inter(){
+        $id = $this->input->get_post('id'); 
+        $video_link = $this->input->get_post('video_link'); 
+        $details = $this->input->get_post('details'); 
+        $description = $this->input->get_post('description'); 
+        $category = $this->input->get_post('category'); 
+        $uploadThumbnail = $this->input->get_post('uploadThumbnail'); 
+           
+        if($id!="" && $video_link!=""){
+            $interviewData = array(
+               'video_link' => $video_link,
+               'details' => $details,
+               'description' => $description,
+               'category' => $category,
+               'uploadThumbnail' => $uploadThumbnail,
+               
+            );
+            $hasUpdated = $this->model->update_where('interview', $interviewData,'id', $id);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            $data['status'] = 200;
+            $data[ 'msg'] = 'interview update successfully.';
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid data. Please check with interview Data.';
+        }
+        echo json_encode($data);
+    }
+    function delete_interview(){
+        $id = $this->input->get_post('id');
+        $status = $this->input->get_post('status');
+        if(isset($id) && $id!=""){
+            $interviewData = array('status'=>$status);
+            $this->model->update_where('interview',$interviewData, 'id', $id );
+            $data['status'] = 200;
+            $data['msg'] = 'Service provider has been suspend successfully.';
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid interview ids.';
+        }
+        echo json_encode($data);
+    }
 }?>

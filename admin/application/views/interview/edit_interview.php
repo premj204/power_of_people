@@ -16,7 +16,7 @@
                                 <label for="details" class="form-label">Youtube Video Link</label>
                                 <input type="text" class="form-control" name="video_link" id="video_link"
                                     value="<?php echo $interview[0]['video_link']; ?>">
-                                <small>(example : https://www.youtube.com/embed/x56adyd)</small>
+                                <small>(example : https://www.youtube.com<span style="color: red;">/embed/</span>x56adyd)</small>
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="details" class="form-label">Details</label>

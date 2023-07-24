@@ -36,6 +36,16 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="form-floating form-group mb-3">
+                            <select class="form-select" id="gender" name="gender">
+                                <option selected disabled>select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-floating form-group mb-3">
                             <select class="form-select" id="position" name="position">
                                 <option selected disabled>select position</option>
                                 <option value="Admin">Admin</option>

@@ -56,11 +56,9 @@
         $title = $this->input->get_post('title'); 
         $description = $this->input->get_post('description'); 
          $type = $this->input->get_post('type'); 
-        $category = $this->input->get_post('category'); 
- 
-       
+        $category = $this->input->get_post('category');        
 
-        if($title != "" && $type!="" ){
+        if($id != "" && $title!="" ){
            $storyData = array(
                'title' => $title,
                'description' => $description,   
@@ -188,5 +186,19 @@
             "data"            => $data
         );
         echo json_encode($json_data);
+    }
+    function delete_story(){
+        $id = $this->input->get_post('id');
+        $status = $this->input->get_post('status');
+        if(isset($id) && $id!=""){
+            $storyData = array('status'=>$status);
+            $this->model->update_where('story',$storyData, 'id', $id );
+            $data['status'] = 200;
+            $data['msg'] = 'Service provider has been suspend successfully.';
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid story ids.';
+        }
+        echo json_encode($data);
     }
 }?>

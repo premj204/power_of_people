@@ -18,13 +18,13 @@
                     <h2><?php echo $staff[0]['fname']; ?> <?php echo $staff[0]['lname']; ?></h2>
                     <h3><?php echo $staff[0]['position']; ?></h3>
                     <div class="social-links mt-2">
-                        <a href="<?php echo $staff[0]['twitter']; ?>"target="_" class="twitter">
-                        <i class="bi bi-twitter"></i></a>
-                        <a href="<?php echo $staff[0]['facebook']; ?>"target="_" class="facebook"><i
+                        <a href="<?php echo $staff[0]['twitter']; ?>" target="_" class="twitter">
+                            <i class="bi bi-twitter"></i></a>
+                        <a href="<?php echo $staff[0]['facebook']; ?>" target="_" class="facebook"><i
                                 class="bi bi-facebook"></i></a>
                         <a href="<?php echo $staff[0]['instagram']; ?>" target="_" class="instagram"><i
                                 class="bi bi-instagram"></i></a>
-                        <a href="<?php echo $staff[0]['linkedin']; ?>"target="_" class="linkedin"><i
+                        <a href="<?php echo $staff[0]['linkedin']; ?>" target="_" class="linkedin"><i
                                 class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
@@ -84,21 +84,37 @@
                                 <div class="col-lg-3 col-md-4 label">Email</div>
                                 <div class="col-lg-9 col-md-8"><?php echo $staff[0]['email']; ?></div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">Gender</div>
+                                <div class="col-lg-9 col-md-8"><?php echo $staff[0]['gender']; ?></div>
+                            </div>
 
                         </div>
 
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-                            <form method="POST" onsubmit="return ValidateEditprofile(this);" id="ProfileeditFrm" name="ProfileeditFrm">
+                            <form method="POST" onsubmit="return ValidateEditprofile(this);" id="ProfileeditFrm"
+                                name="ProfileeditFrm">
                                 <div class="row mb-3">
                                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile
                                         Image</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <img src="<?php echo base_url(); ?>assets/img/profile-img.jpg" alt="Profile">
                                         <div class="pt-2">
-                                            <a href="#" class="btn btn-primary btn-sm"
-                                                title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                            <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i
-                                                    class="bi bi-trash"></i></a>
+                                            <img src="<?php echo base_url(); ?>assets/img/profile-img.jpg" id="blah"
+                                                alt="Img">
+                                            <div class="py-2 ms-2">
+                                                <label for="inputFile">
+                                                    <span class="btn btn-primary btn-sm"
+                                                        title="Upload new profile image">
+                                                        <i class="bi bi-upload"></i>
+                                                    </span>
+                                                </label>
+                                                <input type="file" id="inputFile" style="display: none;"
+                                                    onchange="readUrl(this)">
+
+                                                <button type="button" onclick="removeImg()"
+                                                    class="btn btn-danger btn-sm" title="Remove my profile image"><i
+                                                        class="bi bi-trash"></i></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -122,6 +138,36 @@
                                             style="height: 100px"><?php echo $staff[0]['about']; ?></textarea>
                                     </div>
                                 </div>
+
+
+
+                                <div class="row mb-3">
+                                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Gender</label>
+                                    <div class="col-md-8 col-lg-9 form-group">
+                                        <select id="gender" name="gender" class="form-control">
+                                            <option disabled>Select Gender </option>
+                                            <option value="Lifestyle"
+                                                <?php if($staff[0]['gender'] == 'Male'){ echo "selected";} ?>>
+                                                Male
+                                            </option>
+                                            <option value="Health"
+                                                <?php if($staff[0]['gender'] == 'Female'){ echo "selected"; } ?>>Female
+                                            </option>
+                                            <option value="Bussiness"
+                                                <?php if($staff[0]['gender'] == 'Other'){ echo "selected"; } ?>>
+                                                Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
 
                                 <div class="row mb-3">
                                     <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
@@ -236,3 +282,22 @@
         </div>
     </div>
 </section>
+<script>
+var a = document.getElementById("blah");
+
+function readUrl(input) {
+    if (input.files) {
+        var reader = new FileReader();
+        reader.readAsDataURL(input.files[0]);
+        reader.onload = (e) => {
+            a.src = e.target.result;
+        }
+    }
+}
+
+var inputFile = document.getElementById("inputFile");
+removeImg = () => {
+    a.src = "<?php echo base_url(); ?>assets/img/profile-img.jpg";
+    inputFile.value = "";
+}
+</script>

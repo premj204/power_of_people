@@ -25,9 +25,8 @@
                 <div class="col-lg-4 col-sm-12 col-xs-12 footer-widget widget-categories">
                     <h3 class="widget-title">Popular Categories</h3>
                     <ul>
-                        <li><i class="fa fa-angle-double-right"></i><a href="startup.php"><span
-                                    class="catTitle">Startup</span><span class="catCounter"> (05)</span></a>
-                        </li>
+                        <li><i class="fa fa-angle-double-right"></i><a href="index.php">Home</a></li>
+                        <li><i class="fa fa-angle-double-right"></i><a href="">Event</a></li>
                         <li><i class="fa fa-angle-double-right"></i><a href="#"><span
                                     class="catTitle">Inspiration</span><span class="catCounter"> (06)</span></a>
                         </li>
@@ -48,7 +47,7 @@
                 </div>
 
                 <div class="col-lg-4 col-sm-12 col-xs-12 footer-widget">
-                    <h3 class="widget-title">Popular Post</h3>
+                    <!-- <h3 class="widget-title">Popular Post</h3>
                     <div class="utf_list_post_block">
                         <ul class="utf_list_post">
                             <li class="clearfix">
@@ -90,7 +89,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>

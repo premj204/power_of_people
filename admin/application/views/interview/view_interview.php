@@ -31,6 +31,7 @@
                             <div class="thmb">
                                 <img src="<?php echo base_url(); ?>assets/img/cameraman.png"
                                     class="mx-auto d-block w-100" alt="">
+                                    <p class="fw-bold text-center   ">Thumbnail</p>
                             </div>
                         </div>
                     </div>
