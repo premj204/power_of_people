@@ -165,7 +165,7 @@
 
 
             $nestedData[] = ($value['status']=='1') ? '<span class="badge text-success me-1">ACTIVE</span>' : '<span class="badge text-danger me-1">IN-ACTIVE</span>';
-            $deleteRestoreBtn = '<a class="btn btn-action btn-danger" title="Block Blog" href="javascript:void(0);" onclick="return deleteblog('.$value["id"].',0,this);"><i class="bx bx-block me-1" ></i></a>';
+            $deleteRestoreBtn = '<a class="btn btn-action btn-danger" title="Block Blog" href="javascript:void(0);" onclick="return deleteblog('.$value["id"].',0,this);"><i class="bx bx-trash me-1" ></i></a>';
             if($value['status']=='0'){
                 $deleteRestoreBtn =  '<a class="btn btn-action btn-danger" title="Unblock Blog" href="javascript:void(0);" onclick="return deleteblog('.$value["id"].',1,this);"><i class="bx bxs-right-arrow me-1" ></i></a>';
             } 

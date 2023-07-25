@@ -2,52 +2,46 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item<?php if($nav=='dashboard'){ echo "active"; } ?>">
-        <a class="nav-link " href="<?php echo base_url('Dashboard') ?>">
+      <li class="nav-item <?php if($nav=='dashboard'){ echo "active"; } ?>">
+        <a class="nav-link " href="<?php echo base_url('dashboard') ?>">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <li class="nav-item  <?php if($nav=='staff'){ echo "active"; } ?>">
-        <a class="nav-link collapsed" href="<?php echo base_url('Staff') ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('staff') ?>">
           <i class="bi bi-person"></i>
           <span>Staff</span>
         </a>
       </li>
       <li class="nav-item <?php if($nav=='interview'){ echo "active"; } ?>">
-        <a class="nav-link collapsed" href="<?php echo base_url('Interview') ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('interview') ?>">
         <i class="bi bi-camera-reels-fill"></i>
           <span>Interviews</span>
         </a>
       </li>
-      <li class="nav-item <?php if($nav=='pop_story'){ echo "active"; } ?>">
-        <a class="nav-link collapsed" href="<?php echo base_url('Story') ?>">
+      <li class="nav-item <?php if($nav=='story'){ echo "active"; } ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('story') ?>">
           <i class="bi bi-newspaper"></i>
           <span>Story</span>
         </a>
       </li>
       <li class="nav-item <?php if($nav=='blog'){ echo "active"; } ?>">
-        <a class="nav-link collapsed" href="<?php echo base_url('Blog') ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('blog') ?>">
         <i class="bi bi-chat-left-text-fill"></i>
           <span>Blogs</span>
         </a>
       </li>
       <li class="nav-item <?php if($nav=='event'){ echo "active"; } ?>">
-        <a class="nav-link collapsed" href="<?php echo base_url('Event') ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('event') ?>">
         <i class="bi bi-camera-reels-fill"></i>
           <span>Events</span>
         </a>
       </li>
-      <li class="nav-item <?php if($nav=='gallery'){ echo "active"; } ?>">
-        <a class="nav-link collapsed" href="<?php echo base_url('Gallery') ?>">
+      <li class="nav-item <?php if($nav=='gallery'){echo "active"; } ?>">
+        <a class="nav-link collapsed" href="<?php echo base_url('gallery') ?>">
         <i class="bi bi-image-fill"></i>
           <span>Gallery</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="<?php echo base_url(); ?>dashboard/logout">
-        <i class="bi bi-door-open-fill"></i>
-          <span>Sign Out</span>
         </a>
       </li>
       <!-- <li class="nav-item">
