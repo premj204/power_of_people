@@ -154,7 +154,7 @@ include "./database/database.php";
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
-                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog`";//(innerjoin)
+                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog` where `status` ='1'";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          while ($row = mysqli_fetch_assoc($result)) {
@@ -174,7 +174,7 @@ include "./database/database.php";
                                     <h2 class='utf_post_title title-medium'> <a href='blog_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> " . $row['headline'] ." </a> </h2>
                                     <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
                                             <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
-                                                class='fa fa-clock-o'></i> " . $row['added_on'] ."</span> </div>
+                                                class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span> </div>
                                                 
                                 </div>
                             </div>
@@ -592,7 +592,7 @@ include "./database/database.php";
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
-                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadThumbnail`, `status`, `upload_date` FROM `interview`";//(innerjoin)
+                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadThumbnail`, `status`, `upload_date` FROM `interview`where `status` ='1'";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          $row = mysqli_fetch_assoc($result) 
@@ -611,7 +611,7 @@ include "./database/database.php";
                                     <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
                                             <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
                                                 class='fa fa-clock-o'></i>
-                                            <?php echo"" . $row['upload_date'] ."" ?></span>
+                                            <?php echo"". date('d M, Y',strtotime($row['upload_date']))."" ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -622,30 +622,30 @@ include "./database/database.php";
                             if (!$conn) {                 
                              die("Connection failed: " . mysqli_connect_error());
                                   }
-                                $sql = "SELECT * FROM `interview` LIMIT 4";//(innerjoin)
+                                $sql = "SELECT * FROM `interview`where `status` ='1' LIMIT 4";//(innerjoin)
                                 $result = mysqli_query($conn, $sql);
                                     $sno = 0;
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $sno = $sno + 1;
                                         echo "
-                            <li class='clearfix'>
-                            <div class='utf_post_block_style post-float clearfix'>
-                                <div class='utf_post_thumb'> <a href='#'> <img class='img-fluid'
+                                    <li class='clearfix'>
+                                                     <div class='utf_post_block_style post-float clearfix'>
+                                             <div class='utf_post_thumb'> <a href='#'> <img class='img-fluid'
                                             src='images/news/3.jpg' alt='' /> </a>
                                             <div class='video-icon video-icon-small'> <i class='fa fa-play'></i> </div>
                                    
-                                </div>
-                                <div class='utf_post_content'>
-                                    <h2 class='utf_post_title title-small'> <a href='interviews_view.php?id=" . $row['id'] . "'>
-                                    " . $row['details'] ."</a> </h2>
-                                    <div class='utf_post_meta'> <span class='utf_post_author'><i
+                                                     </div>
+                                                 <div class='utf_post_content'>
+                                                 <h2 class='utf_post_title title-small'> <a href='interviews_view.php?id=" . $row['id'] . "'>
+                                             " . $row['details'] ."</a> </h2>
+                                                     <div class='utf_post_meta'> <span class='utf_post_author'><i
                                                 class='fa fa-user'></i> <a href='#'>Prem Jadhav</a></span>
-                                        <span class='utf_post_date'><i class='fa fa-clock-o'></i> " . $row['upload_date'] ."</span>
-                                        <span class='utf_post_categ'>" . $row['category'] ."</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>"; } ?>
+                                                  <span class='utf_post_date'><i class='fa fa-clock-o'></i>". date('d M, Y',strtotime($row['upload_date']))."</span>
+                                                    <span class='utf_post_categ'>" . $row['category'] ."</span>
+                                                  </div>
+                                            </div>
+                                       </div>
+                                      </li>"; } ?>
                                 </ul>
                             </div>
                         </div>
@@ -675,7 +675,7 @@ include "./database/database.php";
                             if (!$conn) {                 
                              die("Connection failed: " . mysqli_connect_error());
                                   }
-                                $sql = "SELECT * FROM `event` LIMIT 3";//(innerjoin)
+                                $sql = "SELECT * FROM `event` where `status` ='1' LIMIT 3";
                                 $result = mysqli_query($conn, $sql);
                                     $sno = 0;
                                     while ($row = mysqli_fetch_assoc($result)) {
@@ -684,21 +684,19 @@ include "./database/database.php";
                                         <div class='border mb-3'>
                                         <div class='row'>
                                             <div class='col-lg-3 text-center event_date'>
-                                                <p class=''>02 </p>
-                                                <small>Dec, 2023</small>
+                                                <p class=''>".date('d',strtotime($row['date']))." </p>
+                                                <small>".date('M',strtotime($row['date'])).", ".date('Y',strtotime($row['date']))."</small>
                                             </div>
                                             <div class='col-lg-9 event-name'>
                                                 <h3>" . $row['title'] ."</h3>
                                                 <ul class='dat-time'>
-                                                    <li><i class='fa fa-clock-o'></i> " . $row['time'] ."</li>
-                                                    <li><i class='fa fa-calendar'></i>" . $row['date'] ."</li>
+                                                    <li><i class='fa fa-clock-o'></i>" . date('h:i A', strtotime($row['time'])) ."</li>
+                                                    <li><i class='fa fa-calendar'></i>". date('d M, Y',strtotime($row['date']))."</li>
                                                     <li><i class='fa fa-map-marker'></i> " . $row['city'] ."</li>
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                        "; } ?>
-                        
+                                    </div> "; } ?>
                         <div>
                             <div class="event_comimg_soon mb-3">
                                 <h3>

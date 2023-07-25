@@ -26,6 +26,12 @@
                                     <p class="border p-2"><?php echo $interview[0]['category']; ?></p>
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3 form-group">
+                                    <label for="tags" class="form-label">#Tags :</label>
+                                    <p class="border p-2"><?php echo $interview[0]['tags']; ?></p>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-5">
                             <div class="thmb">

@@ -358,4 +358,6 @@ error_reporting(E_ERROR | E_PARSE);
 	}
 // SELECT COUNT( id ) FROM daily_visitor WHERE status = '1';
 
+
+
 }?>

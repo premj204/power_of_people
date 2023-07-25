@@ -7,6 +7,9 @@
                 <h3>Edit Event</h3>
             </div>
             <form method="POST" onsubmit="return ValidateEditevent(this);" id="editEventFrm" name="editEventFrm">
+            <input type="hidden" name="id" id="id" value="<?php echo $event[0]['id']; ?>">
+                    <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+                    <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
                 <div class="mb-3 form-group mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" name="title" id="title" value="<?php echo $event[0]['title']; ?>">

@@ -599,7 +599,6 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #012970;
 }
 
 @media (max-width: 1199px) {
@@ -685,9 +684,6 @@ h6 {
   margin-right: 10px;
 }
 
-.sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
-}
 
 .sidebar-nav .nav-link:hover {
   color: #ffffff;

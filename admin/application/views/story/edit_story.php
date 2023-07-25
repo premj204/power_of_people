@@ -17,6 +17,9 @@
         <div class="card-body">
             <form method="POST" onsubmit="return validatestoryeditFrm(this);" id="StoryeditFrm" name="StoryeditFrm"
                 enctype="multipart/form-data">
+                <input type="hidden" name="id" id="id" value="<?php echo $story[0]['id']; ?>">
+                <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+                <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>

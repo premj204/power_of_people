@@ -6,6 +6,9 @@
             <div class="modal-body">
                 <form method="POST" onsubmit="return ValidateEditinterview(this);" id="IntereditFrm"
                     name="IntereditFrm">
+                    <input type="hidden" name="id" id="id" value="<?php echo $interview[0]['id']; ?>">
+                    <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+                    <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="mb-3 py-3 form-group">
@@ -41,6 +44,12 @@
                                             <?php if($interview[0]['category'] == 'Bussiness'){ echo "selected"; } ?>>
                                             Bussiness</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3 form-group">
+                                    <label for="tags" class="form-label">#Tags :</label>
+                                    <input type="text" class="form-control" name="tags" value="<?php echo $interview[0]['tags']; ?>" id="tags">
                                 </div>
                             </div>
                         </div>

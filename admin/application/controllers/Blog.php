@@ -130,7 +130,7 @@
     function fetch_blog_list(){
 
         $requestData= $_REQUEST;
-        $date = date('Y-m-d');
+        $date = date('d-m-Y');
         $baseurl = base_url();
         $columnarray = array(`id`, `headline`, `description`,`category`, `uploadFile`,`status`,`added_on`);
 

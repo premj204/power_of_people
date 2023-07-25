@@ -42,18 +42,33 @@
        $data['main_content']='event/new_event';
        $this->load->view('includes/templates',$data);
     }
+
     function edit_event(){
         $id = $this->input->get_post('id');
         $data['event'] = array();
         if(isset($id) && !empty($id)){
              $data['event'] = $this->model->getData('event',array('id'=> $id));
-                    }
+           }
        $data['nav']='event';
        $data['main_content']='event/edit_event';
        $this->load->view('includes/templates',$data);
 
     }
 
+
+    function view_event(){
+        $id = $this->input->get_post('id');
+        $data['event'] = array();
+        if(isset($id) && !empty($id)){
+             $data['event'] = $this->model->getData('event',array('id'=> $id));
+            //  print_r($data['blog']); exit;
+        }
+       $data['nav']='event';
+       $data['main_content']='event/view_event';
+       $this->load->view('includes/templates',$data);
+
+    }
+    
     function add_event(){
         $title = $this->input->get_post('title'); 
         $address = $this->input->get_post('address'); 
@@ -136,43 +151,23 @@
         );
         echo json_encode($json_data);
     }
-
-    function delete_event(){
-        $id = $this->input->get_post('id');
-        $status = $this->input->get_post('status');
-        if(isset($id) && $id!=""){
-            $eventData = array('status'=>$status);
-            $this->model->update_where('event',$eventData, 'id', $id );
-            $data['status'] = 200;
-            $data['msg'] = 'event has been suspend successfully.';
-        }else{
-            $data['status'] = 400;
-            $data['msg'] = 'Invalid event  ids.';
-        }
-        echo json_encode($data);
-    }
-    function update_event(){
+    function update_event(){      
+        $id = $this->input->get_post('id'); 
         $title = $this->input->get_post('title'); 
         $address = $this->input->get_post('address'); 
         $state = $this->input->get_post('state'); 
         $city = $this->input->get_post('city'); 
         $pincode = $this->input->get_post('pincode'); 
         $description = $this->input->get_post('description'); 
-        // $date = $this->input->get_post('date'); 
-        // $time = $this->input->get_post('time'); 
-     
        
-        if($title!="" && $state!=""){
+        if($id!="" && $title!=""){
             $eventData = array(
                'title' => $title,
                'address' => $address,
                'state' => $state,
                'city' => $city,
                'pincode' => $pincode,
-               'description' => $description,
-            //    'date' => $date,
-            //    'time' => $time,
-               
+               'description' => $description,               
             );
             $hasUpdated = $this->model->update_where('event',$eventData,'id',$id);
 
@@ -190,14 +185,22 @@
         }
         echo json_encode($data);
     }
+    function delete_event(){
+        $id = $this->input->get_post('id');
+        $status = $this->input->get_post('status');
+        if(isset($id) && $id!=""){
+            $eventData = array('status'=>$status);
+            $this->model->update_where('event',$eventData, 'id', $id );
+            $data['status'] = 200;
+            $data['msg'] = 'event has been suspend successfully.';
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid event  ids.';
+        }
+        echo json_encode($data);
+    }
 
 
 
-
-
-
-
-
-
-
+ 
 }?>

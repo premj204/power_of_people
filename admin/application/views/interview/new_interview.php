@@ -52,6 +52,12 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3 form-group">
+                                    <label for="tags" class="form-label">#Tags :</label>
+                                    <input type="text" class="form-control" name="tags" id="tags">
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-5">
                             <div class="row">

@@ -16,7 +16,10 @@
     <div class="card py-5">
         <div class="card-body">
             <form method="POST" onsubmit="return ValidateEditblog(this);" id="frmEditblog" name="frmEditblog">
-                              <div class="row g-3">
+                <div class="row g-3">
+                    <input type="hidden" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
+                    <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+                    <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
                         <div id="preview"> <img src="" alt=""></div>
@@ -41,7 +44,7 @@
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
                                     <select id="category" name="category" class="form-select">
-                                        <option  disabled>Select Category </option>
+                                        <option disabled>Select Category </option>
                                         <option value="Lifestyle"
                                             <?php if($blog[0]['category'] == 'Lifestyle'){ echo "selected";} ?>>
                                             Lifestyle

@@ -61,12 +61,12 @@
 //       $this->load->view('includes/templates',$data);
 //    }
 
-//     function role(){
-//       $data['title']='permission';
-//       $data['nav']='role';
-//       $data['main_content']='role/role';
-//       $this->load->view('includes/templates',$data);
-//     }
+    function role(){
+      $data['title']='permission';
+      $data['nav']='role';
+      $data['main_content']='role/role';
+      $this->load->view('includes/templates',$data);
+    }
 function fetch_story_list(){
 
     $requestData= $_REQUEST;

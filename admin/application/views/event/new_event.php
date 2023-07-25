@@ -20,32 +20,36 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="mb-3 form-group mb-3">
-                        <label for="state" class="form-label">Select State</label>
-                            <select id="state" name="state" class="form-select" aria-label="Default select example">
+                            <label for="state" class="form-label">Select State</label>
+                            <select id="state" name="state" class="form-select"
+                                aria-label="Default select example">
                                 <option selected disabled>Select State</option>
                                 <option value="Maharashtra">Maharashtra</option>
+                                <option value="Goa">Goa</option>
+                            </select>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="mb-3 form-group mb-3">
                             <label for="city" class="form-label">Select City</label>
-                            <select id="city" name="city" class="form-select" aria-label="Default select example">
-                                <option selected disabled>Select City</option>
+
+                            <select title="Select City" name="city" class="form-control" id="city">
+                            <option selected disabled>Select City</option>
                                 <option value="Mumbai">Mumbai</option>
                                 <option value="Thane">Thane</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                    <div class="mb-3 form-group mb-3">
-                        <label for="pincode" class="form-label">Pincode</label>
-                        <input type="number" onkeypress="if(this.value.length==6) return false;" class="form-control"
-                            name="pincode" id="pincode">
-                    </div>
+                        <div class="mb-3 form-group mb-3">
+                            <label for="pincode" class="form-label">Pincode</label>
+                            <input type="number" onkeypress="if(this.value.length==6) return false;"
+                                class="form-control" name="pincode" id="pincode">
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="mb-3 form-group mb-3">

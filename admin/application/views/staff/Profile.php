@@ -94,6 +94,9 @@
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                             <form method="POST" onsubmit="return ValidateEditprofile(this);" id="ProfileeditFrm"
                                 name="ProfileeditFrm">
+                                <input type="hidden" name="id" id="id" value="<?php echo $staff[0]['id']; ?>">
+                                <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+                                <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
                                 <div class="row mb-3">
                                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile
                                         Image</label>
@@ -109,7 +112,7 @@
                                                     </span>
                                                 </label>
                                                 <input type="file" id="inputFile" style="display: none;"
-                                                    onchange="readUrl(this)">
+                                                    onchange="readUrl(this)" name="photo">
 
                                                 <button type="button" onclick="removeImg()"
                                                     class="btn btn-danger btn-sm" title="Remove my profile image"><i
@@ -245,8 +248,12 @@
                                     <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
                                         Password</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <input name="password" type="password" class="form-control"
-                                            id="currentPassword">
+
+                                        <div class="input-group ">
+                                            <input type="password" name="password" class="form-control" id="password">
+                                            <span class="input-group-text"> <i class="bi bi-eye-slash"
+                                                    id="togglePassword"></i></span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -300,4 +307,16 @@ removeImg = () => {
     a.src = "<?php echo base_url(); ?>assets/img/profile-img.jpg";
     inputFile.value = "";
 }
+</script>
+<script>
+const togglePassword = document
+    .querySelector('#togglePassword');
+const password = document.querySelector('#password');
+togglePassword.addEventListener('click', () => {
+    const type = password
+        .getAttribute('type') === 'password' ?
+        'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('bi-eye');
+});
 </script>

@@ -1,5 +1,7 @@
 <link href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
-
+<?php
+         $role = $this->session->userdata('role');
+        ?>
 <div class="pagetitle">
     <h1>Dashboard</h1>
     <nav>
@@ -79,8 +81,6 @@
                                 </div>
                                 <div class="ps-3">
                                     <h1 class="fw-bold"><?php echo $interview['total_interview']; ?></h1>
-
-
                                 </div>
                             </div>
 
