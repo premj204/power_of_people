@@ -2,11 +2,11 @@
 
 <section>
 <div class="pagetitle">
-    <h1>Blogs</h1>
+    <h1>Event</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Blog List</li>
+            <li class="breadcrumb-item active">Event List</li>
         </ol>
     </nav>
 </div>
@@ -17,13 +17,14 @@
         <a href="<?php echo base_url('event/new_event'); ?>"><button type="button" class="btn btn-success float-end my-3">
                 <i class="bi bi-plus-square"></i> Add Event
             </button></a>
-        <h5 class="card-title">Blog list</h5>
+        <h5 class="card-title">Event list</h5>
 
         <table id="event" class="table cell-border hover table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Sr. No.</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Upload Date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>

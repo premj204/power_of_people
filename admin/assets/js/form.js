@@ -928,6 +928,119 @@ function validateEventFrm(ele) {
 }
 
 
+function ValidateEditevent(ele) {
+    let hasError = 0;
+    let title = jQuery("#title").val();
+    let address = jQuery("#address").val();
+    let state = jQuery("#state").val();
+    let city = jQuery("#city").val();
+    let pincode = jQuery("#pincode").val();
+    let description = jQuery("#description").val();
+    // let date = jQuery("#date").val();
+    // let time = jQuery("#time").val();
+    
+    if (jQuery.trim(title) == "") { showErrorArrow("Please enter title.", "title"); hasError = 1; } else { changeErrorArrow("title"); }
+    if (jQuery.trim(address) == "") { showErrorArrow("Please enter address.", "address"); hasError = 1; } else { changeErrorArrow("address"); }
+    if (jQuery.trim(state) == "") { showErrorArrow("Please select state.", "state"); hasError = 1; } else { changeErrorArrow("state"); }
+    if (jQuery.trim(city) == "") { showErrorArrow("Please select city.", "city"); hasError = 1; } else { changeErrorArrow("city"); }
+    if (jQuery.trim(pincode) == "") { showErrorArrow("Please enter pincode.", "pincode"); hasError = 1; } else { changeErrorArrow("pincode"); }
+    if (jQuery.trim(description) == "") { showErrorArrow("Please enter description .", "description"); hasError = 1; } else { changeErrorArrow("description"); }
+    //  if (jQuery.trim(date) == "") { showErrorArrow("Please select date.", "date"); hasError = 1; } else { changeErrorArrow("date"); }
+    // if (jQuery.trim(time) == "") { showErrorArrow("Please select time.", "time"); hasError = 1; } else { changeErrorArrow("time"); }
+    if (hasError == 1) {
+        $(".alert-success").css('display', 'none').find("span").html("");
+        $(".alert-danger").css('display', 'none').find("span").html("");
+        return false;
+    } else {
+
+        let newFormData = jQuery("#editEventFrm").serialize();
+        jQuery.ajax({
+            dataType: 'json',
+            url: baseURL + "event/add_event",
+            type: "POST",
+            data: newFormData,
+            cache: false,
+            success: function (res) {
+                if (typeof (res.status) != "undefined" && res.status == 200) {
+                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
+                    $(".alert-danger").css('display', 'none').find("span").html("");
+                    document.getElementById("editEventFrm").reset();
+                } else {
+                    $(".alert-success").css('display', 'none').find("span").html("");
+                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+                }
+            }
+        });
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function deleteevent(id, status, ele) {
+
+    if (id != "") {
+        let interviewStatus = (status == 1) ? 'Delete' : 'Re-Activate';
+        swal({
+            title: "Are you sure?",
+            // text: "Are you sure wanted to Delete the selected blog?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    var table = $('#event').DataTable();
+                    jQuery.ajax({
+                        dataType: 'json',
+                        url: "event/delete_event",
+                        type: "POST",
+                        data: { id: id, status },
+                        cache: false,
+                        success: function (res) {
+                            swal(res.msg, {
+                                icon: "success",
+                            })
+                            window.location.href = "event";
+                            table
+                                .row($(this).parents('tr'))
+                                .remove()
+                                .draw();
+                        }
+
+                    });
+                }
+            });
+    }
+    return false;
+}
 
 
 

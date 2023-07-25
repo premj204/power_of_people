@@ -16,8 +16,7 @@
     <div class="card py-5">
         <div class="card-body">
             <form method="POST" onsubmit="return ValidateEditblog(this);" id="frmEditblog" name="frmEditblog">
-                <input type="hidden" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
-                <div class="row g-3">
+                              <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
                         <div id="preview"> <img src="" alt=""></div>
