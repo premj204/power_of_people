@@ -14,8 +14,8 @@
 
 <div class="card">
     <div class="card-body">
-        <a href="<?php echo base_url('gallery/add_gallery'); ?>"><button type="button" class="btn btn-success float-end my-3">
-                <i class="bi bi-plus-square"></i> Add
+        <a href="<?php echo base_url('gallery/new_gallery'); ?>"><button type="button" class="btn btn-success float-end my-3">
+                <i class="bi bi-plus-square"></i> Add Images
             </button></a>
         <h5 class="card-title">Blog list</h5>
 

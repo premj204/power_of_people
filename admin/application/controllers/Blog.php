@@ -47,8 +47,7 @@
         $data['blog'] = array();
         if(isset($id) && !empty($id)){
              $data['blog'] = $this->model->getData('blog',array('id'=> $id));
-            //  print_r($data['blog']); exit;
-        }
+           }
        $data['nav']='blog';
        $data['main_content']='blog/edit_blog';
        $this->load->view('includes/templates',$data);
@@ -186,7 +185,7 @@
     }
 
     
-    function update_blog(){
+    function update_blog(){      
         $id = $this->input->get_post('id'); 
         $headline = $this->input->get_post('headline'); 
         $description = $this->input->get_post('description'); 
@@ -194,7 +193,7 @@
         $uploadFile = $this->input->get_post('uploadFile'); 
      
        
-        if($id!="" && $headline!=""){
+        if($id!="" && $category!=""){
             $blogData = array(
                'headline' => $headline,
                'description' => $description,

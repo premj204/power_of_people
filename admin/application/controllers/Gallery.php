@@ -37,9 +37,9 @@
 		$this->load->view('includes/templates',$data);
  	}
     
-     function add_gallery(){
+     function new_gallery(){
         $data['nav']='gallery';
-       $data['main_content']='gallery/add_gallery';
+       $data['main_content']='gallery/new_gallery';
        $this->load->view('includes/templates',$data);
     }
 

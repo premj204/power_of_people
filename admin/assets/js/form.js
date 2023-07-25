@@ -542,7 +542,7 @@ function ValidateEditinterview(ele) {
         let newFormData = jQuery("#IntereditFrm").serialize();
         jQuery.ajax({
             dataType: 'json',
-            url: baseURL + "interview/update_inter",
+            url: baseURL + "interview/update_interview",
             type: "POST",
             data: newFormData,
             cache: false,

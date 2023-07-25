@@ -120,16 +120,18 @@
         );
         echo json_encode($json_data);
     }
+ 
     function edit_interview(){
         $id = $this->input->get_post('id');
         $data['interview'] = array();
         if(isset($id) && !empty($id)){
-             $data['interview'] = $this->model->getData('interview',array('id'=> $id));
-                 }
+       $data['interview'] = $this->model->getData('interview',array('id'=> $id));}
        $data['nav']='interview';
        $data['main_content']='interview/edit_interview';
        $this->load->view('includes/templates',$data);
     }
+
+
     function view_interview(){
         $id = $this->input->get_post('id');
         $data['interview'] = array();
@@ -140,33 +142,40 @@
        $data['main_content']='interview/view_interview';
        $this->load->view('includes/templates',$data);
     }
-        function update_inter(){
+    function update_interview(){
         $id = $this->input->get_post('id'); 
         $video_link = $this->input->get_post('video_link'); 
         $details = $this->input->get_post('details'); 
         $description = $this->input->get_post('description'); 
         $category = $this->input->get_post('category'); 
-        $uploadThumbnail = $this->input->get_post('uploadThumbnail'); 
-           
-        if($id!="" && $video_link!=""){
+        $uploadThumbnail = $this->input->get_post('uploadThumbnail');    
+       
+        if($id!="" && $details!=""){
             $interviewData = array(
-               'video_link' => $video_link,
-               'details' => $details,
-               'description' => $description,
-               'category' => $category,
-               'uploadThumbnail' => $uploadThumbnail,
+                'video_link' => $video_link,
+                'details' => $details,
+                'description' => $description,
+                'category' => $category,
+                'uploadThumbnail' => $uploadThumbnail,
                
             );
-            $hasUpdated = $this->model->update_where('interview', $interviewData,'id', $id);
+            $hasUpdated = $this->model->update_where('interview',$interviewData,'id',$id);
+
+            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+            //     $file = $_FILES["uploadFile"]["name"];
+            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            // } 
 
             $data['status'] = 200;
-            $data[ 'msg'] = 'interview update successfully.';
+            $data[ 'msg'] = 'blog update successfully.';
         }else{
             $data['status'] = 400;
-            $data['msg'] = 'Invalid data. Please check with interview Data.';
+            $data['msg'] = 'Invalid data. Please check with blog Data.';
         }
         echo json_encode($data);
     }
+    
     function delete_interview(){
         $id = $this->input->get_post('id');
         $status = $this->input->get_post('status');
