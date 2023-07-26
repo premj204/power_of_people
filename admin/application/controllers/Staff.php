@@ -160,50 +160,7 @@
 
 
 
-    public function uploadFiles($rowId, $filename, $tmp_name, $position){
-        $data['status'] = 400;
-        $file1 = explode(".",$filename);
-        
-        $ext = $file1[1];
-        $newfilename = "";
-        $allowed = array("jpg","jpeg","png","pdf");
-        if(in_array($ext, $allowed)){
-            $uploadPath = "./imgstore/".$rowId;
-            $savePath = "./imgstore/".$rowId;
-            if($position == "photo"){
-                $newfilename = date('Ymd')."_photo_".round(microtime(true)). '.' . end($file1);
-                $uploadPath = $uploadPath."/photo/";
-                $savePath = $savePath."/photo/".$newfilename;
-                if(!file_exists($uploadPath)){
-                    mkdir($uploadPath,0777,true);
-                }
-                $path = $uploadPath.$newfilename;
-                $docData['photo'] = $newfilename;
-            }
-            if(move_uploaded_file($tmp_name, $path)){
-                //echo $rowId; print_r($docData);
-                $last_Id = $this->model->update_where('service_provider',  $docData , 'id', $rowId);
-                if($last_Id){
-                    $data['status'] = 200;
-                    $data['msg'] = 'File has been uploaded successfully.';
-                }else{
-                    $data['status'] = 400;
-                    $data['msg'] = 'Error while update. Please connect to administrator';
-                }
-            }else{
-                $data['status'] = 400;
-                $data['msg'] = 'Error while update.';
-            }
-        }
-        return $data;
-    }
-
-
-
-
-
-    function update_profile(){
-        $id = $this->input->get_post('id'); 
+        function update_profile(){
         $fname = $this->input->get_post('fname'); 
         $lname = $this->input->get_post('lname'); 
         $about = $this->input->get_post('about'); 
@@ -211,7 +168,7 @@
         $mobile = $this->input->get_post('mobile'); 
         $address = $this->input->get_post('address'); 
         $twitter = $this->input->get_post('twitter'); 
-        $facebook = $this->input->get_post('facebook');   //     // $tags = $this->input->get_post('tags'); 
+        $facebook = $this->input->get_post('facebook');   
         $instagram = $this->input->get_post('instagram');   //     // $tags = $this->input->get_post('tags'); 
         $linkedin = $this->input->get_post('linkedin');     //     // $tags = $this->input->get_post('tags'); 
        

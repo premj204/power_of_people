@@ -114,35 +114,7 @@ include "./database/database.php";
         </div>
     </div>
 </section>
-<!-- Featured Post Area End -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Latest News Area Start -->
 <section class="utf_latest_new_area pb-bottom-20">
     <div class="container-fluid">
         <div class="utf_latest_news block color-red">

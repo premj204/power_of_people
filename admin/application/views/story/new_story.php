@@ -14,7 +14,7 @@
     <div class="card py-5">
         <div class="card-body">
             <form method="POST" onsubmit="return validatestoryFrm(this);" id="StoryFrm" name="StoryFrm"
-                enctype="multipart/form-data">
+                enctype="multipart/form-data" action="<?php echo base_url() ?>story/add_story">
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
@@ -97,7 +97,25 @@
     </div>
 </section>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
+<?php if(isset($msg) && !empty($msg)){ ?>
+<script>
+<?php if($msg['status']==200){ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "success",
+      button: "Ok Done!",
+    });
+<?php }else{ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "error",
+      button: "Ok!",
+    });
+<?php } ?>
+</script>
+<?php } ?>
 <script>
 "use strict";
 

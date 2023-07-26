@@ -1,7 +1,7 @@
 let baseURL = "";
 var LOCAL_DOMAINS_1 = ["localhost", "127.0.0.1", "::1"];
 if (LOCAL_DOMAINS_1.includes(window.location.hostname)) {
-    baseURL = "http://localhost/power/admin/";
+    baseURL = "http://localhost/power_of_people-main/admin/";
 } else {
     baseURL = "";
 }
@@ -377,25 +377,25 @@ function validateBlogsFrm(ele) {
         $(".alert-danger").css('display', 'none').find("span").html("");
         return false;
     } else {
-        let newFormData = jQuery("#BlogFrm").serialize();
-        jQuery.ajax({
-            dataType: 'json',
-            url: baseURL + "blog/add_blog",
-            type: "POST",
-            data: newFormData,
-            cache: false,
-            success: function (res) {
-                if (typeof (res.status) != "undefined" && res.status == 200) {
-                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
-                    $(".alert-danger").css('display', 'none').find("span").html("");
-                    document.getElementById("BlogFrm").reset();
-                } else {
-                    $(".alert-success").css('display', 'none').find("span").html("");
-                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
-                }
-            }
-        });
-        return false;
+        // let newFormData = jQuery("#BlogFrm").serialize();
+        // jQuery.ajax({
+        //     dataType: 'json',
+        //     url: baseURL + "blog/add_blog",
+        //     type: "POST",
+        //     data: newFormData,
+        //     cache: false,
+        //     success: function (res) {
+        //         if (typeof (res.status) != "undefined" && res.status == 200) {
+        //             $(".alert-success").css('display', 'block').find("span").html(res.msg);
+        //             $(".alert-danger").css('display', 'none').find("span").html("");
+        //             document.getElementById("BlogFrm").reset();
+        //         } else {
+        //             $(".alert-success").css('display', 'none').find("span").html("");
+        //             $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+        //         }
+        //     }
+        // });
+        return true;
     }
 }
 
@@ -617,34 +617,31 @@ function validatestoryFrm(ele) {
     if (jQuery.trim(type) == "") { showErrorArrow("Please select type.", "type"); hasError = 1; } else { changeErrorArrow("type"); }
     if (jQuery.trim(category) == "") { showErrorArrow("Please select category.", "category"); hasError = 1; } else { changeErrorArrow("category"); }
     // if (jQuery.trim(tags) == "") { showErrorArrow("Please enter category.", "tags"); hasError = 1; } else { changeErrorArrow("tags"); }    
-
-
-
     if (hasError == 1) {
         $(".alert-success").css('display', 'none').find("span").html("");
         $(".alert-danger").css('display', 'none').find("span").html("");
         return false;
     } else {
 
-        let newFormData = jQuery("#StoryFrm").serialize();
-        jQuery.ajax({
-            dataType: 'json',
-            url: baseURL + "story/add_story",
-            type: "POST",
-            data: newFormData,
-            cache: false,
-            success: function (res) {
-                if (typeof (res.status) != "undefined" && res.status == 200) {
-                    $(".alert-success").css('display', 'block').find("span").html(res.msg);
-                    $(".alert-danger").css('display', 'none').find("span").html("");
-                    document.getElementById("StoryFrm").reset();
-                } else {
-                    $(".alert-success").css('display', 'none').find("span").html("");
-                    $(".alert-danger").css('display', 'block').find("span").html(res.msg);
-                }
-            }
-        });
-        return false;
+        // let newFormData = jQuery("#StoryFrm").serialize();
+        // jQuery.ajax({
+        //     dataType: 'json',
+        //     url: baseURL + "story/add_story",
+        //     type: "POST",
+        //     data: newFormData,
+        //     cache: false,
+        //     success: function (res) {
+        //         if (typeof (res.status) != "undefined" && res.status == 200) {
+        //             $(".alert-success").css('display', 'block').find("span").html(res.msg);
+        //             $(".alert-danger").css('display', 'none').find("span").html("");
+        //             document.getElementById("StoryFrm").reset();
+        //         } else {
+        //             $(".alert-success").css('display', 'none').find("span").html("");
+        //             $(".alert-danger").css('display', 'block').find("span").html(res.msg);
+        //         }
+        //     }
+        // });
+        return true;
     }
 }
 

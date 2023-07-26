@@ -16,7 +16,7 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return validateBlogsFrm(this);" id="BlogFrm" name="BlogFrm" enctype="multipart/form-data">
+            <form method="POST" onsubmit="return validateBlogsFrm(this);" id="BlogFrm" name="BlogFrm" enctype="multipart/form-data" action="<?php echo base_url(); ?>blog/add_blog">
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
@@ -44,7 +44,7 @@
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
                                     <select id="category" name="category" class="form-select" aria-label="Default select example">
-                                        <option selected disabled>select category</option>
+                                        <option value="" selected>select category</option>
                                         <option value="Health">Health</option>
                                         <option value="Life Style">Lifestyle</option>
                                         <option value="Life Style">Bussiness</option>
@@ -84,6 +84,25 @@
     </div>
 </section>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<?php if(isset($msg) && !empty($msg)){ ?>
+<script>
+<?php if($msg['status']==200){ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "success",
+      button: "Ok Done!",
+    });
+<?php }else{ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "error",
+      button: "Ok!",
+    });
+<?php } ?>
+</script>
+<?php } ?>
 
 <script>
 "use strict";

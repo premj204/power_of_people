@@ -36,8 +36,9 @@
 		$data['main_content']='blog/blog';
 		$this->load->view('includes/templates',$data);
  	}
-     function new_blog(){
+     function new_blog($msg=""){
  		$data['nav']='blog';
+        $data['msg'] = $msg;
 		$data['main_content']='blog/new_blog';
 		$this->load->view('includes/templates',$data);
  	}
@@ -54,83 +55,75 @@
 
     }
 
-    // public function uploadFiles($id, $filename, $tmp_name, $position){
-    //     $data['status'] = 400;
-    //     $file1 = explode(".",$filename);
-        
-    //     $ext = $file1[1];
-    //     $newfilename = "";
-    //     $allowed = array("jpg","jpeg","png");
-    //     if(in_array($ext, $allowed)){
-    //         $uploadPath = "/admin/assets/img/store_image/".$id;
-    //         $savePath = "/admin/assets/img/store_image/".$id;
-    //         if($position == "uploadFile"){
-    //             $newfilename = date('Ymd')."_uploadFile_".round(microtime(true)). '.' . end($file1);
-    //             $uploadPath = $uploadPath."/admin/assets/img/store_image/";
-    //             $savePath = $savePath."/admin/assets/img/store_image/".$newfilename;
-    //             if(!file_exists($uploadPath)){
-    //                 mkdir($uploadPath,0777,true);
-    //             }
-    //             $path = $uploadPath.$newfilename;
-    //             $docData['uploadFile'] = $newfilename;
-    //         }
-    //         if(move_uploaded_file($tmp_name, $path)){
-    //             //echo $rowId; print_r($docData);
-    //             $last_Id = $this->model->update_where('blog',  $blogData , 'id', $id);
-    //             if($last_Id){
-    //                 $data['status'] = 200;
-    //                 $data['msg'] = 'File has been uploaded successfully.';
-    //             }else{
-    //                 $data['status'] = 400;
-    //                 $data['msg'] = 'Error while update. Please connect to administrator';
-    //             }
-    //         }else{
-    //             $data['status'] = 400;
-    //             $data['msg'] = 'Error while update.';
-    //         }
-    //     }
-    //     return $data;
-    // }
-    
+    public function uploadFiles($rowId, $filename, $tmp_name, $position){
+        $data['status'] = 400;
+        $file1 = explode(".",$filename);
+        $ext = $file1[1];
+        $newfilename = "";
+        $allowed = array("jpg","jpeg","png","pdf");
+        if(in_array($ext, $allowed)){
+            $uploadPath = "./blog_docs/".$rowId;
+            $savePath = "./blog_docs/".$rowId;
+                $newfilename = date('Ymd')."_photo_".round(microtime(true)). '.' . end($file1);
+                $uploadPath = $uploadPath."/photo/";
+                $savePath = $savePath."/photo/".$newfilename;
+                if(!file_exists($uploadPath)){
+                    mkdir($uploadPath,0777,true);
+                }
+                $path = $uploadPath.$newfilename;
+                $docData['uploadFile'] = $newfilename;
+            if(move_uploaded_file($tmp_name, $path)){
+                //echo $rowId; print_r($docData);
+                $last_Id = $this->model->update_where('blog',  $docData , 'id', $rowId);
+                if($last_Id){
+                    $data['status'] = 200;
+                    $data['msg'] = 'File has been uploaded successfully.';
+                }else{
+                    $data['status'] = 400;
+                    $data['msg'] = 'Error while update. Please connect to administrator';
+                }
+            }else{
+                $data['status'] = 400;
+                $data['msg'] = 'Error while update.';
+            }
+        }
+        return $data;
+    }
     
      function add_blog(){
         $headline = $this->input->get_post('headline'); 
         $description = $this->input->get_post('description'); 
-        $category = $this->input->get_post('category'); 
-        $uploadFile = $this->input->get_post('uploadFile'); 
+        $category = $this->input->get_post('category');  
        
-
         if($headline != "" && $description!="" ){
            $blogData = array(
                'headline' => $headline,
                'description' => $description,   
                'category' => $category,   
-               'uploadFile' => $uploadFile, 
            );
-
-           
-            $this->model->insert_into('blog',$blogData);
-            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
-            //     $file = $_FILES["uploadFile"]["name"];
-            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
-            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
-            // } 
-            
+            $rowId = $this->model->insert_and_return('blog',$blogData);
+            if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+                $file = $_FILES["uploadFile"]["name"];
+                $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+                $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            } 
 
            $data['status'] = 200;
            $data[ 'msg'] = 'New blog Added successfully.';
+
            }else{
                $data['status'] = 400;
                $data['msg'] = 'Invalid data. Please check with Plan Data.';
            }
-        echo json_encode($data);
+        // echo json_encode($data);
+           $this->new_blog($data);
     }
 
     
     function fetch_blog_list(){
 
         $requestData= $_REQUEST;
-        $date = date('d-m-Y');
+        $date = date('Y-m-d');
         $baseurl = base_url();
         $columnarray = array(`id`, `headline`, `description`,`category`, `uploadFile`,`status`,`added_on`);
 

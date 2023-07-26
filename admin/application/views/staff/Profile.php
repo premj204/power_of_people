@@ -9,6 +9,7 @@
         </nav>
     </div>
 </section>
+<input type="hidden" name="id" id="id" value="<?php echo $staff[0]['id']; ?>">
 <section class="section profile">
     <div class="row">
         <div class="col-xl-4">
@@ -33,7 +34,6 @@
         <div class="col-xl-8">
             <div class="card">
                 <div class="card-body pt-3">
-                    <!-- Bordered Tabs -->
                     <ul class="nav nav-tabs nav-tabs-bordered">
 
                         <li class="nav-item">
@@ -162,16 +162,6 @@
                                         </select>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
                                 <div class="row mb-3">
                                     <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                                     <div class="col-md-8 col-lg-9 form-group">
