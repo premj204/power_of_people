@@ -599,6 +599,7 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background: #012970;
 }
 
 @media (max-width: 1199px) {
@@ -672,9 +673,7 @@ h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
-  transition: 0.3;
-  background: #f6f9ff;
+  color: #ffffff;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -687,7 +686,7 @@ h6 {
 
 .sidebar-nav .nav-link:hover {
   color: #ffffff;
-  background: #ffae62;
+  background: #3178f7;
 }
 
 .btn-action {

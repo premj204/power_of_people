@@ -39,7 +39,7 @@ include "./database/database.php";
                                 <div class='utf_post_content'>
                                     <h2 class='utf_post_title title-large'> <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>" . $row['title'] ."​</a> </h2>
                                     <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
-                                            <a href='#'>Prem Jadhav</a></span> 
+                                            <a href='#'> </a></span> 
                                             <span class='utf_post_date'><i class='fa fa-clock-o'></i>". $row['added_on'] ."</span>
                                              </div>                                </div>
                             </div>

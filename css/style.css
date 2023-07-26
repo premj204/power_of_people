@@ -673,9 +673,19 @@ a.utf_post_cat {
 }
 
 .utf_post_meta .utf_post_author a {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 70px;
 	font-size: 13px;
 	color: #6a6a6a;
 	font-weight: 600;
+}
+
+.thn-1 {
+	height: 13rem;
+	width: 20rem;
 }
 
 .utf_post_meta .utf_post_author a:hover {
@@ -689,7 +699,6 @@ a.utf_post_cat {
 	margin-right: 8px;
 	padding-right: 8px;
 	font-weight: 600;
-	border-right: 1px solid #dedede;
 	line-height: 14px;
 	display: inline-block;
 }
@@ -699,7 +708,7 @@ a.utf_post_cat {
 }
 
 .utf_post_meta span.utf_post_date {
-	border-right: 0;
+	border-right: 1px solid #dedede;
 }
 
 .single-post span.utf_post_date {
@@ -991,7 +1000,7 @@ span.post-comment span {
 }
 
 .utf_post_block_style.post-float .utf_post_thumb img {
-	max-width: 100px;
+	max-width: 99px;
 	min-height: 75px;
 }
 
@@ -4037,18 +4046,21 @@ h1 {
 .list-box {
 	width: 30rem !important;
 }
-.event_comimg_soon{
+
+.event_comimg_soon {
 	justify-content: center;
-    align-items: center;
-    height: 6rem;
-    padding: 18px;
-    border: 1px solid orange;
-    display: flex;
+	align-items: center;
+	height: 6rem;
+	padding: 18px;
+	border: 1px solid orange;
+	display: flex;
 }
-.event_comimg_soon h3{
+
+.event_comimg_soon h3 {
 	color: orange;
 	font-size: 2rem;
 }
+
 .event_date {
 	color: white;
 	height: 6rem;
@@ -4058,7 +4070,7 @@ h1 {
 
 .event_date p {
 	font-weight: bold;
-    font-size: 2.5rem;
+	font-size: 2.5rem;
 }
 
 .event_date small {
@@ -4071,35 +4083,39 @@ h1 {
 	padding: 0;
 	margin: 0;
 }
-.dat-time{
+
+.dat-time {
 	margin-left: -2.5rem;
-    list-style: none;
-	}
-	.dat-time i{
-		margin-right: 3px;
-		font-size: 13px;
-		color: #f79431;
-		background: #ffeaea;
-		padding: 2px;
-		border-radius: 4px;
-		width: 20px;
-		height: 20px;
-		line-height: 16px;
-		text-align: center;
-	}
-.dat-time li{
-	margin: 0 5px;
-    display: inline-flex;
+	list-style: none;
 }
+
+.dat-time i {
+	margin-right: 3px;
+	font-size: 13px;
+	color: #f79431;
+	background: #ffeaea;
+	padding: 2px;
+	border-radius: 4px;
+	width: 20px;
+	height: 20px;
+	line-height: 16px;
+	text-align: center;
+}
+
+.dat-time li {
+	margin: 0 5px;
+	display: inline-flex;
+}
+
 .event-name h3 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 23rem;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 0;
-    margin: 10px 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 23rem;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 0;
+	margin: 10px 0;
 }
 
 .speaker-name p {

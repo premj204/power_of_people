@@ -32,7 +32,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Zhang social media pop also
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span>
                                         <span class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a
                                                 href="#" class="comments-link"><span>03</span></a></span>
@@ -51,7 +51,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Zhang social media pop also
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -69,7 +69,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Zhang social media pop also
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -87,7 +87,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Zhang social media pop also
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -105,7 +105,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Zhang social media pop also
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -148,7 +148,7 @@ include "header.php";
                                                     pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                        class="fa fa-user"></i> <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan,
                                                     2022</span>
@@ -168,7 +168,7 @@ include "header.php";
                                                     pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                        class="fa fa-user"></i> <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan,
                                                     2022</span>
@@ -188,7 +188,7 @@ include "header.php";
                                                     pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                        class="fa fa-user"></i> <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan,
                                                     2022</span>
@@ -208,7 +208,7 @@ include "header.php";
                                                     pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                        class="fa fa-user"></i> <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan,
                                                     2022</span>

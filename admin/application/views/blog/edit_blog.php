@@ -15,14 +15,14 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return ValidateEditblog(this);" id="frmEditblog" name="frmEditblog">
+                    <form method="POST" onsubmit="return ValidateEditblog(this);" id="frmEditblog" name="frmEditblog">
                 <div class="row g-3">
                     <input type="hidden" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
-                    <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+                      <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
                     <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
-                        <div id="preview"> <img src="" alt=""></div>
+                        <div id="preview"><img src='<?php echo base_url(); ?>blog_docs/<?php echo $blog[0]['id']?>/photo/<?php echo $blog[0]['uploadFile']?>'></div>
                         <div class="uploadOuter form-group">
                             <label for="uploadFile" class="btn float-start btn-outline-success"> <i
                                     class="bi bi-upload me-1"></i>Upload Image</label>
@@ -55,6 +55,11 @@
                                         <option value="Bussiness"
                                             <?php if($blog[0]['category'] == 'Bussiness'){ echo "selected"; } ?>>
                                             Bussiness</option>
+                                            <option value="Social Work"
+                                            <?php if($blog[0]['category'] == 'Social Work'){ echo "selected"; } ?>>
+                                            Social Work</option>
+
+                                           
                                     </select>
                                 </div>
                             </div>
@@ -83,7 +88,7 @@
                 </div>
                 <hr>
                 <div class="">
-                    <a href="articles.php"><button type="button" class="btn btn-outline-secondary">Back</button></a>
+                    <!-- <a href="articles.php"><button type="button" class="btn btn-outline-secondary">Back</button></a> -->
                     <button type="submit" class="btn btn-outline-success float-end">Submit</button>
                 </div>
             </form><!-- End floating Labels Form -->

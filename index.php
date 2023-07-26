@@ -55,60 +55,30 @@ include "./database/database.php";
 
             <div class="col-lg-5 col-md-12 pad-l">
                 <div class="row">
-                    <div class="col-md-6 pad-r-small mb-1">
-                        <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
-                            <div class="utf_post_thumb"> <a href="#"><img class="img-fluid"
-                                        src="images/news/health5.jpg" alt="" /></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Travel</a>
-                                <h2 class="utf_post_title title-medium"> <a href="detailsview.php">Early tourists
-                                        choices
-                                        to
-                                        the sea of Maldiv…</a> </h2>
-                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                            href="#">Prem Jadhav</a></span></div>
+
+                    <?php
+                if (!$conn) {
+                 
+                    die("Connection failed: " . mysqli_connect_error());
+                     }
+                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' LIMIT 4";//(innerjoin)
+                       $result = mysqli_query($conn, $sql);
+                         $sno = 0;
+                         while ($row = mysqli_fetch_assoc($result)) {
+                            $sno = $sno + 1;
+                            echo " 
+                            <div class='col-md-6 pad-r-small mb-1'>
+                        <div class='utf_post_overaly_style contentTop utf_hot_post_bottom clearfix'>
+                            <div class='utf_post_thumb'> <a href='#'><img class='img-fluid'
+                                         src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' alt='" . $row['title'] ."' /></a> </div>
+                            <div class='utf_post_content'> <a class='utf_post_cat' href='#'>" . $row['category'] ."</a>
+                                <h2 class='utf_post_title title-medium'> <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> " . $row['title'] ." </a> </h2>
+                                <div class='utf_post_meta'><span class='utf_post_date'><i
+                                class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span> <span class='utf_post_author'><i class='fa fa-user'></i> <a
+                                            href='#'> </a></span></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 pad-l-small mb-1">
-                        <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
-                            <div class="utf_post_thumb"> <a href="#"><img class="img-fluid" src="images/news/1.jpg"
-                                        alt="" /></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Health</a>
-                                <h2 class="utf_post_title title-medium"> <a href="detailsview.php">That wearable on your
-                                        wrist
-                                        could soon...</a> </h2>
-                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                            href="#">Prem Jadhav</a></span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 pad-r-small mb-1">
-                        <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
-                            <div class="utf_post_thumb"> <a href="#"><img class="img-fluid" src="images/news/2.jpg"
-                                        alt="" /></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Travel</a>
-                                <h2 class="utf_post_title title-medium"> <a href="detailsview.php">Early tourists
-                                        choices
-                                        to
-                                        the sea of Maldiv…</a> </h2>
-                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                            href="#">Prem Jadhav</a></span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 pad-l-small">
-                        <div class="utf_post_overaly_style contentTop utf_hot_post_bottom clearfix">
-                            <div class="utf_post_thumb"> <a href="#"><img class="img-fluid" src="images/news/3.jpg"
-                                        alt="" /></a> </div>
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Health</a>
-                                <h2 class="utf_post_title title-medium"> <a href="detailsview.php">That wearable on your
-                                        wrist
-                                        could soon...</a> </h2>
-                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a
-                                            href="#">Prem Jadhav</a></span> </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>"; } ?>
                 </div>
             </div>
         </div>
@@ -136,25 +106,23 @@ include "./database/database.php";
                     <ul class='utf_list_post'>
                         <li class='clearfix'>
                             <div class='utf_post_block_style clearfix'>
-                                <div class='utf_post_thumb'> <img class='img-fluid' src='images/news/video2.jpg' alt=''>
+                                <div class='utf_post_thumb thn-1'> <img class='img-fluid' src='./admin/blog_docs/".$row['id']."/photo/".$row['uploadFile']."'>
                                     <a href='video_view.php'>
-                                        <div class='video-icon'> <i class='fa fa-play'></i> </div>
+                                      
                                     </a>
                                 </div>
                                 <a class='utf_post_cat' href='#'>" . $row['category'] ."</a>
                                 <div class='utf_post_content'>
                                     <h2 class='utf_post_title title-medium'> <a href='blog_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> " . $row['headline'] ." </a> </h2>
-                                    <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
-                                            <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
-                                                class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span> </div>
+                                    <div class='utf_post_meta'> </span> <span class='utf_post_date'><i
+                                                class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span><span class='utf_post_author'><i class='fa fa-user'></i>
+                                                <a href='#'> </a> </div>
                                                 
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>"; } ?>
-
-
                 <!-- <div class="item">
                     <ul class="utf_list_post">
                         <li class="clearfix">
@@ -170,7 +138,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -190,7 +158,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -210,7 +178,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -230,7 +198,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -250,7 +218,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -270,7 +238,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -290,7 +258,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -311,7 +279,7 @@ include "./database/database.php";
                                             pop
                                             also known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -345,7 +313,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Zhang social media pop also
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span>
+                                            <a href="#"> </a></span>
                                         <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                             Jan, 2022</span>
                                     </div>
@@ -364,7 +332,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Zhang social media pop also
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span>
+                                            <a href="#"> </a></span>
                                         <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                             Jan, 2022</span>
                                     </div>
@@ -387,7 +355,7 @@ include "./database/database.php";
                                                         media pop also known when
                                                         smart innocent...</a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -405,7 +373,7 @@ include "./database/database.php";
                                                         media pop also known when
                                                         smart innocent...</a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -423,7 +391,7 @@ include "./database/database.php";
                                                         media pop also known when
                                                         smart innocent...</a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -441,7 +409,7 @@ include "./database/database.php";
                                                         media pop also known when
                                                         smart innocent...</a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -472,7 +440,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Zhang social media pop also known
                                             when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                 </div>
@@ -489,7 +457,7 @@ include "./database/database.php";
                                                 <h2 class="utf_post_title title-small"> <a href="#">Zhang social
                                                         media pop also known when smart innocent... </a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -507,7 +475,7 @@ include "./database/database.php";
                                                 <h2 class="utf_post_title title-small"> <a href="#">Zhang social
                                                         media pop also known when smart innocent...</a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -525,7 +493,7 @@ include "./database/database.php";
                                                 <h2 class="utf_post_title title-small"> <a href="#">Zhang social
                                                         media pop also known when smart innocent...</a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -542,7 +510,7 @@ include "./database/database.php";
                                                 <h2 class="utf_post_title title-small"> <a href="#">Zhang social
                                                         media pop also known when smart innocent...</a> </h2>
                                                 <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                            class="fa fa-user"></i> <a href="#"> </a></span>
                                                     <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                         2022</span>
                                                 </div>
@@ -580,10 +548,9 @@ include "./database/database.php";
                                     <h2 class='utf_post_title'> <a
                                             href='<?php echo "interviews_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . ""?>'><?php echo" " . $row['details'] ." " ?></a>
                                     </h2>
-                                    <div class='utf_post_meta'> <span class='utf_post_author'><i class='fa fa-user'></i>
-                                            <a href='#'>Prem Jadhav</a></span> <span class='utf_post_date'><i
-                                                class='fa fa-clock-o'></i>
-                                            <?php echo"". date('d M, Y',strtotime($row['upload_date']))."" ?></span>
+                                    <div class='utf_post_meta'> <span class='utf_post_date'><i class='fa fa-clock-o'></i>
+                                            <?php echo"". date('d M, Y',strtotime($row['upload_date']))."" ?></span> <span class='utf_post_author'><i class='fa fa-user'></i>
+                                            <a href='#'> </a></span> 
                                     </div>
                                 </div>
                             </div>
@@ -610,10 +577,10 @@ include "./database/database.php";
                                                  <div class='utf_post_content'>
                                                  <h2 class='utf_post_title title-small'> <a href='interviews_view.php?id=" . $row['id'] . "'>
                                              " . $row['details'] ."</a> </h2>
-                                                     <div class='utf_post_meta'> <span class='utf_post_author'><i
-                                                class='fa fa-user'></i> <a href='#'>Prem Jadhav</a></span>
-                                                  <span class='utf_post_date'><i class='fa fa-clock-o'></i>". date('d M, Y',strtotime($row['upload_date']))."</span>
-                                                    <span class='utf_post_categ'>" . $row['category'] ."</span>
+                                                     <div class='utf_post_meta'> <span class='utf_post_date'><i class='fa fa-clock-o'></i>". date('d M, Y',strtotime($row['upload_date']))."</span>
+                                                     <span class='utf_post_categ'>" . $row['category'] ."</span><span class='utf_post_author'><i
+                                                class='fa fa-user'></i> <a href='#'> </a></span>
+                                                  
                                                   </div>
                                             </div>
                                        </div>
@@ -688,7 +655,7 @@ include "./database/database.php";
                                                     media pop also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i>
-                                                    <a href="#">Prem Jadhav</a></span>
+                                                    <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan, 2022</span>
                                             </div>
@@ -706,7 +673,7 @@ include "./database/database.php";
                                                     media pop also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i>
-                                                    <a href="#">Prem Jadhav</a></span>
+                                                    <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan, 2022</span>
                                             </div>
@@ -724,7 +691,7 @@ include "./database/database.php";
                                                     media pop also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i>
-                                                    <a href="#">Prem Jadhav</a></span>
+                                                    <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan, 2022</span>
                                             </div>
@@ -742,7 +709,7 @@ include "./database/database.php";
                                                     media pop also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i>
-                                                    <a href="#">Prem Jadhav</a></span>
+                                                    <a href="#"> </a></span>
                                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
                                                     Jan, 2022</span>
                                             </div>
@@ -801,8 +768,8 @@ include "./database/database.php";
                             <h2 class="utf_post_title"> <a href="#">Zhang social media pop also known when smart
                                     innocent...</a> </h2>
                             <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                    <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i> 25 Jan, 2022</span> </div>
+                                    <a href="#"> </a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>
+                                    25 Jan, 2022</span> </div>
                         </div>
                     </div>
 
@@ -816,7 +783,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -832,7 +799,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -848,7 +815,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -871,8 +838,8 @@ include "./database/database.php";
                             <h2 class="utf_post_title"> <a href="#">Zhang social media pop also known when smart
                                     innocent...</a> </h2>
                             <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                    <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i> 25 Jan, 2022</span> </div>
+                                    <a href="#"> </a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>
+                                    25 Jan, 2022</span> </div>
                         </div>
                     </div>
 
@@ -886,7 +853,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -902,7 +869,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -918,7 +885,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -941,8 +908,8 @@ include "./database/database.php";
                             <h2 class="utf_post_title"> <a href="#">That wearable on your wrist could soon track
                                     your health as …</a> </h2>
                             <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                    <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i> 25 Jan, 2022</span> </div>
+                                    <a href="#"> </a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>
+                                    25 Jan, 2022</span> </div>
                         </div>
                     </div>
 
@@ -956,7 +923,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -972,7 +939,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -988,7 +955,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -1010,8 +977,8 @@ include "./database/database.php";
                             <h2 class="utf_post_title"> <a href="#">That wearable on your wrist could soon track
                                     your health as …</a> </h2>
                             <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                    <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
-                                        class="fa fa-clock-o"></i> 25 Jan, 2022</span> </div>
+                                    <a href="#"> </a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>
+                                    25 Jan, 2022</span> </div>
                         </div>
                     </div>
 
@@ -1025,7 +992,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -1041,7 +1008,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -1057,7 +1024,7 @@ include "./database/database.php";
                                         <h2 class="utf_post_title title-small"> <a href="#">Zhang social media
                                                 pop also known when smart innocent...</a> </h2>
                                         <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                    class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span>
+                                                    class="fa fa-user"></i> <a href="#"> </a></span>
                                             <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                 2022</span>
                                         </div>
@@ -1090,7 +1057,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Ratcliffe to be Director of
                                             intelligence Trump ignored smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -1107,7 +1074,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Ratcliffe to be Director of
                                             intelligence Trump ignored smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -1124,7 +1091,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Zhang social media pop also known
                                             when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -1143,7 +1110,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Breeze through 17 locations in
                                             Europe in this breathtaking v…</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -1160,7 +1127,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Science meets architecture in
                                             robotically woven, solar...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -1177,7 +1144,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#">Historical heroes and robot
                                             dinosaurs: New games on our…</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan,
                                             2022</span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting

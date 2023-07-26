@@ -39,14 +39,14 @@ include "./database/database.php";
                         <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">Eriyouth</a>
                             </span>
                             <span class="utf_post_date"><i class="fa fa-clock-o"></i>
-                                <?php echo "".$row['added_on'].""; ?></span> 
+                                <?php echo "".$row['added_on'].""; ?></span>
                         </div>
                     </div>
 
                     <div class="utf_post_content-area">
-                        <div class='post-media post-featured-image'> <a href='images/blog/Two_Young_Doctors.webp'
-                                class='gallery-popup cboxElement'><img src='images/blog/Two_Young_Doctors.webp'
-                                    class='img-fluid' alt=''></a>
+                        <div class='post-media post-featured-image'> <img
+                                src='./admin/story_docs/<?php echo $row['id']; ?>/photo/<?php echo $row['uploadFile'] ?>'
+                                class='img-fluid' alt=''>
                         </div>
                         <div class='entry-content'>
                             <?php echo "".$row['description'].""; ?>
@@ -81,7 +81,7 @@ include "./database/database.php";
                                 <div class="author-img pull-left"> <img src="images/news/author.png" alt=""> </div>
                             </div>
                             <div class="col-lg-10">
-                                <h3>Prem Jadhav</h3>
+                                <h3> </h3>
                                 <p class="mb-3"><b>Author</b></p>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has
@@ -197,72 +197,35 @@ include "./database/database.php";
                     </div>
 
                     <div class="widget color-default">
-                        <h3 class="utf_block_title"><span class="bg-title-orange">Popular News</span></h3>
+                        <h3 class="utf_block_title"><span class="bg-title-orange">Popular story</span></h3>
                         <div class="utf_list_post_block">
                             <ul class="utf_list_post">
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/1.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Gadgets</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                <?php
+                                if (!$conn) {
+                 
+                                    die("Connection failed: " . mysqli_connect_error());
+                                     }
+                                     $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() LIMIT 5";//(innerjoin)
+                                    $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                     while ($row = mysqli_fetch_assoc($result)) {
+                                     $sno = $sno + 1;
+                                     echo "
+                                           <li class='clearfix'>
+                                            <div class='utf_post_block_style post-float clearfix'>
+                                            <div class='utf_post_thumb'> <a href='#'> <img class='img-fluid'
+                                            src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' alt=''> </a> <a class='utf_post_cat'
+                                             href='#'>".$row['category']."</a> </div>
+                                            <div class='utf_post_content'>
+                                                        <h2 class='utf_post_title title-small'> <a href='#'>".$row['title']."</a> </h2>
+                                                        <div class='utf_post_meta'>  <span
+                                                                class='utf_post_date'><i class='fa fa-clock-o'></i>". date('d M, Y',strtotime($row['added_on']))."</span><span class='utf_post_author'><i
+                                                                class='fa fa-user'></i> <a href='#'> </a></span> </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                 "; } ?>
 
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/3.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Travel</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/2.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Traveling</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/4.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Food</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -285,27 +248,6 @@ include "./database/database.php";
                             <li><a href="#">Wordpress</a></li>
                             <li><a href="#">Customer</a></li>
                         </ul>
-                    </div>
-
-                    <div class="widget m-bottom-0">
-                        <h3 class="utf_block_title"><span class="bg-title-green">Newsletter</span></h3>
-                        <div class="utf_newsletter_block">
-                            <div class="utf_newsletter_introtext">
-                                <h4>Subscribe Newsletter!</h4>
-                                <p>Lorem ipsum dolor sit consectetur adipiscing elit Maecenas in pulvinar neque Nulla
-                                    finibus lobortis pulvinar.</p>
-                            </div>
-                            <div class="utf_newsletter_form">
-                                <form action="#" method="post">
-                                    <div class="form-group">
-                                        <input type="email" name="email" id="utf_newsletter_form-email"
-                                            class="form-control form-control-lg" placeholder="E-Mail Address"
-                                            autocomplete="off">
-                                        <button class="btn btn-primary">Subscribe</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

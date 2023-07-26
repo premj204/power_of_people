@@ -60,7 +60,7 @@
         $file1 = explode(".",$filename);
         $ext = $file1[1];
         $newfilename = "";
-        $allowed = array("jpg","jpeg","png","pdf");
+        $allowed = array("jpg","jpeg","png","pdf","webp");
         if(in_array($ext, $allowed)){
             $uploadPath = "./blog_docs/".$rowId;
             $savePath = "./blog_docs/".$rowId;
@@ -196,11 +196,11 @@
             );
             $hasUpdated = $this->model->update_where('blog',$blogData,'id',$id);
 
-            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
-            //     $file = $_FILES["uploadFile"]["name"];
-            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
-            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
-            // } 
+            if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+                $file = $_FILES["uploadFile"]["name"];
+                $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+                $uploadData = $this->uploadFiles($id, $file, $tmp_name, "uploadFile");
+            } 
 
             $data['status'] = 200;
             $data[ 'msg'] = 'blog update successfully.';

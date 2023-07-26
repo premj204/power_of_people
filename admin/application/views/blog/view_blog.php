@@ -20,36 +20,37 @@
             <input type="hidden" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
             <div class="row g-3">
                 <div class="col-md-4">
-                    <label for="image" class="form-label">Upload Image :</label>
-                    <div id="preview"></div>
-                    <div class="uploadOuter form-group">
-                        <label for="uploadFile" class="btn btn-outline-success"> <i class="bi bi-upload me-1"></i>Upload
-                            Image</label>
-                        <span>
-                            <input type="file" style="display: none;" onChange="dragNdrop10(event)" ondragover="drag()"
-                                ondrop="drop()" id="uploadFile" name="uploadFile" />
-                        </span>
+                    <label for="image" class="form-label">Image :</label>
+                    <div id="preview">
+                        <img src="./blog_docs/<?php echo $row['uploadFile'] ?>" alt="">
                     </div>
-                </div>               
+                </div>
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-md-8">
                             <div class="mb-3 py-3 form-group">
                                 <label for="tags" class="form-label">#Tags :</label>
-                                <p class=""> </p>
-                            </div>
-                        </div><div class="col-lg-6">
-                                <div class="mb-3 form-group">
-                                    <label for="tags" class="form-label">Category :</label>
-                                    <p class=""><?php echo $blog[0]['category']; ?> </p>
-                                </div>
-                            </div>
-                        <div class="col-lg-12">
-                            <div class="mb-3 form-group">
-                                <label for="headline" class="form-label">Headline :</label>
-                                <p class=""><?php echo $blog[0]['headline']; ?> </p>
+                                <p class="form-control"> </p>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="mb-3 form-group">
+                                <label for="tags" class="form-label">Category :</label>
+                                <p class="form-control"><?php echo $blog[0]['category']; ?> </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3 form-group">
+                            <div class="mb-3 form-group">
+                                <label for="headline" class="form-label">Headline :</label>
+                                <p class="form-control"><?php echo $blog[0]['headline']; ?> </p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
                         <div class="col-lg-12">
                             <div class="mb-3 py-3 form-group">
                                 <label for="description" class="form-label">Description :</label>

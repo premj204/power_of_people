@@ -68,7 +68,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Meet the ‘Nomadic Doctor’ of
                                             Ladakh, who saved the lives of 1000 women​</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -84,7 +84,7 @@ include "header.php";
                                 <div class="utf_post_content">
                                     <h2 class="utf_post_title title-large"> <a href="#">Power Of Chanting</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -101,7 +101,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Neurology on Wheels : This
                                             doctor is taking her services to the villages for free</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -118,7 +118,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">From Freelancer to Agency
                                             Owner</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -136,7 +136,7 @@ include "header.php";
                                             Passenger
                                             – Power Of Kindness</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
@@ -153,7 +153,7 @@ include "header.php";
                                     <h2 class="utf_post_title title-large"> <a href="#">Power Of Journaling
                                             - Journaling is a Wonderful</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Prem Jadhav</a></span> <span class="utf_post_date"><i
+                                            <a href="#"> </a></span> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>

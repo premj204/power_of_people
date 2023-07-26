@@ -1,7 +1,7 @@
 <?php 
  if (! defined('BASEPATH')) exit('No direct script access allowed');
  error_reporting(E_ERROR | E_PARSE);
- class staff extends CI_Controller{
+ class Staff extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->no_cache();
@@ -52,6 +52,47 @@
        $this->load->view('includes/templates',$data);
 
     }
+
+    public function uploadFiles($rowId, $filename, $tmp_name, $position){
+        $data['status'] = 400;
+        $file1 = explode(".",$filename);
+        $ext = $file1[1];
+        $newfilename = "";
+        $allowed = array("jpg","jpeg","png","pdf");
+        if(in_array($ext, $allowed)){
+            $uploadPath = "./staff_docs/".$rowId;
+            $savePath = "./staff_docs/".$rowId;
+                $newfilename = date('Ymd')."_photo_".round(microtime(true)). '.' . end($file1);
+                $uploadPath = $uploadPath."/photo/";
+                $savePath = $savePath."/photo/".$newfilename;
+                if(!file_exists($uploadPath)){
+                    mkdir($uploadPath,0777,true);
+                }
+                $path = $uploadPath.$newfilename;
+                $docData['uploadFile'] = $newfilename;
+            if(move_uploaded_file($tmp_name, $path)){
+                //echo $rowId; print_r($docData);
+                $last_Id = $this->model->update_where('staff',  $docData , 'id', $rowId);
+                if($last_Id){
+                    $data['status'] = 200;
+                    $data['msg'] = 'File has been uploaded successfully.';
+                }else{
+                    $data['status'] = 400;
+                    $data['msg'] = 'Error while update. Please connect to administrator';
+                }
+            }else{
+                $data['status'] = 400;
+                $data['msg'] = 'Error while update.';
+            }
+        }
+        return $data;
+    }
+
+
+
+
+
+
      function add_staff(){
         $fname = $this->input->get_post('fname'); 
         $lname = $this->input->get_post('lname'); 
@@ -66,7 +107,6 @@
                'lname' => $lname,   
                'email' => $email, 
                'position' => $position, 
-            //    'mobile' => $mobile, 
                'password' => $password, 
            );
 
@@ -161,6 +201,7 @@
 
 
         function update_profile(){
+        $id = $this->input->get_post('id'); 
         $fname = $this->input->get_post('fname'); 
         $lname = $this->input->get_post('lname'); 
         $about = $this->input->get_post('about'); 
@@ -187,11 +228,7 @@
                'linkedin' => $linkedin,
            );
             $hasUpdated = $this->model->update_where('staff',$staffData,'id',$id);
-//               if(isset($_FILES) && $_FILES['photo']['name']!="" && $_FILES['profile']['size']>0){
-//                 $file = $_FILES["photo"]["name"];
-//                 $tmp_name = $_FILES["photo"]["tmp_name"];
-//                 $uploadData = $this->profile($rowId, $file, $tmp_name, "photo");
-//             } 
+          
             $data['status'] = 200;
             $data[ 'msg'] = 'staff update successfully.';
         }else{

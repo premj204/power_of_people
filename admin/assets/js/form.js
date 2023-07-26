@@ -1,7 +1,7 @@
 let baseURL = "";
 var LOCAL_DOMAINS_1 = ["localhost", "127.0.0.1", "::1"];
 if (LOCAL_DOMAINS_1.includes(window.location.hostname)) {
-    baseURL = "http://localhost/power_of_people-main/admin/";
+    baseURL = "http://localhost/power/admin/";
 } else {
     baseURL = "";
 }

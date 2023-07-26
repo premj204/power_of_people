@@ -27,6 +27,10 @@
                     <ul>
                         <li><i class="fa fa-angle-double-right"></i><a href="index.php">Home</a></li>
                         <li><i class="fa fa-angle-double-right"></i><a href="">Event</a></li>
+                        <li><i class="fa fa-angle-double-right"></i><a href="">Blog</a></li>
+
+
+
                         <li><i class="fa fa-angle-double-right"></i><a href="#"><span
                                     class="catTitle">Inspiration</span><span class="catCounter"> (06)</span></a>
                         </li>

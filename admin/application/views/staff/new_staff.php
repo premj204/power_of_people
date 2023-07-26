@@ -67,3 +67,27 @@
         </div>
     </div>
 </section>
+<?php if(isset($msg) && !empty($msg)){ ?>
+<script>
+<?php if($msg['status']==200){ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "success",
+      button: "Ok Done!",
+    });
+<?php }else{ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "error",
+      button: "Ok!",
+    });
+<?php } ?>
+</script>
+<?php } ?>
+<style>
+label {
+    font-weight: 600;
+}
+</style>

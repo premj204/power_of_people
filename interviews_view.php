@@ -38,7 +38,7 @@ include "./database/database.php";
                 <div class="single-post">
                     <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">Food</a>
                         <h2 class="utf_post_title"><?php echo" " . $row['details'] ." " ?></h2>
-                        <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">Prem Jadhav</a> </span>
+                        <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#"> </a> </span>
                             <span class="utf_post_date"><i class="fa fa-clock-o"></i><?php echo" " . $row['upload_date'] ." " ?></span>
                              <span class="post-hits"><i class="fa fa-eye"></i> 21</span> <span class="post-comment">
                              <i class="fa fa-comments-o"></i> <a href="#" class="comments-link"><span>01</span></a></span>
@@ -118,7 +118,7 @@ include "./database/database.php";
                                             <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
+                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
                                                     class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                     2022</span> </div>
                                         </div>
@@ -134,7 +134,7 @@ include "./database/database.php";
                                             <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
+                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
                                                     class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                     2022</span> </div>
                                         </div>
@@ -150,7 +150,7 @@ include "./database/database.php";
                                             <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
+                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
                                                     class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                     2022</span> </div>
                                         </div>
@@ -166,7 +166,7 @@ include "./database/database.php";
                                             <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#">Prem Jadhav</a></span> <span
+                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
                                                     class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
                                                     2022</span> </div>
                                         </div>
