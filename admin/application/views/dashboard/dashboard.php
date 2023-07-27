@@ -97,74 +97,61 @@
 
                         <div class="filter">
                             <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
-                                </li>
-                                <li><a class="dropdown-item" href="#">Power Of Words</a></li>
-                                <li><a class="dropdown-item" href="#">Power Of Action</a></li>
-                                <li><a class="dropdown-item" href="#">Power Of Charity</a></li>
-                                <li><a class="dropdown-item" href="#">Power Of Health</a></li>
-                                <li><a class="dropdown-item" href="#">Power Of Life's Work</a></li>
-                            </ul>
                         </div>
 
                         <div class="card-body">
                             <h5 class="card-title">Recent Stories</h5>
-                            <table id="story" class="table table-borderless datatable">
+                            <table id="" class="table  hover table-bordered">
                                 <thead>
                                     <tr>
                                         <th scope="col">Sr. No.</th>
-                                        <th scope="col">Title </th>
+                                        <th scope="col">Title</th>
                                         <th scope="col">Type</th>
                                         <th scope="col">Upload Date</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <!-- <tr>
-                                        <th scope="row"><a href="#">#2457</a></th>
+                                <tbody class="fw-bold">
+                                    <tr>
+                                        <th scope="row">#1</th>
                                         <td>Brandon Jacob</td>
-                                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                        <td>$64</td>
+                                        <td>At praesentium minu</td>
+                                        <td> 11 Aug, 2023</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><a href="#">#2147</a></th>
+                                    <th scope="row">#2</th>
                                         <td>Bridie Kessler</td>
-                                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                                        <td>$47</td>
+                                        <td>Blanditiis dolor omnis similique</td>
+                                        <td>09 April, 2023</td>
                                         <td><span class="badge bg-warning">Pending</span></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><a href="#">#2049</a></th>
+                                    <th scope="row">#3</th>
                                         <td>Ashleigh Langosh</td>
-                                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                                        <td>$147</td>
+                                        <td>At recusandae consectetur</td>
+                                        <td> 6 Oct, 2023</td>
                                         <td><span class="badge bg-success">Approved</span></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><a href="#">#2644</a></th>
+                                    <th scope="row">#4</th>
                                         <td>Angus Grady</td>
-                                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                                        <td>$67</td>
+                                        <td>Ut voluptatem id earum et</td>
+                                        <td> 02 Jan, 2023</td>
                                         <td><span class="badge bg-danger">Rejected</span></td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><a href="#">#2644</a></th>
+                                    <th scope="row">#5</th>
                                         <td>Raheem Lehner</td>
-                                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                                        <td>$165</td>
+                                        <td>Sunt similique distinctio</td>
+                                        <td> 26 May, 2023</td>
                                         <td><span class="badge bg-success">Approved</span></td>
-                                    </tr> -->
+                                    </tr>
                                 </tbody>
                             </table>
-
                         </div>
-
                     </div>
                 </div>
-             
                 <div class="col-12">
                     <div class="card top-selling overflow-auto">
                         <div class="card-body pb-0">
@@ -175,7 +162,7 @@
                                     <tr>
                                         <th scope="col">Preview</th>
                                         <th scope="col">Title</th>
-                                    <th scope="col">Category</th>
+                                        <th scope="col">Category</th>
                                         <th scope="col">Upload Date</th>
                                         <th scope="col">Status</th>
                                     </tr>
@@ -341,7 +328,7 @@
                         <div class="activite-label">56 min</div>
                         <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Story</b></span> &nbsp;<span>title</span>
+                            <span><b>Story</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -349,7 +336,7 @@
                         <div class="activite-label">2 hrs</div>
                         <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Interview</b></span> &nbsp;<span>title</span>
+                            <span><b>Interview</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -357,7 +344,7 @@
                         <div class="activite-label">1 day</div>
                         <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Gallery</b></span> &nbsp;<span>title</span>
+                            <span><b>Gallery</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -365,7 +352,7 @@
                         <div class="activite-label">2 days</div>
                         <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Interview</b></span> &nbsp;<span>title</span>
+                            <span><b>Interview</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -373,7 +360,7 @@
                         <div class="activite-label">4 weeks</div>
                         <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Blog</b></span> &nbsp;<span>title</span>
+                            <span><b>Blog</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
                     <div class="activity-item d-flex">
@@ -388,7 +375,7 @@
                         <div class="activite-label">56 min</div>
                         <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Story</b></span> &nbsp;<span>title</span>
+                            <span><b>Story</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -396,7 +383,7 @@
                         <div class="activite-label">2 hrs</div>
                         <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Interview</b></span> &nbsp;<span>title</span>
+                            <span><b>Interview</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -404,7 +391,7 @@
                         <div class="activite-label">1 day</div>
                         <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Gallery</b></span> &nbsp;<span>title</span>
+                            <span><b>Gallery</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -412,7 +399,7 @@
                         <div class="activite-label">2 days</div>
                         <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Interview</b></span> &nbsp;<span>title</span>
+                            <span><b>Interview</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -420,14 +407,14 @@
                         <div class="activite-label">4 weeks</div>
                         <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Blog</b></span> &nbsp;<span>title</span>
+                            <span><b>Blog</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
                     <div class="activity-item d-flex">
                         <div class="activite-label">2 days</div>
                         <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                         <div class="activity-content">
-                        <span><b>Interview</b></span> &nbsp;<span>title</span>
+                            <span><b>Interview</b></span> &nbsp;<span>title</span>
                         </div>
                     </div><!-- End activity item-->
 
@@ -436,7 +423,7 @@
             </div>
         </div><!-- End Recent Activity -->
 
-        
+
 
         <!-- Website Traffic -->
         <div class="card">
@@ -488,23 +475,23 @@
                                 show: false
                             },
                             data: [{
-                                    value: 20,
+                                    value: <?php echo $blog['total_blog']; ?>,
                                     name: 'Power Of Words'
                                 },
                                 {
-                                    value: 40,
+                                    value: <?php echo $interview['total_interview']; ?>,
                                     name: 'Power Of Action'
                                 },
                                 {
-                                    value: 10,
+                                    value: <?php echo $blog['total_blog']; ?>,
                                     name: 'Power Of Charity'
                                 },
                                 {
-                                    value: 15,
+                                    value: <?php echo $interview['total_interview']; ?>,
                                     name: 'Power Of Health'
                                 },
                                 {
-                                    value: 15,
+                                    value: <?php echo $blog['total_blog']; ?>,
                                     name: 'Power Of Lifes Work'
                                 }
                             ]
@@ -576,19 +563,19 @@
 
 </main>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
- <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script> 
-<script src="<?php echo base_url(); ?>assets/vendor/simple-datatables/simple-datatables.js"></script> 
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script>
-  $(document).ready(function () {
+$(document).ready(function() {
     $('#story').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": true,
-      "responsive": true,
-      ajax: 'dashboard/fetch_story_list',
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": true,
+        ajax: 'dashboard/fetch_story_list',
     });
-  });
+});
 </script>

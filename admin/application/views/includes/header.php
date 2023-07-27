@@ -105,12 +105,12 @@
                         <img src="<?php echo base_url(); ?>assets/img/profile-img.jpg" alt="Profile"
                             class="rounded-circle">
                         <span
-                            class="d-none d-md-block dropdown-toggle ps-2"><?php echo $this->session->userdata('fname'); ?><?php echo $this->session->userdata('lname'); ?></span>
+                            class="d-none d-md-block dropdown-toggle ps-2"><?php echo $this->session->userdata('fname'); ?>   <?php echo $this->session->userdata('lname'); ?></span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6><?php echo $this->session->userdata('fname'); ?><?php echo $this->session->userdata('lname'); ?></h6>
+                            <h6><?php echo $this->session->userdata('fname'); ?> <?php echo $this->session->userdata('lname'); ?></h6>
                             <span><?php echo $this->session->userdata('position'); ?></span>
                         </li>
                         <li>
@@ -118,7 +118,7 @@
                         </li>
                         <li>
                             <a class="dropdown-item d-flex align-items-center"
-                                href="<?php echo base_url('staff/profile'); ?>">
+                                href="<?php echo base_url('staff/profile'); ?>?id=<?php echo $this->session->userdata['id']; ?>">
                                 <i class="bi bi-person"></i>
                                 <span>My Profile</span>
                             </a>

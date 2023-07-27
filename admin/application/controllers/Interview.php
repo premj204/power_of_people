@@ -58,7 +58,12 @@
                          
            );
 
-            $this->model->insert_into('interview',$interviewData);
+            $rowId = $this->model->insert_and_return('interview',$interviewData);
+            if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+                $file = $_FILES["uploadFile"]["name"];
+                $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+                $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            } 
                 $data['status'] = 200;
                 $data[ 'msg'] = 'New interview Added successfully.';
            }else{
@@ -72,14 +77,14 @@
         $requestData= $_REQUEST;
         $date = date('Y-m-d');
         $baseurl = base_url();
-        $columnarray = array(`id`, `video_link`, `details`, `description`, `uploadThumbnail`, `status`, `upload_date`);
+        $columnarray = array(`id`, `video_link`, `details`, `description`, `uploadFile`, `status`, `upload_date`);
 
         foreach($columnarray as $key=>$value){
             if($requestData['order'][0]['column']==$key){
                 $column = $value;
             }
         }
-        $sql="SELECT `id`, `video_link`, `details`, `description`, `uploadThumbnail`, `status`, `upload_date` FROM `interview`";
+        $sql="SELECT `id`, `video_link`, `details`, `description`, `uploadFile`, `status`, `upload_date` FROM `interview`";
 
         if(!empty($requestData['search']['value'])){
             $sql.=" WHERE (name LIKE '%".$requestData['search']['value']."%')";      
@@ -148,7 +153,7 @@
         $details = $this->input->get_post('details'); 
         $description = $this->input->get_post('description'); 
         $category = $this->input->get_post('category'); 
-        $uploadThumbnail = $this->input->get_post('uploadThumbnail');    
+        $uploadFile = $this->input->get_post('uploadFile');    
        
         if($id!="" && $details!=""){
             $interviewData = array(
@@ -156,7 +161,7 @@
                 'details' => $details,
                 'description' => $description,
                 'category' => $category,
-                'uploadThumbnail' => $uploadThumbnail,
+                'uploadFile' => $uploadFile,
                
             );
             $hasUpdated = $this->model->update_where('interview',$interviewData,'id',$id);

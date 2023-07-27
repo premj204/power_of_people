@@ -463,11 +463,11 @@ function dragNdrop(event) {
   preview.appendChild(previewImg);
 }
 function drag() {
-  document.getElementById("uploadThumbnail").parentNode.className =
+  document.getElementById("uploadFile").parentNode.className =
     "draging dragBox";
 }
 function drop() {
-  document.getElementById("uploadThumbnail").parentNode.className = "dragBox";
+  document.getElementById("uploadFile").parentNode.className = "dragBox";
 }
 
 

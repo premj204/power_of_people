@@ -177,7 +177,7 @@
                                         </ul>
                                     </li>
 
-                                    <li> <a href="./admin/application/"
+                                    <li> <a href="login.php"
                                             class=" btn btn-outline-success orange-color fw-semibold">Login</a> </li>
                                 </ul>
                             </div>

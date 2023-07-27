@@ -29,7 +29,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" onsubmit="return validateInterviewFrm(this);" id="InterviewFrm" name="InterviewFrm">
+                <form method="POST" onsubmit="return validateInterviewFrm(this);" id="InterviewFrm" name="InterviewFrm" enctype="multipart/form-data" action="<?php echo base_url(); ?>interview/add_interview">
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="mb-3 form-group">
@@ -64,13 +64,13 @@
                                 <div class="col-lg-5">
                                     <div class="mb-3 form-group">
                                         <div class="thumbnail">
-                                            <label for="uploadThumbnail"><i class="bi bi-images"></i></label>
+                                            <label for="uploadFile"><i class="bi bi-images"></i></label>
                                             <p class="">
                                                 Upload Thumbnail
                                                 <input type="file" style="display:none;" onChange="dragNdrop(event)"
-                                                    ondragover="drag()" ondrop="drop()" name="uploadThumbnail"
-                                                    id="uploadThumbnail" />
-                                                <label for="uploadThumbnail"><span class="btn btn-danger">Choose
+                                                    ondragover="drag()" ondrop="drop()" name="uploadFile"
+                                                    id="uploadFile" accept=".png, .jpg, .jpeg"/>
+                                                <label for="uploadFile"><span class="btn btn-danger">Choose
                                                         Image</span></label>
                                             </p>
                                         </div>
@@ -97,3 +97,24 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<?php if(isset($msg) && !empty($msg)){ ?>
+<script>
+<?php if($msg['status']==200){ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "success",
+      button: "Ok Done!",
+    });
+<?php }else{ ?>
+    swal({
+      title: "<?php echo $msg['msg']; ?>",
+      text: "You clicked the button!",
+      icon: "error",
+      button: "Ok!",
+    });
+<?php } ?>
+</script>
+<?php } ?>

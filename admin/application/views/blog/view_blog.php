@@ -22,7 +22,7 @@
                 <div class="col-md-4">
                     <label for="image" class="form-label">Image :</label>
                     <div id="preview">
-                        <img src="./blog_docs/<?php echo $row['uploadFile'] ?>" alt="">
+                        <img src='<?php echo base_url(); ?>blog_docs/<?php echo $blog[0]['id']?>/photo/<?php echo $blog[0]['uploadFile']?>' alt="">
                     </div>
                 </div>
                 <div class="col-md-8">

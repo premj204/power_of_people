@@ -58,13 +58,13 @@
                                 <div class="col-lg-5">
                                     <div class="mb-3 form-group">
                                         <div class="thumbnail">
-                                            <label for="uploadThumbnail"><i class="bi bi-images"></i></label>
+                                            <label for="uploadFile"><i class="bi bi-images"></i></label>
                                             <p class="">
                                                 Upload Thumbnail
                                                 <input type="file" style="display:none;" onChange="dragNdrop(event)"
-                                                    ondragover="drag()" ondrop="drop()" name="uploadThumbnail"
-                                                    id="uploadThumbnail" />
-                                                <label for="uploadThumbnail"><span class="btn btn-danger">Choose
+                                                    ondragover="drag()" ondrop="drop()" name="uploadFile"
+                                                    id="uploadFile" />
+                                                <label for="uploadFile"><span class="btn btn-danger">Choose
                                                         Image</span></label>
                                             </p>
                                         </div>

@@ -18,7 +18,7 @@
             <div class="row g-3">
                 <div class="col-md-4">
                     <div>
-                        <img src="" alt="">
+                        <img src='<?php echo base_url(); ?>story_docs/<?php echo $story[0]['id']?>/photo/<?php echo $story[0]['uploadFile']?>' class="img-fluid" alt="">
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -38,7 +38,7 @@
                         <div class="col-lg-12">
                             <div class="mb-3 py-2 form-group">
                                 <label for="title" class="form-label">Title :</label>
-                                <p class=""><?php echo $story[0]['title']; ?> </p>
+                                <p class=""><b><?php echo $story[0]['title']; ?></b> </p>
                             </div>
                         </div>
                         <div class="col-lg-12">

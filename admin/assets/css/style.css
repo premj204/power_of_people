@@ -558,9 +558,10 @@ h6 {
 
 .header-nav .profile .dropdown-header h6 {
   font-size: 18px;
+  text-transform: uppercase;
   margin-bottom: 0;
   font-weight: 600;
-  color: #444444;
+  color: #012970;
 }
 
 .header-nav .profile .dropdown-header span {
@@ -1349,7 +1350,6 @@ h6 {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 2rem;
 }
 
 .eye-bg {

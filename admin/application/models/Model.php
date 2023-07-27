@@ -262,82 +262,7 @@ error_reporting(E_ERROR | E_PARSE);
         return $query->result_array();
     }
 
-	function count_society(){
-		return $this->db->select('COUNT(id) as totalsociety')
-						->from('society')
-						// ->where(array('status'=>'1'))
-						->get()->row_array();
-	}
 	
-	function count_exp_society(){
-		$date = date('Y-m-d');
-		$strsociety = "SELECT count(id) as society_expiry FROM `society` WHERE `validity` < '".$date."' and status = '1'";
-		$query = $this->db->query($strsociety);
-		return $query->result_array();
-	}
-
-	function count_user($where_data){
-		return $this->db->select('COUNT(id) as total_users')
-					->from('user')
-					->where($where_data)
-					->get()->row_array();		
-	}	
-
-	function count_flat($where_data){
-		return $this->db->select('COUNT(id) as total_flats')
-					->from('user')
-					->where($where_data)
-					->get()->row_array();		
-	}	
-
-    function count_ten_user(){
-		$strusert = "SELECT count(id) as user_tenante FROM `user` WHERE `user_type` = 'tenante'  and status = '1'";
-		$query = $this->db->query($strusert);
-		return $query->result_array();
-	}
-
-	function count_ownr_user(){
-		$strusero = "SELECT count(id) as user_owner FROM `user` WHERE `user_type` = 'owner'  and status = '1'";
-		$query = $this->db->query($strusero);
-		return $query->result_array();
-	}
-
-	function count_gatekeeper($where_data){
-		return $this->db->select('COUNT(id) as total_gatekeeper')
-					->from('gatekeeper')
-					->where($where_data)
-					->get()->row_array();		
-	}	
-	/*Count Visitors*/
-	function count_black($where_data){
-		return $this->db->select('COUNT(id) as total_blacklist')
-					->from('blacklisted_visitor')
-					->where($where_data)
-					->get()->row_array();
-	}
-
-	function count_new($where_data){
-		return $this->db->select('COUNT(id) as total_newlist')
-					->from('new_visitor')
-					->where($where_data)
-					->get()->row_array();
-	}
-
-	function count_expected($where_data){
-		return $this->db->select('COUNT(id) as total_expected')
-					->from('expected_visitor')	
-					->where($where_data)
-					->get()->row_array();
-	}
-
-	function count_daily($where_data){
-		return $this->db->select('COUNT(id) as total_daily')
-						->from('daily_visitor')
-						->where($where_data)
-						->get()->row_array();
-	}
-
-
 	function count_story(){
 		return $this->db->select('COUNT(id) as total_story')
 						->from('story')
@@ -357,7 +282,5 @@ error_reporting(E_ERROR | E_PARSE);
 						->get()->row_array();
 	}
 // SELECT COUNT( id ) FROM daily_visitor WHERE status = '1';
-
-
-
+	
 }?>

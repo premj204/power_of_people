@@ -36,7 +36,7 @@
 		$this->load->view('includes/templates',$data);
  	}
      function new_staff(){
- 		$data['nav']='story';
+ 		$data['nav']='staff ';
 		$data['main_content']='staff/new_staff';
 		$this->load->view('includes/templates',$data);
  	}
@@ -58,7 +58,7 @@
         $file1 = explode(".",$filename);
         $ext = $file1[1];
         $newfilename = "";
-        $allowed = array("jpg","jpeg","png","pdf");
+        $allowed = array("jpg","jpeg","png","pdf","webp");
         if(in_array($ext, $allowed)){
             $uploadPath = "./staff_docs/".$rowId;
             $savePath = "./staff_docs/".$rowId;
@@ -72,7 +72,7 @@
                 $docData['uploadFile'] = $newfilename;
             if(move_uploaded_file($tmp_name, $path)){
                 //echo $rowId; print_r($docData);
-                $last_Id = $this->model->update_where('staff',  $docData , 'id', $rowId);
+                $last_Id = $this->model->update_where('blog',  $docData , 'id', $rowId);
                 if($last_Id){
                     $data['status'] = 200;
                     $data['msg'] = 'File has been uploaded successfully.';
@@ -110,14 +110,12 @@
                'password' => $password, 
            );
 
-           
-            $this->model->insert_into('staff',$staffData);
-            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
-            //     $file = $_FILES["uploadFile"]["name"];
-            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
-            //     $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
-            // } 
-            
+           $rowId = $this->model->insert_and_return('staff',$staffData);
+            if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+                $file = $_FILES["uploadFile"]["name"];
+                $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+                $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            }
 
            $data['status'] = 200;
            $data[ 'msg'] = 'New staff Added successfully.';

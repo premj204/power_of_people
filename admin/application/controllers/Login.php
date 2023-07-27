@@ -39,11 +39,13 @@
 							  $newdata = array(
 								'id' => $staff[0]['id'],
 						        'email' => $staff[0]['email'],
+								'fname' => $staff[0]['fname'],
+								'lname' => $staff[0]['lname'],
 								'is_logged_in' => TRUE
 					  );
 							  $this->session->set_userdata($newdata);
 							  $data['status'] = 200;
-							  $data['msg'] = "You have logged in successfully. Please wait while we redirect you on admin page.";
+							  $data['msg'] = "You have logged in successfully.<br> Please wait .....";
 						  }else{	
 							  $data['status'] = 400;
 							  $data['msg'] = "The email address or password you entered is incorrect.";

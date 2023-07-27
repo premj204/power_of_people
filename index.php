@@ -99,6 +99,7 @@ include "./database/database.php";
                        $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog` where `status` ='1'";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
+                         
                          while ($row = mysqli_fetch_assoc($result)) {
                             $sno = $sno + 1;
                             echo "
@@ -292,130 +293,124 @@ include "./database/database.php";
         </div>
     </div>
 </section>
-<!-- Latest News Area End -->
 
-<!-- 1rd Block Wrapper Start -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="utf_block_wrapper p-bottom-0">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="utf_featured_tab">
                     <!-- <h3 class="utf_block_title"><span>Startup</span></h3> -->
-                    <h3 class="utf_block_title"><span class="bg-title-green">Startup</span> <span><a href="startup.php"
+                    <h3 class="utf_block_title"><span class="bg-title-green">Power Of Stories</span> <span><a href="power_of_story.php"
                                 class="float-right">See More</a></span></h3>
                     <div class="row">
+
+                        <?php
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                     }
+                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() ";//(innerjoin)
+                       $result = mysqli_query($conn, $sql);
+                         $sno = 0;
+                         $row = mysqli_fetch_assoc($result) 
+                            ?>
                         <div class="col-lg-3 col-md-6">
                             <div class="utf_post_block_style clearfix">
                                 <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/1.jpg"
                                             alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Lifestyle</a>
+                                <a class="utf_post_cat" href="#"> <?php echo "".$row['category'].""; ?></a>
                                 <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
+                                    <h2 class="utf_post_title"> <a href="#"><?php echo "".$row['title'].""; ?></a> </h2>
+                                    <div class="utf_post_meta"> <span class="utf_post_date"><i
+                                                class="fa fa-clock-o"></i>
+                                            <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?> </span>
+                                        <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span>
-                                        <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                            Jan, 2022</span>
+
                                     </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy
-                                        text since has five...</p>
+                                    <div class="dc-p">
+                                        <p><?php echo "".$row['description'].""; ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/health5.jpg" alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Lifestyle</a>
+                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/1.jpg"
+                                            alt="" /> </a> </div>
+                                <a class="utf_post_cat" href="#"> <?php echo "".$row['category'].""; ?></a>
                                 <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
+                                    <h2 class="utf_post_title"> <a href="#"><?php echo "".$row['title'].""; ?></a> </h2>
+                                    <div class="utf_post_meta"> <span class="utf_post_date"><i
+                                                class="fa fa-clock-o"></i>
+                                            <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?> </span>
+                                        <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span>
-                                        <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                            Jan, 2022</span>
+
                                     </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy
-                                        text since has five...</p>
+                                    <div class="dc-p">
+                                        <p><?php echo "".$row['description'].""; ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="utf_list_post_block">
                                 <ul class="utf_list_post">
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/health5.jpg" alt="" />
-                                                </a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when
-                                                        smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#"> </a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <?php
+                if (!$conn) {
+                 
+                    die("Connection failed: " . mysqli_connect_error());
+                     }
+                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() ";
+                       $result = mysqli_query($conn, $sql);
+                         $sno = 0;
+                         while ($row = mysqli_fetch_assoc($result)) {
+                            $sno = $sno + 1;
+                            echo "
 
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/1.jpg" alt="" />
-                                                </a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when
-                                                        smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#"> </a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
 
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/2.jpg" alt="" />
-                                                </a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when
-                                                        smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#"> </a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix">
-                                        <div class="utf_post_block_style post-float clearfix">
-                                            <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                        src="images/news/3.jpg" alt="" />
-                                                </a> </div>
-                                            <div class="utf_post_content">
-                                                <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                        media pop also known when
-                                                        smart innocent...</a> </h2>
-                                                <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                            class="fa fa-user"></i> <a href="#"> </a></span>
-                                                    <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                        2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                            <li class='clearfix'>
+                            <div class='utf_post_block_style post-float clearfix'>
+                                <div class='utf_post_thumb'> <a href='#'> <img class='img-fluid'
+                                            src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' />
+                                    </a> </div>
+                                <div class='utf_post_content'>
+                                    <h2 class='utf_post_title title-small'> <a href='#'>".$row['title']."</a> </h2>
+                                    <div class='utf_post_meta'> 
+                                    <span class='utf_post_date'><i class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span>
+                                    <span class='utf_post_author'><i class='fa fa-user'></i> <a href='#'> </a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>"; } ?>
                                 </ul>
                             </div>
                         </div>
@@ -524,15 +519,11 @@ include "./database/database.php";
                         <div class="col-lg-6 col-md-6">
                             <h3 class="utf_block_title"><span class="bg-title-green">Interviews</span> <span><a href=""
                                         class="float-right">See More</a></span></h3>
-
-
-
                             <?php
-                if (!$conn) {
-                 
-                    die("Connection failed: " . mysqli_connect_error());
-                     }
-                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadThumbnail`, `status`, `upload_date` FROM `interview`where `status` ='1'";//(innerjoin)
+                        if (!$conn) {                 
+                                      die("Connection failed: " . mysqli_connect_error());
+                            }
+                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadFile`, `status`, `upload_date` FROM `interview`where `status` ='1'";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          $row = mysqli_fetch_assoc($result) 
@@ -548,9 +539,11 @@ include "./database/database.php";
                                     <h2 class='utf_post_title'> <a
                                             href='<?php echo "interviews_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . ""?>'><?php echo" " . $row['details'] ." " ?></a>
                                     </h2>
-                                    <div class='utf_post_meta'> <span class='utf_post_date'><i class='fa fa-clock-o'></i>
-                                            <?php echo"". date('d M, Y',strtotime($row['upload_date']))."" ?></span> <span class='utf_post_author'><i class='fa fa-user'></i>
-                                            <a href='#'> </a></span> 
+                                    <div class='utf_post_meta'> <span class='utf_post_date'><i
+                                                class='fa fa-clock-o'></i>
+                                            <?php echo"". date('d M, Y',strtotime($row['upload_date']))."" ?></span>
+                                        <span class='utf_post_author'><i class='fa fa-user'></i>
+                                            <a href='#'> </a></span>
                                     </div>
                                 </div>
                             </div>
@@ -970,15 +963,28 @@ include "./database/database.php";
                 <div class="block">
                     <h3 class="utf_block_title"><span class="bg-title-orange">Power Of Life's Work</span> <span><a
                                 href="" class="float-right">See More</a></span></h3>
+
+                                <?php
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                     }
+                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() ";//(innerjoin)
+                       $result = mysqli_query($conn, $sql);
+                         $sno = 0;
+                         $row = mysqli_fetch_assoc($result) 
+                            ?>
+
+
+
                     <div class="utf_post_overaly_style clearfix">
                         <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid" src="images/news/health5.jpg"
                                     alt="" /> </a> </div>
                         <div class="utf_post_content">
-                            <h2 class="utf_post_title"> <a href="#">That wearable on your wrist could soon track
-                                    your health as …</a> </h2>
-                            <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                    <a href="#"> </a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i>
-                                    25 Jan, 2022</span> </div>
+                            <h2 class="utf_post_title"> <a href="#"><?php echo" ".$row['title'] ."" ?></a> </h2>
+                            <div class="utf_post_meta">
+                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?></span>     
+                            <span class="utf_post_author"><i class="fa fa-user"></i>
+                                    <a href="#"> </a></span> </div>
                         </div>
                     </div>
 
