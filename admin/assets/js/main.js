@@ -409,50 +409,6 @@ $('.tags').tagcloud({
 });
 var tags = $('.tags').tagcloud('get');
 
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "use strict";
 function dragNdrop(event) {
   var fileName = URL.createObjectURL(event.target.files[0]);
@@ -488,5 +444,4 @@ function drop() {
 // function drop() {
 //   document.getElementById("uploadinter_video").parentNode.className = "dragBox";
 // }
-
 

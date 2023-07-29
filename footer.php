@@ -26,8 +26,8 @@
                     <h3 class="widget-title">Popular Categories</h3>
                     <ul>
                         <li><i class="fa fa-angle-double-right"></i><a href="index.php">Home</a></li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="">Event</a></li>
-                        <li><i class="fa fa-angle-double-right"></i><a href="">Blog</a></li>
+                        <li><i class="fa fa-angle-double-right"></i><a href="event.php">Event</a></li>
+                        <li><i class="fa fa-angle-double-right"></i><a href="blog.php">Blog</a></li>
 
 
 

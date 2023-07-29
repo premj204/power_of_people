@@ -93,13 +93,12 @@
      function add_blog(){
         $headline = $this->input->get_post('headline'); 
         $description = $this->input->get_post('description'); 
-        $category = $this->input->get_post('category');  
-       
+        $category = $this->input->get_post('category'); 
         if($headline != "" && $description!="" ){
            $blogData = array(
                'headline' => $headline,
                'description' => $description,   
-               'category' => $category,   
+               'category' => $category,  
            );
             $rowId = $this->model->insert_and_return('blog',$blogData);
             if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
@@ -196,11 +195,11 @@
             );
             $hasUpdated = $this->model->update_where('blog',$blogData,'id',$id);
 
-            if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
-                $file = $_FILES["uploadFile"]["name"];
-                $tmp_name = $_FILES["uploadFile"]["tmp_name"];
-                $uploadData = $this->uploadFiles($id, $file, $tmp_name, "uploadFile");
-            } 
+            // if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+            //     $file = $_FILES["uploadFile"]["name"];
+            //     $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+            //     $uploadData = $this->uploadFiles($id, $file, $tmp_name, "uploadFile");
+            // } 
 
             $data['status'] = 200;
             $data[ 'msg'] = 'blog update successfully.';
@@ -216,7 +215,6 @@
         $data['blog'] = array();
         if(isset($id) && !empty($id)){
              $data['blog'] = $this->model->getData('blog',array('id'=> $id));
-            //  print_r($data['blog']); exit;
         }
        $data['nav']='blog';
        $data['main_content']='blog/view_blog';

@@ -1,6 +1,4 @@
 <script src="<?php echo base_url(); ?>assets/editor/ckeditor/ckeditor.js"></script>
-
-
 <section>
     <div class="pagetitle">
         <h1>Blog Form</h1>
@@ -16,7 +14,8 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
-            <form method="POST" onsubmit="return validateBlogsFrm(this);" id="BlogFrm" name="BlogFrm" enctype="multipart/form-data" action="<?php echo base_url(); ?>blog/add_blog">
+            <form method="POST" onsubmit="return validateBlogsFrm(this);" id="BlogFrm" name="BlogFrm"
+                enctype="multipart/form-data" action="<?php echo base_url(); ?>blog/add_blog">
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label for="image" class="form-label">Upload Image :</label>
@@ -34,28 +33,24 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-lg-6">
+                            
+                            <div class="col-lg-8">
                                 <div class="mb-3 form-group">
-                                    <label for="tags" class="form-label">#Tags :</label>
-                                    <input type="text" class="form-control" name="tags" id="tags">
+                                    <label for="headline" class="form-label">Headline :</label>
+                                    <input type="text" class="form-control" name="headline" id="headline">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
-                                    <select id="category" name="category" class="form-select" aria-label="Default select example">
+                                    <select id="category" name="category" class="form-select"
+                                        aria-label="Default select example">
                                         <option value="" selected>select category</option>
                                         <option value="Health">Health</option>
                                         <option value="Life Style">Lifestyle</option>
                                         <option value="Bussiness">Bussiness</option>
                                         <option value="Social Work">Social Work</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3 form-group">
-                                    <label for="headline" class="form-label">Headline :</label>
-                                    <input type="text" class="form-control" name="headline" id="headline">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -88,19 +83,19 @@
 <?php if(isset($msg) && !empty($msg)){ ?>
 <script>
 <?php if($msg['status']==200){ ?>
-    swal({
-      title: "<?php echo $msg['msg']; ?>",
-      text: "You clicked the button!",
-      icon: "success",
-      button: "Ok Done!",
-    });
+swal({
+    title: "<?php echo $msg['msg']; ?>",
+    text: "You clicked the button!",
+    icon: "success",
+    button: "Ok Done!",
+});
 <?php }else{ ?>
-    swal({
-      title: "<?php echo $msg['msg']; ?>",
-      text: "You clicked the button!",
-      icon: "error",
-      button: "Ok!",
-    });
+swal({
+    title: "<?php echo $msg['msg']; ?>",
+    text: "You clicked the button!",
+    icon: "error",
+    button: "Ok!",
+});
 <?php } ?>
 </script>
 <?php } ?>

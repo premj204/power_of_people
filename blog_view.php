@@ -49,16 +49,6 @@ include "./database/database.php";
                         <div class='entry-content'>
                         <?php echo "".$row['description'].""; ?>
                         </div>
-
-                        <div class="tags-area clearfix">
-                            <div class="post-tags">
-                                <span>Tags:</span>
-                                <a href="#"># Business</a>
-                                <a href="#"># Corporate</a>
-                                <a href="#"># Services</a>
-                                <a href="#"># Customer</a>
-                            </div>
-                        </div>
                         <!-- <div class="share-items clearfix">
                             <ul class="post-social-icons unstyled">
                                 <li class="facebook"> <a href="#"> <i class="fa fa-facebook"></i> <span
@@ -206,7 +196,7 @@ include "./database/database.php";
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
-                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog` where `status` ='1' ORDER BY RAND() LIMIT 5";//(innerjoin)
+                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog` where `status` ='1' ORDER BY RAND() LIMIT 7";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
 
                          $sno = 0;
@@ -233,26 +223,6 @@ include "./database/database.php";
                                 
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="widget text-center"> <img class="banner img-fluid"
-                            src="images/banner-ads/ad-sidebar.png" alt=""> </div>
-
-                    <div class="widget widget-tags">
-                        <h3 class="utf_block_title"><span class="bg-title-orange">Popular Tags</span></h3>
-                        <ul class="unstyled clearfix">
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Corporate</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Customer</a></li>
-                            <li><a href="#">Money</a></li>
-                            <li><a href="#">Health</a></li>
-                            <li><a href="#">Lifestyles</a></li>
-                            <li><a href="#">Traveling</a></li>
-                            <li><a href="#">Partners</a></li>
-                            <li><a href="#">Wordpress</a></li>
-                            <li><a href="#">Customer</a></li>
-                        </ul>
                     </div>
 
                     <!-- <div class="widget m-bottom-0">

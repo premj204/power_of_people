@@ -31,7 +31,6 @@ include "./database/database.php";
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12">
-
                 <div class="single-post">
                     <div class="utf_post_title-area"> <a class="utf_post_cat"
                             href="#"><?php echo "".$row['category'].""; ?></a>
@@ -39,10 +38,9 @@ include "./database/database.php";
                         <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">Eriyouth</a>
                             </span>
                             <span class="utf_post_date"><i class="fa fa-clock-o"></i>
-                                <?php echo "".$row['added_on'].""; ?></span>
+                                <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?></span>
                         </div>
                     </div>
-
                     <div class="utf_post_content-area">
                         <div class='post-media post-featured-image'> <img
                                 src='./admin/story_docs/<?php echo $row['id']; ?>/photo/<?php echo $row['uploadFile'] ?>'
@@ -51,14 +49,6 @@ include "./database/database.php";
                         <div class='entry-content'>
                             <?php echo "".$row['description'].""; ?>
                         </div>
-
-                        <div class="tags-area clearfix">
-                            <div class="post-tags">
-                                <span>Tags:</span>
-                                <a href="#"># <?php echo "".$row['tags'].""; ?></a>
-                            </div>
-                        </div>
-
                         <div class="share-items clearfix">
                             <ul class="post-social-icons unstyled">
                                 <li class="facebook"> <a href="#"> <i class="fa fa-facebook"></i> <span
@@ -74,7 +64,7 @@ include "./database/database.php";
                     </div>
                 </div>
 
-                <div class="author-box">
+                <!-- <div class="author-box">
                     <div class="author-info">
                         <div class="row">
                             <div class="col-lg-2">
@@ -91,8 +81,8 @@ include "./database/database.php";
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="comments" class="comments-area block">
+                </div> -->
+                <!-- <div id="comments" class="comments-area block">
                     <h3 class="utf_block_title"><span class="bg-title-orange">13 Comments</span></h3>
                     <ul class="comments-list">
                         <li>
@@ -150,7 +140,7 @@ include "./database/database.php";
                             </div>
                         </li>
                     </ul>
-                </div>
+                </div> -->
 
                 <!-- comment form start  -->
                 <div class="comments-form">
@@ -230,25 +220,7 @@ include "./database/database.php";
                         </div>
                     </div>
 
-                    <div class="widget text-center"> <img class="banner img-fluid"
-                            src="images/banner-ads/ad-sidebar.png" alt=""> </div>
-
-                    <div class="widget widget-tags">
-                        <h3 class="utf_block_title"><span class="bg-title-orange">Popular Tags</span></h3>
-                        <ul class="unstyled clearfix">
-                            <li><a href="#">Business</a></li>
-                            <li><a href="#">Corporate</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Customer</a></li>
-                            <li><a href="#">Money</a></li>
-                            <li><a href="#">Health</a></li>
-                            <li><a href="#">Lifestyles</a></li>
-                            <li><a href="#">Traveling</a></li>
-                            <li><a href="#">Partners</a></li>
-                            <li><a href="#">Wordpress</a></li>
-                            <li><a href="#">Customer</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>

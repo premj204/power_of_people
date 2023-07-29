@@ -1,8 +1,8 @@
 <?php
 include "header.php";
+include "./database/database.php";
+
 ?>
-
-
 <section>
     <div class="page-title">
         <div class="container">
@@ -19,148 +19,49 @@ include "header.php";
 </section>
 
 <section class="utf_block_wrapper">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="block category-listing">
                     <div class="row">
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/1.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
+                    <?php
+                            if (!$conn) {                 
+                             die("Connection failed: " . mysqli_connect_error());
+                                  }
+                                $sql = "SELECT * FROM `event` where `status` ='1'";
+                                $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $sno = $sno + 1;
+                                        echo "
+                                <div class='col-md-6 item mb-3'>
+                                    <div class='row'>
+                                        <div class='col-lg-4'>
+                                            <div class='event-im'>
+                                                <img class='img-fluid' src='images/news/1.jpg' alt=''>
+                                            </div>
+                                        </div>
+                                        <div class='col-lg-8'>
+                                            <div class='row'>
+                                                <div class='col-lg-4'>
+                                                <h3 class='ev-date'>".date('d',strtotime($row['date']))."</h3>
+                                                <h5 class='ev-month'>".date('M',strtotime($row['date']))."</h5>
+                                                <p class='ev-year'>".date('Y',strtotime($row['date']))."</p>
+                                                </div>
+                                                <div class='col-lg-8'>
+                                                    <h3 class='eventHead'>". $row['title'] ."</h3>
+                                                    <div class='eventSubtitle'>". $row['description'] ."</div>
+                                                </div>
+                                                <div class='col-lg-12 d-flex'>
+                                                    <p class='EventLocation mx-2'><i class='fa fa-map-marker'></i> ". $row['city'] ."</p>
+                                                    <a href='evnt-detail.php?id=" . $row['id'] . "'?id=" . $row['id'] . "' target='-'> <p class='EventLocation mx-2'><i class='fa fa-hand-o-right'></i> Read More
+                                                    </p></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/2.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
-                                </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/3.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
-                                </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/4.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
-                                </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/1.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
-                                </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/2.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
-                                </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/3.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
-                                </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item mb-3">
-                            <div class="utf_post_block_style clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <img class="img-fluid" src="images/news/4.jpg" alt=""> <a
-                                        class="popup cboxElement" href="https://www.youtube.com/embed/ZC4bgO-SoVg">
-                                        <div class="video-icon"> <i class="fa fa-play"></i> </div>
-                                    </a>
-                                </div>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a>Zhang social media pop also
-                                            known when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> 
-                                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                2022</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                        "; } ?> <div>
                     </div>
                 </div>
                 <div class="py-5" id="pagination"></div>
@@ -184,7 +85,7 @@ include "header.php";
 }
 </style>
 <script>
-var itemsPerPage = 9; // Number of items to show per page
+var itemsPerPage = 6; // Number of items to show per page
 var currentPage = 1; // Current page
 
 var items = document.querySelectorAll('.item');

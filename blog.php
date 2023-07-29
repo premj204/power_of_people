@@ -1,7 +1,7 @@
 <?php
 include "header.php";
+include "./database/database.php";
 ?>
-
 
 <section>
     <div class="page-title">

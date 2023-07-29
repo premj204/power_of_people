@@ -294,42 +294,14 @@ include "./database/database.php";
     </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <section class="utf_block_wrapper p-bottom-0">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="utf_featured_tab">
                     <!-- <h3 class="utf_block_title"><span>Startup</span></h3> -->
-                    <h3 class="utf_block_title"><span class="bg-title-green">Power Of Stories</span> <span><a href="power_of_story.php"
-                                class="float-right">See More</a></span></h3>
+                    <h3 class="utf_block_title"><span class="bg-title-green">Power Of Stories</span> <span><a
+                                href="power_of_story.php" class="float-right">See More</a></span></h3>
                     <div class="row">
 
                         <?php
@@ -523,8 +495,8 @@ include "./database/database.php";
                         if (!$conn) {                 
                                       die("Connection failed: " . mysqli_connect_error());
                             }
-                       $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadFile`, `status`, `upload_date` FROM `interview`where `status` ='1'";//(innerjoin)
-                       $result = mysqli_query($conn, $sql);
+                        $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadFile`, `status`, `upload_date` FROM `interview`where `status` ='1'";//(innerjoin)
+                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          $row = mysqli_fetch_assoc($result) 
                             ?>
@@ -600,42 +572,53 @@ include "./database/database.php";
                     </div>
 
                     <div class="widget color-default">
-                        <h3 class="utf_block_title"><span class="bg-title-orange">Events</span></h3>
+                        <h3 class="utf_block_title"><span class="bg-title-orange">Events</span><span><a href="event.php"
+                                    class="float-right">See More</a></span></h3>
 
 
                         <?php
                             if (!$conn) {                 
                              die("Connection failed: " . mysqli_connect_error());
                                   }
-                                $sql = "SELECT * FROM `event` where `status` ='1' LIMIT 3";
+                                $sql = "SELECT * FROM `event` where `status` ='1' LIMIT 2";
                                 $result = mysqli_query($conn, $sql);
                                     $sno = 0;
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $sno = $sno + 1;
-                                        echo "
-                                        <div class='border mb-3'>
-                                        <div class='row'>
-                                            <div class='col-lg-3 text-center event_date'>
-                                                <p class=''>".date('d',strtotime($row['date']))." </p>
-                                                <small>".date('M',strtotime($row['date'])).", ".date('Y',strtotime($row['date']))."</small>
-                                            </div>
-                                            <div class='col-lg-9 event-name'>
-                                                <h3>" . $row['title'] ."</h3>
-                                                <ul class='dat-time'>
-                                                    <li><i class='fa fa-clock-o'></i>" . date('h:i A', strtotime($row['time'])) ."</li>
-                                                    <li><i class='fa fa-calendar'></i>". date('d M, Y',strtotime($row['date']))."</li>
-                                                    <li><i class='fa fa-map-marker'></i> " . $row['city'] ."</li>
-                                                </ul>
-                                            </div>
+                                        echo "<div class='border mb-3'>
+                            <div class='row'>
+                                <div class='col-lg-4'>
+                                    <div class='event-im'>
+                                        <img class='img-fluid' src='images/news/1.jpg' alt=''>
+                                    </div>
+                                </div>
+                                <div class='col-lg-8'>
+                                    <div class='row'>
+                                        <div class='col-lg-4'>
+                                            <h3 class='ev-date'>".date('d',strtotime($row['date']))."</h3>
+                                            <h5 class='ev-month'>".date('M',strtotime($row['date']))."</h5>
+                                            <p class='ev-year'>".date('Y',strtotime($row['date']))."</p>
                                         </div>
-                                    </div> "; } ?>
-                        <div>
+                                        <div class='col-lg-8'>
+                                            <h3 class='eventHead'>" . $row['title'] ."</h3>
+                                            <div class='eventdes'>". $row['description'] ."</div>
+                                        </div>
+                                        <div class='col-lg-12 d-flex m'>
+                                            <p class='EventLocation'><i class='fa fa-map-marker'></i> " . $row['city'] ."</p>
+                                            <a href='evnt-detail.php?id=" . $row['id'] . "'?id=" . $row['id'] . "' target='-'> <p class='EventLocation mx-2'><i class='fa fa-hand-o-right'></i> Read More
+                                            </p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>"; } ?>
+                        <!-- <div>
                             <div class="event_comimg_soon mb-3">
                                 <h3>
                                     Comming Soom..
                                 </h3>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="utf_list_post_block">
                             <ul class="utf_list_post">
                                 <li class="clearfix">
@@ -964,7 +947,7 @@ include "./database/database.php";
                     <h3 class="utf_block_title"><span class="bg-title-orange">Power Of Life's Work</span> <span><a
                                 href="" class="float-right">See More</a></span></h3>
 
-                                <?php
+                    <?php
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                      }
@@ -982,9 +965,11 @@ include "./database/database.php";
                         <div class="utf_post_content">
                             <h2 class="utf_post_title"> <a href="#"><?php echo" ".$row['title'] ."" ?></a> </h2>
                             <div class="utf_post_meta">
-                            <span class="utf_post_date"><i class="fa fa-clock-o"></i> <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?></span>     
-                            <span class="utf_post_author"><i class="fa fa-user"></i>
-                                    <a href="#"> </a></span> </div>
+                                <span class="utf_post_date"><i class="fa fa-clock-o"></i>
+                                    <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?></span>
+                                <span class="utf_post_author"><i class="fa fa-user"></i>
+                                    <a href="#"> </a></span>
+                            </div>
                         </div>
                     </div>
 
