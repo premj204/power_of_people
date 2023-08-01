@@ -12,44 +12,8 @@ include "./database/database.php";
         <div class="row">
             <div class="col-lg-7 col-md-12">
                 <div id="utf_featured_slider" class="owl-carousel owl-theme utf_featured_slider">
-                    <div class="item" style="background-image:url(images/news/health5.jpg)">
-                        <div class="utf_featured_post">
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="">Health</a>
-                                <h2 class="utf_post_title title-extra-large"> <a class="para"
-                                        href="detailsview.php">Zhang
-                                        social media pop
-                                        also known when smart innocent...</a> </h2>
-                                <span class="utf_post_author"><i class="fa fa-user"></i> <a href="#">John
-                                        Wick</a></span>
-                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 20 Jan, 2022</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item" style="background-image:url(images/news/3.jpg)">
-                        <div class="utf_featured_post">
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Gadget</a>
-                                <h2 class="utf_post_title title-extra-large"> <a href="detailsview.php">Samsung Gear S3
-                                        review: A whimper, when smartwatches need a bang</a> </h2>
-                                <span class="utf_post_author"><i class="fa fa-user"></i> <a href="#">John
-                                        Wick</a></span>
-                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 20 Jan, 2022</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item" style="background-image:url(images/news/1.jpg)">
-                        <div class="utf_featured_post">
-                            <div class="utf_post_content"> <a class="utf_post_cat" href="#">Travel</a>
-                                <h2 class="utf_post_title title-extra-large"> <a href="detailsview.php">Zhang social
-                                        media pop
-                                        also known when smart innocent...</a> </h2>
-                                <span class="utf_post_author"><i class="fa fa-user"></i> <a href="#">John
-                                        Wick</a></span>
-                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 20 Jan, 2022</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="item" style="background-image:url(images/banner/banner_1.jpg)"></div>
+                    <div class="item" style="background-image:url(images/banner/banner_2.jpg)"></div>
                 </div>
             </div>
 
@@ -74,8 +38,7 @@ include "./database/database.php";
                             <div class='utf_post_content'> <a class='utf_post_cat' href='#'>" . $row['category'] ."</a>
                                 <h2 class='utf_post_title title-medium'> <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> " . $row['title'] ." </a> </h2>
                                 <div class='utf_post_meta'><span class='utf_post_date'><i
-                                class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span> <span class='utf_post_author'><i class='fa fa-user'></i> <a
-                                            href='#'> </a></span></div>
+                                class='fa fa-clock-o'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span> </div>
                             </div>
                         </div>
                     </div>"; } ?>
@@ -116,8 +79,7 @@ include "./database/database.php";
                                 <div class='utf_post_content'>
                                     <h2 class='utf_post_title title-medium'> <a href='blog_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> " . $row['headline'] ." </a> </h2>
                                     <div class='utf_post_meta'> </span> <span class='utf_post_date'><i
-                                                class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span><span class='utf_post_author'><i class='fa fa-user'></i>
-                                                <a href='#'> </a> </div>
+                                                class='fa fa-clock-o'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span></div>
                                                 
                                 </div>
                             </div>
@@ -322,7 +284,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#"><?php echo "".$row['title'].""; ?></a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i>
-                                            <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?> </span>
+                                            <?php echo "". date('l d M, Y',strtotime($row['added_on'])).""; ?> </span>
                                         <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span>
 
@@ -342,7 +304,7 @@ include "./database/database.php";
                                     <h2 class="utf_post_title"> <a href="#"><?php echo "".$row['title'].""; ?></a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_date"><i
                                                 class="fa fa-clock-o"></i>
-                                            <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?> </span>
+                                            <?php echo "". date('l d M, Y',strtotime($row['added_on'])).""; ?> </span>
                                         <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span>
 
@@ -377,7 +339,7 @@ include "./database/database.php";
                                 <div class='utf_post_content'>
                                     <h2 class='utf_post_title title-small'> <a href='#'>".$row['title']."</a> </h2>
                                     <div class='utf_post_meta'> 
-                                    <span class='utf_post_date'><i class='fa fa-clock-o'></i> ". date('d M, Y',strtotime($row['added_on']))."</span>
+                                    <span class='utf_post_date'><i class='fa fa-clock-o'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
                                     <span class='utf_post_author'><i class='fa fa-user'></i> <a href='#'> </a></span>
                                     </div>
                                 </div>
@@ -514,8 +476,6 @@ include "./database/database.php";
                                     <div class='utf_post_meta'> <span class='utf_post_date'><i
                                                 class='fa fa-clock-o'></i>
                                             <?php echo"". date('d M, Y',strtotime($row['upload_date']))."" ?></span>
-                                        <span class='utf_post_author'><i class='fa fa-user'></i>
-                                            <a href='#'> </a></span>
                                     </div>
                                 </div>
                             </div>
@@ -588,7 +548,7 @@ include "./database/database.php";
                                         echo "<div class='border mb-3'>
                             <div class='row'>
                                 <div class='col-lg-4'>
-                                    <div class='event-im'>
+                                    <div class='event-im2'>
                                         <img class='img-fluid' src='images/news/1.jpg' alt=''>
                                     </div>
                                 </div>
@@ -618,82 +578,7 @@ include "./database/database.php";
                                     Comming Soom..
                                 </h3>
                             </div>
-                        </div> -->
-                        <div class="utf_list_post_block">
-                            <ul class="utf_list_post">
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/1.jpg" alt="" /> </a> <a class="utf_post_cat"
-                                                href="#">Lifestyle</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                    media pop also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i>
-                                                    <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                    Jan, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/2.jpg" alt="" /> </a> <a class="utf_post_cat"
-                                                href="#">Travel</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                    media pop also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i>
-                                                    <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                    Jan, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/3.jpg" alt="" /> </a> <a class="utf_post_cat"
-                                                href="#">Traveling</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                    media pop also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i>
-                                                    <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                    Jan, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/health5.jpg" alt="" /> </a> <a class="utf_post_cat"
-                                                href="#">Food</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social
-                                                    media pop also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i>
-                                                    <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
-                                                    Jan, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        </div> -->                        
                     </div>
 
                     <div class="widget color-default m-bottom-0">
@@ -966,7 +851,7 @@ include "./database/database.php";
                             <h2 class="utf_post_title"> <a href="#"><?php echo" ".$row['title'] ."" ?></a> </h2>
                             <div class="utf_post_meta">
                                 <span class="utf_post_date"><i class="fa fa-clock-o"></i>
-                                    <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?></span>
+                                    <?php echo "". date('l d M, Y',strtotime($row['added_on'])).""; ?></span>
                                 <span class="utf_post_author"><i class="fa fa-user"></i>
                                     <a href="#"> </a></span>
                             </div>

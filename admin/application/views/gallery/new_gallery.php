@@ -3,7 +3,7 @@
     <div class="card">
         <div class="container p-5">
             <div class="g-upload-box">
-                <form action="">
+                <form action="" id="gallery_form" name="gallery_form" method="POST">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="mb-3 form-group">

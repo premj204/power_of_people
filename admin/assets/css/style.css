@@ -1263,8 +1263,12 @@ h6 {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-.footer {
-  padding: 20px 0;
+.footer {text-align: center;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  padding: 10px 0;
   font-size: 14px;
   transition: all 0.3s;
   border-top: 1px solid #cddfff;
@@ -1281,7 +1285,10 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
-
+.copyright a{
+  font-weight: 600;
+  color: #cc6506;
+}
 .modal-footer-btn {
   padding: 1rem;
 }

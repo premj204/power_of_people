@@ -29,13 +29,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" onsubmit="return validateInterviewFrm(this);" id="InterviewFrm" name="InterviewFrm" enctype="multipart/form-data" action="<?php echo base_url(); ?>interview/add_interview">
+                <form method="POST" onsubmit="return validateInterviewFrm(this);" id="InterviewFrm" name="InterviewFrm"
+                    enctype="multipart/form-data" action="<?php echo base_url(); ?>interview/add_interview">
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="mb-3 form-group">
                                 <label for="details" class="form-label">Youtube Video Link</label>
                                 <input type="text" class="form-control" name="video_link" id="video_link">
-                                <small>(example : https://www.youtube.com<span style="color: red;">/embed/</span>x56adyd)</small>
+                                <small>(example : https://www.youtube.com<span
+                                        style="color: red;">/embed/</span>x56adyd)</small>
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="details" class="form-label">Details</label>
@@ -44,18 +46,13 @@
                             <div class="col-lg-12">
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
-                                    <select id="category" name="category" class="form-select" aria-label="Default select example">
+                                    <select id="category" name="category" class="form-select"
+                                        aria-label="Default select example">
                                         <option selected disabled>select category</option>
                                         <option value="Health">Health</option>
                                         <option value="Life Style">Lifestyle</option>
                                         <option value="Bussiness">Bussiness</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3 form-group">
-                                    <label for="tags" class="form-label">#Tags :</label>
-                                    <input type="text" class="form-control" name="tags" id="tags">
                                 </div>
                             </div>
                         </div>
@@ -69,7 +66,7 @@
                                                 Upload Thumbnail
                                                 <input type="file" style="display:none;" onChange="dragNdrop(event)"
                                                     ondragover="drag()" ondrop="drop()" name="uploadFile"
-                                                    id="uploadFile" accept=".png, .jpg, .jpeg"/>
+                                                    id="uploadFile" accept=".png, .jpg, .jpeg" />
                                                 <label for="uploadFile"><span class="btn btn-danger">Choose
                                                         Image</span></label>
                                             </p>
@@ -79,7 +76,7 @@
                                 <div class="col-lg-7"> <span id="thumbnail"></span></div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-12">
                             <div class="mb-3 form-group">
                                 <label for="description" class="form-label">Description</label>
@@ -102,19 +99,19 @@
 <?php if(isset($msg) && !empty($msg)){ ?>
 <script>
 <?php if($msg['status']==200){ ?>
-    swal({
-      title: "<?php echo $msg['msg']; ?>",
-      text: "You clicked the button!",
-      icon: "success",
-      button: "Ok Done!",
-    });
+swal({
+    title: "<?php echo $msg['msg']; ?>",
+    text: "You clicked the button!",
+    icon: "success",
+    button: "Ok Done!",
+});
 <?php }else{ ?>
-    swal({
-      title: "<?php echo $msg['msg']; ?>",
-      text: "You clicked the button!",
-      icon: "error",
-      button: "Ok!",
-    });
+swal({
+    title: "<?php echo $msg['msg']; ?>",
+    text: "You clicked the button!",
+    icon: "error",
+    button: "Ok!",
+});
 <?php } ?>
 </script>
 <?php } ?>

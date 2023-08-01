@@ -99,6 +99,81 @@
 
 
 
+    function add_gallery(){
+        $title = $this->input->get_post('title'); 
+        $files = $this->input->get_post('files'); 
+               if($title != ""){
+           $galleryData = array(
+               'title' => $title,
+               'files' => $files,   
+           );
+            $rowId = $this->model->insert_and_return('gallery',$galleryData);
+            if(isset($_FILES) && $_FILES['files']['name']!="" && $_FILES['files']['size']>0){
+                $file = $_FILES["files"]["name"];
+                $tmp_name = $_FILES["files"]["tmp_name"];
+                $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "files");
+            } 
+
+           $data['status'] = 200;
+           $data[ 'msg'] = 'New gallery Added successfully.';
+
+           }else{
+               $data['status'] = 400;
+               $data['msg'] = 'Invalid data. Please check with Plan Data.';
+           }
+        // echo json_encode($data);
+           $this->new_gallery($data);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function uploadFiles($rowId, $filename, $tmp_name, $position){
+        $data['status'] = 400;
+        $file1 = explode(".",$filename);
+        $ext = $file1[1];
+        $newfilename = "";
+        $allowed = array("jpg","jpeg","png","webp");
+        $count = count($_FILES['documents']['name']);
+         for($i=0;$i<$count;$i++){
+            if(!empty($_FILES['documents']['name'][$i])){
+                $_FILES['files']['name'] = $_FILES['documents']['name'][$i];  
+              $_FILES['files']['type'] = $_FILES['documents']['type'][$i];
+              $_FILES['files']['tmp_name'] = $_FILES['documents']['tmp_name'][$i];
+               $_FILES['files']['error'] = $_FILES['documents']['error'][$i];
+                  $_FILES['files']['size'] = $_FILES['documents']['size'][$i];
+                  
+               $config['upload_path'] = './gallery_docs/';
+               $config['allowed_types'] = 'jpg|jpeg|png|webp|';
+               $config['attach_documents'] = $_FILES['documents']['name'][$i];
+           
+               $this->load->library('upload',$config);
+               if($this->upload->do_upload('files')){
+                 $uploadData = $this->upload->data();
+                    $savePath = $uploadData['files'];
+          
+                 $fileData = array(
+                        'id' => $rowId,
+                    'documents' =>$savePath,
+                        'added_on' => date('Y-m-d H:i:s')
+                 );
+                 $this->model->insert_into('gallery',$fileData);
+                 $data['status'] = 200;
+                 $data['msg'] = 'gallery added successfully.';
+                }
+            }
+        }
+         return $data;
+    }
+
 
 
 

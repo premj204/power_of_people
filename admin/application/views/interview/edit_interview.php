@@ -19,7 +19,8 @@
                                 <label for="details" class="form-label">Youtube Video Link</label>
                                 <input type="text" class="form-control" name="video_link" id="video_link"
                                     value="<?php echo $interview[0]['video_link']; ?>">
-                                <small>(example : https://www.youtube.com<span style="color: red;">/embed/</span>x56adyd)</small>
+                                <small>(example : https://www.youtube.com<span
+                                        style="color: red;">/embed/</span>x56adyd)</small>
                             </div>
                             <div class="mb-3 form-group">
                                 <label for="details" class="form-label">Details</label>
@@ -44,12 +45,6 @@
                                             <?php if($interview[0]['category'] == 'Bussiness'){ echo "selected"; } ?>>
                                             Bussiness</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3 form-group">
-                                    <label for="tags" class="form-label">#Tags :</label>
-                                    <input type="text" class="form-control" name="tags" value="<?php echo $interview[0]['tags']; ?>" id="tags">
                                 </div>
                             </div>
                         </div>

@@ -1257,7 +1257,9 @@ span.post-comment span {
 	color: #1c1c1c;
 	margin: 30px 0;
 }
-
+.utf_copyright_info a{
+	color: orange;
+}
 .trending-light .trending-slide .utf_post_title {
 	font-weight: 600;
 	margin-top: 3px;
@@ -1995,31 +1997,24 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 }
 
 .utf_featured_slider .item {
-	min-height: 465px;
-	position: relative;
-	background-position: 50% 50%;
-	border-radius: 4px;
-	-webkit-background-size: cover;
-	background-size: cover;
-	-webkit-backface-visibility: hidden;
+    min-height: 524px;
+    position: relative;
+    background-position: center;
+    border-radius: 4px;
+    background-size: cover;
 }
 
 .utf_featured_slider .item:before {
-	content: " ";
-	position: absolute;
-	display: block;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	bottom: 0;
-	left: 0;
-	border-radius: 4px;
-	background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
-	background: -webkit-gradient(linear, left bottom, left bottom, color-stop(60%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.85)));
-	background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
-	background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
-	background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.85) 100%);
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, rgba(177, 177, 177, 0) 40%, rgb(0 0 0 / 50%) 150%);
 }
 
 .utf_featured_post:before {
@@ -4142,13 +4137,26 @@ h1 {
 	margin: 0;
 }
 .event-im {
-    width: 7rem;
+    width: 100%;
     height: 10rem;
     overflow: hidden;
     position: relative;
   }
   
   .event-im img{
+	margin: 0 auto;
+	display: block;
+	height: 180px;
+	aspect-ratio: auto 180 / 180;
+  }
+  .event-im2 {
+    width: 100%;
+    height: 10rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .event-im2 img{
 	margin: 0 auto;
 	display: block;
 	height: 180px;

@@ -54,7 +54,7 @@
                                         <option selected disabled>select category</option>
                                         <option value="Health">Health</option>
                                         <option value="Life Style">Lifestyle</option>
-                                        <option value="Life Style">Bussiness</option>
+                                        <option value="Bussiness">Bussiness</option>
                                     </select>
                                 </div>
                             </div>

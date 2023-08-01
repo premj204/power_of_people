@@ -27,10 +27,12 @@
                 </div>
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="mb-3 py-3 form-group">
-                                <label for="tags" class="form-label">#Tags :</label>
-                                <p class="form-control"> </p>
+                    <div class="col-md-8">
+                            <div class="mb-3 form-group">
+                            <div class="mb-3 form-group">
+                                <label for="headline" class="form-label">Headline :</label>
+                                <p class="form-control"><?php echo $blog[0]['headline']; ?> </p>
+                            </div>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -40,16 +42,6 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="mb-3 form-group">
-                            <div class="mb-3 form-group">
-                                <label for="headline" class="form-label">Headline :</label>
-                                <p class="form-control"><?php echo $blog[0]['headline']; ?> </p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="mb-3 py-3 form-group">
@@ -60,6 +52,10 @@
                         </div>
                     </div>
                 </div>
+                        
+                    </div>
+                </div>
+                
             </div>
 
         </div>

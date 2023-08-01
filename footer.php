@@ -107,7 +107,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 text-center">
-                <div class="utf_copyright_info"> <span>Copyright © <script>var year = new Date();document.write(year.getFullYear());</script> All Rights Reserved.</span> </div>
+                <div class="utf_copyright_info"> <span>Copyright © <script>var year = new Date();document.write(year.getFullYear());</script> All Rights Reserved | Designed by <a href="https://mobisoftseo.com/" target="_">Mobisoftseo Technologies</a></span> </div>
             </div>
         </div>
         <div id="back-to-top" class="back-to-top">

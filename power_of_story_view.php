@@ -38,7 +38,7 @@ include "./database/database.php";
                         <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">Eriyouth</a>
                             </span>
                             <span class="utf_post_date"><i class="fa fa-clock-o"></i>
-                                <?php echo "". date('d M, Y',strtotime($row['added_on'])).""; ?></span>
+                                <?php echo "". date('l d M, Y',strtotime($row['added_on'])).""; ?></span>
                         </div>
                     </div>
                     <div class="utf_post_content-area">
@@ -209,7 +209,7 @@ include "./database/database.php";
                                             <div class='utf_post_content'>
                                                         <h2 class='utf_post_title title-small'> <a href='#'>".$row['title']."</a> </h2>
                                                         <div class='utf_post_meta'>  <span
-                                                                class='utf_post_date'><i class='fa fa-clock-o'></i>". date('d M, Y',strtotime($row['added_on']))."</span><span class='utf_post_author'><i
+                                                                class='utf_post_date'><i class='fa fa-clock-o'></i>". date('l d M, Y',strtotime($row['added_on']))."</span><span class='utf_post_author'><i
                                                                 class='fa fa-user'></i> <a href='#'> </a></span> </div>
                                                     </div>
                                                 </div>

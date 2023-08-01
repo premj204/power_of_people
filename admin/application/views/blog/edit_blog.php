@@ -34,13 +34,14 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-lg-6">
+                        <div class="col-lg-8">
                                 <div class="mb-3 form-group">
-                                    <label for="tags" class="form-label">#Tags :</label>
-                                    <input type="text" class="form-control" name="tags" id="tags" value="">
+                                    <label for="headline" class="form-label">Headline :</label>
+                                    <input type="text" value="<?php echo $blog[0]['headline']; ?>" class="form-control"
+                                        name="headline" id="headline">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="mb-3 form-group">
                                     <label for="tags" class="form-label">Category :</label>
                                     <select id="category" name="category" class="form-select">
@@ -63,13 +64,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3 form-group">
-                                    <label for="headline" class="form-label">Headline :</label>
-                                    <input type="text" value="<?php echo $blog[0]['headline']; ?>" class="form-control"
-                                        name="headline" id="headline">
-                                </div>
-                            </div>
+                          
                             <div class="col-lg-12">
                                 <div class="mb-3 form-group">
                                     <label for="description" class="form-label">Description :</label>
@@ -80,7 +75,6 @@
                                         CKEDITOR.replace('description');
                                         </script>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -91,7 +85,7 @@
                     <!-- <a href="articles.php"><button type="button" class="btn btn-outline-secondary">Back</button></a> -->
                     <button type="submit" class="btn btn-outline-success float-end">Submit</button>
                 </div>
-            </form><!-- End floating Labels Form -->
+            </form>
 
         </div>
     </div>
