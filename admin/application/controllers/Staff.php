@@ -53,47 +53,7 @@
 
     }
 
-    public function uploadFiles($rowId, $filename, $tmp_name, $position){
-        $data['status'] = 400;
-        $file1 = explode(".",$filename);
-        $ext = $file1[1];
-        $newfilename = "";
-        $allowed = array("jpg","jpeg","png","pdf","webp");
-        if(in_array($ext, $allowed)){
-            $uploadPath = "./staff_docs/".$rowId;
-            $savePath = "./staff_docs/".$rowId;
-                $newfilename = date('Ymd')."_photo_".round(microtime(true)). '.' . end($file1);
-                $uploadPath = $uploadPath."/photo/";
-                $savePath = $savePath."/photo/".$newfilename;
-                if(!file_exists($uploadPath)){
-                    mkdir($uploadPath,0777,true);
-                }
-                $path = $uploadPath.$newfilename;
-                $docData['uploadFile'] = $newfilename;
-            if(move_uploaded_file($tmp_name, $path)){
-                //echo $rowId; print_r($docData);
-                $last_Id = $this->model->update_where('blog',  $docData , 'id', $rowId);
-                if($last_Id){
-                    $data['status'] = 200;
-                    $data['msg'] = 'File has been uploaded successfully.';
-                }else{
-                    $data['status'] = 400;
-                    $data['msg'] = 'Error while update. Please connect to administrator';
-                }
-            }else{
-                $data['status'] = 400;
-                $data['msg'] = 'Error while update.';
-            }
-        }
-        return $data;
-    }
-
-
-
-
-
-
-     function add_staff(){
+        function add_staff(){
         $fname = $this->input->get_post('fname'); 
         $lname = $this->input->get_post('lname'); 
          $email = $this->input->get_post('email'); 
@@ -125,6 +85,44 @@
            }
         echo json_encode($data);
     }
+
+      public function uploadFiles($rowId, $filename, $tmp_name, $position){
+        $data['status'] = 400;
+        $file1 = explode(".",$filename);
+        $ext = $file1[1];
+        $newfilename = "";
+        $allowed = array("jpg","jpeg","png","pdf","webp");
+        if(in_array($ext, $allowed)){
+            $uploadPath = "./staff_docs/".$rowId;
+            $savePath = "./staff_docs/".$rowId;
+                $newfilename = date('Ymd')."_photo_".round(microtime(true)). '.' . end($file1);
+                $uploadPath = $uploadPath."/photo/";
+                $savePath = $savePath."/photo/".$newfilename;
+                if(!file_exists($uploadPath)){
+                    mkdir($uploadPath,0777,true);
+                }
+                $path = $uploadPath.$newfilename;
+                $docData['uploadFile'] = $newfilename;
+            if(move_uploaded_file($tmp_name, $path)){
+                //echo $rowId; print_r($docData);
+                $last_Id = $this->model->update_where('staff',  $docData , 'id', $rowId);
+                if($last_Id){
+                    $data['status'] = 200;
+                    $data['msg'] = 'File has been uploaded successfully.';
+                }else{
+                    $data['status'] = 400;
+                    $data['msg'] = 'Error while update. Please connect to administrator';
+                }
+            }else{
+                $data['status'] = 400;
+                $data['msg'] = 'Error while update.';
+            }
+        }
+        return $data;
+    }
+
+
+
 
  function fetch_staff_list(){
 
@@ -193,13 +191,12 @@
        $data['nav']='staff';
        $data['main_content']='staff/profile';
        $this->load->view('includes/templates',$data);
-
     }
 
 
 
         function update_profile(){
-        $id = $this->input->get_post('id'); 
+        $rowId = $this->input->get_post('id'); 
         $fname = $this->input->get_post('fname'); 
         $lname = $this->input->get_post('lname'); 
         $about = $this->input->get_post('about'); 
@@ -225,8 +222,14 @@
                'instagram' => $instagram,
                'linkedin' => $linkedin,
            );
-            $hasUpdated = $this->model->update_where('staff',$staffData,'id',$id);
-          
+            // $hasUpdated = $this->model->update_where('staff',$staffData,'id',$id);
+
+            $rowId = $this->model->update_where('staff',$staffData,'id',$rowId);
+            if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
+                $file = $_FILES["uploadFile"]["name"];
+                $tmp_name = $_FILES["uploadFile"]["tmp_name"];
+                $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "uploadFile");
+            } 
             $data['status'] = 200;
             $data[ 'msg'] = 'staff update successfully.';
         }else{

@@ -39,7 +39,7 @@
                                         aria-label="Default select example">
                                         <option selected disabled>select type</option>
                                         <option value="Power Of Words">Power Of Words</option>
-                                        <option value="Power Of Action">Power Of Action</option>
+                                        <option value="Power Of Action" >Power Of Action</option>
                                         <option value="Power Of Charity">Power Of Charity</option>
                                         <option value="Power Of Health">Power Of Health</option>
                                         <option value="Power Of Life's Work">Power Of Life's Work</option>
@@ -55,6 +55,7 @@
                                         <option value="Health">Health</option>
                                         <option value="Life Style">Lifestyle</option>
                                         <option value="Bussiness">Bussiness</option>
+                                        <option value="Social Worker">Social Worker</option>
                                     </select>
                                 </div>
                             </div>

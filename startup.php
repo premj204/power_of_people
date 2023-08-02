@@ -33,7 +33,7 @@ include "header.php";
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span>
+                                                class="fa fa-calendar"></i> 25 Jan, 2022</span>
                                         <span class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a
                                                 href="#" class="comments-link"><span>03</span></a></span>
                                     </div>
@@ -52,7 +52,7 @@ include "header.php";
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
+                                                class="fa fa-calendar"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing type setting industry. Lorem
@@ -70,7 +70,7 @@ include "header.php";
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
+                                                class="fa fa-calendar"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing type setting industry. Lorem
@@ -88,7 +88,7 @@ include "header.php";
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
+                                                class="fa fa-calendar"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing type setting industry. Lorem
@@ -106,7 +106,7 @@ include "header.php";
                                             known when smart innocent...</a> </h2>
                                     <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
                                             <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
+                                                class="fa fa-calendar"></i> 25 Jan, 2022</span> <span
                                             class="post-comment pull-right"><i class="fa fa-comments-o"></i> <a href="#"
                                                 class="comments-link"><span>03</span></a></span> </div>
                                     <p>Lorem Ipsum is simply dummy text of the printing type setting industry. Lorem
@@ -149,7 +149,7 @@ include "header.php";
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i> <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
+                                                <span class="utf_post_date"><i class="fa fa-calendar"></i> 25
                                                     Jan,
                                                     2022</span>
                                             </div>
@@ -169,7 +169,7 @@ include "header.php";
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i> <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
+                                                <span class="utf_post_date"><i class="fa fa-calendar"></i> 25
                                                     Jan,
                                                     2022</span>
                                             </div>
@@ -189,7 +189,7 @@ include "header.php";
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i> <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
+                                                <span class="utf_post_date"><i class="fa fa-calendar"></i> 25
                                                     Jan,
                                                     2022</span>
                                             </div>
@@ -209,7 +209,7 @@ include "header.php";
                                                     also known when smart innocent...</a> </h2>
                                             <div class="utf_post_meta"> <span class="utf_post_author"><i
                                                         class="fa fa-user"></i> <a href="#"> </a></span>
-                                                <span class="utf_post_date"><i class="fa fa-clock-o"></i> 25
+                                                <span class="utf_post_date"><i class="fa fa-calendar"></i> 25
                                                     Jan,
                                                     2022</span>
                                             </div>

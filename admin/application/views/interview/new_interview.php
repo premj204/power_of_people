@@ -49,9 +49,11 @@
                                     <select id="category" name="category" class="form-select"
                                         aria-label="Default select example">
                                         <option selected disabled>select category</option>
-                                        <option value="Health">Health</option>
-                                        <option value="Life Style">Lifestyle</option>
-                                        <option value="Bussiness">Bussiness</option>
+                                        <option value="Power Of Words">Power Of Words</option>
+                                        <option value="Power Of Action">Power Of Action</option>
+                                        <option value="Power Of Charity">Power Of Charity</option>
+                                        <option value="Power Of Health">Power Of Health</option>
+                                        <option value="Power Of Life Works">Power Of Life Works</option>
                                     </select>
                                 </div>
                             </div>

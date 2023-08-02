@@ -4,12 +4,12 @@ include "./database/database.php";
 
 ?>
 <section>
-    <div class="page-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
+    <div class='page-title'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-md-12'>
+                    <ul class='breadcrumb'>
+                        <li><a href='#'>Home</a></li>
                         <li>Power Of Story</li>
                     </ul>
                 </div>
@@ -17,15 +17,15 @@ include "./database/database.php";
         </div>
     </div>
 </section>
-<section class="utf_block_wrapper">
+<section class='utf_block_wrapper'>
 
-    <div class="container-fluid">
-        <div class="row">
+    <div class='container-fluid'>
+        <div class='row'>
 
             <?php
                 if (!$conn) {                 
                     die("Connection failed: " . mysqli_connect_error());}
-                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`";//(innerjoin)
+                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1' ORDER BY id DESC";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          while ($row = mysqli_fetch_assoc($result)) {
@@ -33,13 +33,14 @@ include "./database/database.php";
                             echo "
                             <div class='content col-md-3 item'>
                             <div class='utf_post_block_style post-grid clearfix'>
-                                <div class='utf_post_thumb utf_post_img'> <a href='#'> <img class='img-fluid'
-                                            src='images/blog/1.webp' alt=''> </a> </div>
-                                <a class='utf_post_cat' href='#'>" . $row['category'] ."</a>
+                            <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
+                                <div class='utf_post_thumb utf_post_img'> <img class='img-fluid'
+                                            src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."'></div>
+                                <div class='utf_post_cat' href='#'>" . $row['category'] ."</div>
                                 <div class='utf_post_content'>
-                                    <h2 class='utf_post_title title-large'> <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>" . $row['title'] ."​</a> </h2>
-                                    <div class='utf_post_meta'>  <span class='utf_post_date'><i class='fa fa-clock-o'></i>". date('l d M, Y',strtotime($row['added_on']))."</span> </div></div>
-                            </div>
+                                    <h2 class='utf_post_title title-large'> " . $row['title'] ."</h2>
+                                    <div class='utf_post_meta'>  <span class='utf_post_date'><i class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span> </div></div>
+                                    ​</a>  </div>
                         </div>
                             "; } ?>
         </div>

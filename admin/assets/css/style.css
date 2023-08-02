@@ -670,6 +670,7 @@ h6 {
 }
 
 .sidebar-nav .nav-link {
+  border-bottom: 1px solid white;
   display: flex;
   align-items: center;
   font-size: 15px;
@@ -686,6 +687,7 @@ h6 {
 
 
 .sidebar-nav .nav-link:hover {
+  border-bottom: 1px solid  #3178f7;
   color: #ffffff;
   background: #3178f7;
 }
@@ -832,6 +834,8 @@ h6 {
 }
 
 .utf_post_thumb img {
+  min-height: 170px;
+  max-height: 170px;
   display: block;
   width: 100%;
   border-radius: 6px;
@@ -951,12 +955,23 @@ h6 {
 }
 
 .dashboard .news h4 a {
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  height: 30px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #012970;
   transition: 0.3s;
 }
 
 .dashboard .news h4 a:hover {
-  color: #4154f1;
+  color: #fd8618;
 }
 
 .dashboard .news p {
@@ -1394,9 +1409,12 @@ h6 {
   height: auto;
   margin: 0 auto;
   width: 17rem;
+}.thmb img{
+  width: 100%;
 }
 
 .sidebar-nav .active a {
+  border-bottom: 1px solid #fd8618;
   background: #fd8618;
   color: white;
 }

@@ -514,7 +514,7 @@ function validateInterviewFrm(ele) {
         //         }
         //     }
         // });
-        return false;
+        return true;
     }
 }
 
@@ -1007,6 +1007,24 @@ function deleteevent(id, status, ele) {
             });
     }
     return false;
+}
+
+function ValidateGalleryFrm(){
+    let hasError = 0;
+    let title = jQuery("#title").val();
+    let files = jQuery("#files").val();  
+
+    if (jQuery.trim(title) == "") { showErrorArrow("Please enter title.", "title"); hasError = 1; } else { changeErrorArrow("title"); }
+    if (jQuery.trim(files) == "") { showErrorArrow("Please upload images.", "files"); hasError = 1; } else { changeErrorArrow("files"); }
+    
+    if (hasError == 1) {
+        $(".alert-success").css('display', 'none').find("span").html("");
+        $(".alert-danger").css('display', 'none').find("span").html("");
+        return false;
+    } else {
+
+        return true;
+    }
 }
 
 

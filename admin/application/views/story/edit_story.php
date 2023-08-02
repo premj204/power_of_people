@@ -80,6 +80,9 @@
                                         <option value="Bussiness"
                                             <?php if($story[0]['category'] == 'Bussiness'){ echo "selected"; } ?>>
                                             Bussiness</option>
+                                            <option value="Social Worker"
+                                            <?php if($story[0]['category'] == 'Social Worker'){ echo "selected"; } ?>>
+                                            Social Worker</option>
                                     </select>
                                 </div>
                             </div>

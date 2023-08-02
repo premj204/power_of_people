@@ -1,3 +1,6 @@
+<?php
+include "./database/database.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,20 +50,24 @@
                         </div> -->
                     </div>
                     <div class="col-md-4 col-sm-12">
-                        <div class="logo"> <a href="index.php"> <img src="images/power_of_people.png" class="mx-auto d-block"
-                                    alt=""> </a> </div>
+                        <div class="logo"> <a href="index.php"> <img src="images/power_of_people.png"
+                                    class="mx-auto d-block" alt=""> </a> </div>
                     </div>
                     <div class="col-md-4 top-social text-lg-right text-md-center">
                         <ul class="unstyled">
-                            <li> <a title="Facebook" href="#"> <span class="social-icon"><i
-                                            class="fa fa-facebook"></i></span> </a> <a title="Twitter" href="#">
-                                    <span class="social-icon"><i class="fa fa-twitter"></i></span> </a> <a
-                                    title="Google+" href="#"> <span class="social-icon"><i
-                                            class="fa fa-google-plus"></i></span> </a> <a title="Linkdin" href="#">
-                                    <span class="social-icon"><i class="fa fa-linkedin"></i></span> </a> <a title="Rss"
-                                    href="#"> <span class="social-icon"><i class="fa fa-rss"></i></span>
-                                </a> <a title="Skype" href="#"> <span class="social-icon"><i
-                                            class="fa fa-skype"></i></span> </a> </li>
+                            <li> <a title="Facebook" href="https://www.facebook.com/profile.php?id=100089729767945"
+                                    target="_"> <span class="social-icon"><i class="fa fa-facebook"></i></span> </a>
+                                <a title="Twitter" href="https://twitter.com/Powerofpeople03" target="_"> <span
+                                        class="social-icon"><i class="fa fa-twitter"></i></span> </a>
+                                <a title="Instagram" href="https://www.instagram.com/powerofpeople2014/" target="_">
+                                    <span class="social-icon"><i class="fa fa-instagram"></i></span> </a>
+                                <a title="Linkdin" href="https://www.linkedin.com/in/power-of-people-a6146a286/"
+                                    target="_"> <span class="social-icon"><i class="fa fa-linkedin"></i></span> </a>
+                                <a title="YouTube" href="https://www.youtube.com/@powerofpeople2014/featured"
+                                    target="_"> <span class="social-icon"><i class="fa fa-youtube"></i></span> </a>
+                                <a title="Pinterest" href=""> <span class="social-icon"><i class="fa fa-pinterest"
+                                            target="_"></i></span> </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -82,40 +89,49 @@
                                 class="collapse navbar-collapse navbar-responsive-collapse">
                                 <ul class="nav navbar-nav">
                                     <!-- Power Of Stories start -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                     <li class="dropdown"> <a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown">Power Of Stories <i class="fa fa-angle-down"></i></a>
                                         <ul class="utf_dropdown_menu list-box" role="menu">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <li><a href="power_of_story.php"><i class="fa fa-angle-double-right"></i>
-                                                            Power Of Words</a>
-                                                    </li>
-                                                    <li><a href=""><i class="fa fa-angle-double-right"></i>
-                                                            Power Of Action</a>
-                                                    </li>
-                                                    <li><a href=""><i class="fa fa-angle-double-right"></i>
-                                                            Power Of Charity</a>
-                                                    </li>
+                                            <?php 
+                                         $select_category = "SELECT `id`, `story_name`, `status`, `added_on` FROM `story_type`";
+                                            $res = mysqli_query($conn, $select_category);
+                                            $i = 0;
+                                            while($result = mysqli_fetch_assoc($res)){
+                                              $i++;
+                                                 ?>
 
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <li><a href=""><i class="fa fa-angle-double-right"></i>
-                                                            Power Of Health</a>
-                                                    </li>
-                                                    <li><a href=""><i class="fa fa-angle-double-right"></i>
-                                                            Power Of Life's Work</a>
-                                                    </li>
-                                                </div>
+                                            <div class="col-lg-6">
+                                                <li><a href="power_of_story.php"><i
+                                                            class="fa fa-angle-double-right"></i>
+                                                        <?php echo $result['story_name']; ?></a>
+                                                </li>
                                             </div>
+                                            <?php }                                                 
+                                                ?>                                           
                                         </ul>
                                     </li>
-                                    <!-- Power Of Stories end -->
-                                    <li> <a href="">Videos</a> </li>
+                                    <li> <a href="video.php">Videos</a> </li>
 
                                     <li class="dropdown"> <a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown">Media & Gallery<i class="fa fa-angle-down"></i></a>
                                         <ul class="utf_dropdown_menu" role="menu">
-                                            <li><a href=""><i class="fa fa-angle-double-right"></i>
+                                            <li><a href="media.php"><i class="fa fa-angle-double-right"></i>
                                                     Media</a>
                                             </li>
                                             <li><a href="gallery.php"><i class="fa fa-angle-double-right"></i>
@@ -124,12 +140,12 @@
                                         </ul>
                                     </li>
 
-                                    
+
                                     <li class="dropdown"> <a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown">Donation<i class="fa fa-angle-down"></i></a>
                                         <ul class="utf_dropdown_menu" role="menu">
-                                            <li><a href=""><i class="fa fa-angle-double-right"></i>
-                                            Donate</a>
+                                            <li><a href="donation.php"><i class="fa fa-angle-double-right"></i>
+                                                    Donate</a>
                                             </li>
                                             <li><a href="certificate.php"><i class="fa fa-angle-double-right"></i>
                                                     Certificates</a>
@@ -139,26 +155,27 @@
                                     <li class="dropdown"> <a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown">Learn<i class="fa fa-angle-down"></i></a>
                                         <ul class="utf_dropdown_menu" role="menu">
-                                            <li><a href=""><i class="fa fa-angle-double-right"></i>
+                                            <li><a href="pop_university.php"><i class="fa fa-angle-double-right"></i>
                                                     POP University</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li> <a href="#">Power of people हिंदी </a></li>
 
-                                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Power of people
+                                    <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                                            data-toggle="dropdown">Power of people
                                             Community<i class="fa fa-angle-down"></i></a>
                                         <ul class="utf_dropdown_menu list-box" role="menu">
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <li><a href=""><i class="fa fa-angle-double-right"></i>
-                                                           Association With The Best</a>
+                                                            Association With The Best</a>
                                                     </li>
                                                     <li><a href=""><i class="fa fa-angle-double-right"></i>
                                                             Events</a>
                                                     </li>
                                                     <li><a href=""><i class="fa fa-angle-double-right"></i>
-                                                    Community Circles</a>
+                                                            Community Circles</a>
                                                     </li>
 
                                                 </div>
@@ -177,8 +194,8 @@
                                         </ul>
                                     </li>
 
-                                    <li> <a href="login.php"
-                                            class=" btn btn-outline-success orange-color fw-semibold">Login</a> </li>
+                                    <li> <a href="" class=" btn btn-outline-success orange-color fw-semibold">Login</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

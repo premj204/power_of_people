@@ -3,8 +3,8 @@ include "header.php";
 include "./database/database.php";
 ?>
 <?php
-                if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
+             if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
             }
             $id=$_GET['id']; 
             $sql = "SELECT * FROM `story` WHERE `id` = $id"; 
@@ -35,9 +35,9 @@ include "./database/database.php";
                     <div class="utf_post_title-area"> <a class="utf_post_cat"
                             href="#"><?php echo "".$row['category'].""; ?></a>
                         <h2 class="utf_post_title"> <?php echo "".$row['title'].""; ?></h2>
-                        <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#">Eriyouth</a>
+                        <div class="utf_post_meta"> <span class="utf_post_author"> <i class="fa fa-user"></i> Power Of People
                             </span>
-                            <span class="utf_post_date"><i class="fa fa-clock-o"></i>
+                            <span class="utf_post_date"><i class="fa fa-calendar"></i>
                                 <?php echo "". date('l d M, Y',strtotime($row['added_on'])).""; ?></span>
                         </div>
                     </div>
@@ -51,14 +51,14 @@ include "./database/database.php";
                         </div>
                         <div class="share-items clearfix">
                             <ul class="post-social-icons unstyled">
-                                <li class="facebook"> <a href="#"> <i class="fa fa-facebook"></i> <span
-                                            class="ts-social-title">Facebook</span></a> </li>
-                                <li class="twitter"> <a href="#"> <i class="fa fa-twitter"></i> <span
-                                            class="ts-social-title">Twitter</span></a> </li>
-                                <li class="gplus"> <a href="#"> <i class="fa fa-google-plus"></i> <span
-                                            class="ts-social-title">Google +</span></a> </li>
-                                <li class="pinterest"> <a href="#"> <i class="fa fa-pinterest"></i> <span
-                                            class="ts-social-title">Pinterest</span></a> </li>
+                                <li class="facebook"> <a href="https://www.facebook.com/profile.php?id=100089729767945"> <i class="fa fa-facebook"></i> <span class="ts-social-title">Facebook</span></a> </li>
+                               
+                                <li class="twitter"> <a href="https://twitter.com/Powerofpeople03"> <i class="fa fa-twitter"></i> <span class="ts-social-title">Twitter</span></a> </li>
+                              
+                                <li class="instagram"> <a href="https://www.instagram.com/powerofpeople2014/"> <i class="fa fa-instagram"></i> <span class="ts-social-title">Instagram</span></a> </li>
+
+                                <li class="pinterest"> <a href="https://www.youtube.com/@powerofpeople2014/featured"> <i class="fa fa-youtube"></i> <span class="ts-social-title">Youtube</span></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ include "./database/database.php";
                 </div> -->
 
                 <!-- comment form start  -->
-                <div class="comments-form">
+                <!-- <div class="comments-form">
                     <h3 class="title-normal">Leave a comment</h3>
                     <form>
                         <div class="row">
@@ -169,7 +169,7 @@ include "./database/database.php";
                             <button class="comments-btn btn btn-primary" type="submit">Post Comment</button>
                         </div>
                     </form>
-                </div>
+                </div> -->
                 <!-- comment form end  -->
             </div>
             <div class="col-lg-4 col-md-12">
@@ -177,12 +177,18 @@ include "./database/database.php";
                     <div class="widget">
                         <h3 class="utf_block_title"><span class="bg-title-green">Follow Us</span></h3>
                         <ul class="social-icon">
-                            <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100089729767945" target="_blank"><i
+                                        class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.youtube.com/@powerofpeople2014/featured" target="_blank"><i
+                                        class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://twitter.com/Powerofpeople03" target="_blank"><i
+                                        class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/powerofpeople2014/" target="_blank"><i
+                                        class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/power-of-people-a6146a286/" target="_blank"><i
+                                        class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://in.pinterest.com/powerofpeople2014/" target="_blank"><i
+                                        class="fa fa-pinterest"></i></a></li>
                         </ul>
                     </div>
 
@@ -209,8 +215,7 @@ include "./database/database.php";
                                             <div class='utf_post_content'>
                                                         <h2 class='utf_post_title title-small'> <a href='#'>".$row['title']."</a> </h2>
                                                         <div class='utf_post_meta'>  <span
-                                                                class='utf_post_date'><i class='fa fa-clock-o'></i>". date('l d M, Y',strtotime($row['added_on']))."</span><span class='utf_post_author'><i
-                                                                class='fa fa-user'></i> <a href='#'> </a></span> </div>
+                                                                class='utf_post_date'><i class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span></div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -220,7 +225,7 @@ include "./database/database.php";
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>

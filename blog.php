@@ -2,14 +2,13 @@
 include "header.php";
 include "./database/database.php";
 ?>
-
 <section>
     <div class="page-title">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li>Blogs</li>
                     </ul>
                 </div>
@@ -17,215 +16,102 @@ include "./database/database.php";
         </div>
     </div>
 </section>
-
 <section class="utf_block_wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="block category-listing">
-                    <div class="row">
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img utf_post_img"> <a href="#"> <img class="img-fluid"
-                                            src="images/blog/Two_Young_Doctors.webp" alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Health</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="#">A Success Story of Two Young
-                                            Doctors</a> </h2>
-                                
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> Eriyouth</a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
+    
 
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <a href="#"> <img class="img-fluid" src="images/blog/1.jpg"
-                                            alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Travel</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="detailsview.php">Doctor for beggars
-                                            - Service to Mankind is Service to God</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#">Soham Trust</a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="gallery g-img">
+<div class="row">
+                <?php
+                if (!$conn) {
+                 
+                    die("Connection failed: " . mysqli_connect_error());
+                     }
+                       $sql = "SELECT `id`, `headline`, `description`, `category`, `uploadFile`, `status`, `added_on` FROM `blog`  where `status` ='1'ORDER BY id DESC";//(innerjoin)
+                        $result = mysqli_query($conn, $sql);
+                         $sno = 0;
+                         while ($row = mysqli_fetch_assoc($result)) {
+                            $sno = $sno + 1;
+                            echo " 
 
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <a href="#"> <img class="img-fluid" src="images/blog/1.webp"
-                                            alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Food</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="#">Meet the ‘Nomadic Doctor’ of
-                                            Ladakh, who saved the lives of 1000 women​</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <a href="#"> <img class="img-fluid"
-                                            src="images/blog/2.webp" alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Health</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="#">Power Of Chanting</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <a href="#"> <img class="img-fluid" src="images/blog/3.jpg"
-                                            alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Architecture</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="#">Neurology on Wheels : This
-                                            doctor is taking her services to the villages for free</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <a href="#"> <img class="img-fluid" src="images/blog/4.jpg"
-                                            alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Travel</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="#">From Freelancer to Agency
-                                            Owner</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <a href="#"> <img class="img-fluid"
-                                            src="images//blog/5.webp" alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Travel</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="#">The Bus Driver, Conductor And
-                                            Passenger
-                                            – Power Of Kindness</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 item">
-                            <div class="utf_post_block_style post-grid clearfix">
-                                <div class="utf_post_thumb utf_post_img"> <a href="#"> <img class="img-fluid"
-                                            src="images/blog/6.webp" alt=""> </a> </div>
-                                <a class="utf_post_cat" href="#">Travel</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title title-large"> <a href="#">Power Of Journaling
-                                            - Journaling is a Wonderful</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-clock-o"></i> 25 Jan, 2022</span> <span
-                                            class="post-comment pull-right"><i class="fa fa-eye"></i> <a href="#"
-                                                class="comments-link"><span>03</span></a></span> </div>
-                                </div>
-                            </div>
-                        </div>
+                            <div class='content col-lg-3 col-sm-12'>
+                            <a href='blog_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
+                            <div class='utf_post_block_style clearfix'>
+                           <div class='utf_post_thumb utf_post_img'> 
+                           <img class='img-fluid inter-img' src='./admin/blog_docs/".$row['id']."/photo/".$row['uploadFile']."'></div>
+                                <div class='utf_post_cat'>" . $row['category'] ."</div>
+                                <div class='utf_post_content'>
+                                    <h2 class='utf_post_title title-medium dottss'> " . $row['headline'] ."</h2>
+                                    <div class='utf_post_meta'>  <span class='utf_post_date'><i class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span> </div></div>
+                                    ​</a>  </div>
+                            </a>
+                        </a>
                     </div>
-                </div>
-                <div id="pagination"></div>
-                <!-- <div class="paging">
-                    <ul class="pagination">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div> -->
+
+
+
+
+
+                            "; } ?>
             </div>
 
+            <a href="#" id="loadMore">Load More</a>
         </div>
     </div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-var itemsPerPage = 9; // Number of items to show per page
-var currentPage = 1; // Current page
-
-var items = document.querySelectorAll('.item');
-var numPages = Math.ceil(items.length / itemsPerPage);
-
-function showPage(page) {
-    var startIndex = (page - 1) * itemsPerPage;
-    var endIndex = startIndex + itemsPerPage;
-
-    items.forEach(function(item, index) {
-        if (index >= startIndex && index < endIndex) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
+$(document).ready(function() {
+    $(".content").slice(0, 12).show();
+    $("#loadMore").on("click", function(e) {
+        e.preventDefault();
+        $(".content:hidden").slice(0, 12).slideDown();
+        if ($(".content:hidden").length == 0) {
+            $("#loadMore").text("No Content").addClass("noContent");
         }
     });
-}
 
-function createPagination() {
-    var pagination = document.getElementById('pagination');
-
-    for (var i = 1; i <= numPages; i++) {
-        var link = document.createElement('a');
-        link.href = '#';
-        link.innerText = i;
-        link.className = 'pagi-btn';
-
-        if (i === currentPage) {
-            link.className = 'pagi-btn active';
-        }
-
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            currentPage = parseInt(this.innerText);
-            showPage(currentPage);
-
-            // Update active link
-            var activeLink = document.querySelector('#pagination .active');
-            activeLink.classList.remove('active');
-            this.classList.add('active');
-        });
-
-        pagination.appendChild(link);
-    }
-}
-
-showPage(currentPage);
-createPagination();
+})
 </script>
+<style>
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: none;
+}
+
+#loadMore {
+    width: 200px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: #fd8618;
+    transition: .3s;
+}
+
+#loadMore:hover {
+    color: blue;
+    background-color: #fff;
+    background-color: #118407;
+    text-decoration: none;
+}
+
+.noContent {
+    color: #000 !important;
+    background-color: transparent !important;
+    pointer-events: none;
+}
+</style>
+<?php
+include "footer.php";
+?>

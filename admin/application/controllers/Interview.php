@@ -43,6 +43,41 @@
 		$this->load->view('includes/templates',$data);
  	}  
 
+     public function uploadFiles($rowId, $filename, $tmp_name, $position){
+        $data['status'] = 400;
+        $file1 = explode(".",$filename);
+        $ext = $file1[1];
+        $newfilename = "";
+        $allowed = array("jpg","jpeg","png","pdf","webp");
+        if(in_array($ext, $allowed)){
+            $uploadPath = "./interview_docs/".$rowId;
+            $savePath = "./interview_docs/".$rowId;
+                $newfilename = date('Ymd')."_photo_".round(microtime(true)). '.' . end($file1);
+                $uploadPath = $uploadPath."/photo/";
+                $savePath = $savePath."/photo/".$newfilename;
+                if(!file_exists($uploadPath)){
+                    mkdir($uploadPath,0777,true);
+                }
+                $path = $uploadPath.$newfilename;
+                $docData['uploadFile'] = $newfilename;
+            if(move_uploaded_file($tmp_name, $path)){
+                //echo $rowId; print_r($docData);
+                $last_Id = $this->model->update_where('interview',  $docData , 'id', $rowId);
+                if($last_Id){
+                    $data['status'] = 200;
+                    $data['msg'] = 'File has been uploaded successfully.';
+                }else{
+                    $data['status'] = 400;
+                    $data['msg'] = 'Error while update. Please connect to administrator';
+                }
+            }else{
+                $data['status'] = 400;
+                $data['msg'] = 'Error while update.';
+            }
+        }
+        return $data;
+    }
+
      function add_interview(){
         $video_link = $this->input->get_post('video_link'); 
         $details = $this->input->get_post('details'); 
@@ -54,10 +89,8 @@
                'video_link' => $video_link,
                'details' => $details,
                'description' => $description,  
-               'category' => $category,
-                         
+               'category' => $category,                         
            );
-
             $rowId = $this->model->insert_and_return('interview',$interviewData);
             if(isset($_FILES) && $_FILES['uploadFile']['name']!="" && $_FILES['uploadFile']['size']>0){
                 $file = $_FILES["uploadFile"]["name"];
@@ -70,8 +103,10 @@
                $data['status'] = 400;
                $data['msg'] = 'Invalid data. Please check with Plan Data.';
            }
-        echo json_encode($data);
+        // echo json_encode($data);
+        $this->new_interview($data);
     }
+
     function fetch_interviews_list(){
 
         $requestData= $_REQUEST;

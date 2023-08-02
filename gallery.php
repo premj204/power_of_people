@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+include "./database/database.php";
 ?>
 <section>
     <div class="page-title">
@@ -21,46 +22,23 @@ include "header.php";
         <div class="gallery g-img">
 
             <div class="row">
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/1.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/1.jpg">
-                    </a>
-                </div>
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/2.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/2.jpg">
-                    </a>
-                </div>
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/3.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/3.jpg">
-                    </a>
-                </div>
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/4.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/4.jpg">
-                    </a>
-                </div>
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/1.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/1.jpg">
-                    </a>
-                </div>
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/2.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/2.jpg">
-                    </a>
-                </div>
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/3.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/3.jpg">
-                    </a>
-                </div>
-                <div class="content col-lg-3 col-sm-12"><a data-fancybox="img" href="images/news/4.jpg"
-                        class="glightbox gallery_product  mb-3 filter a">
-                        <img src="images/news/4.jpg">
-                    </a>
-                </div>
+            <?php
+                if (!$conn) {
+                 
+                    die("Connection failed: " . mysqli_connect_error());
+                     }
+                       $sql = "SELECT `id`, `gallery_id`, `files`, `status`, `added_on`, `updated_on` FROM `gallery_child` where `status` ='1'ORDER BY id DESC";//(innerjoin)
+                       $result = mysqli_query($conn, $sql);
+                         $sno = 0;
+                         while ($row = mysqli_fetch_assoc($result)) {
+                            $sno = $sno + 1;
+                            echo " 
+                            <div class='content col-lg-3 col-sm-12'><a data-fancybox='img' href='./admin/gallery_docs/".$row['files']."'
+                            class='glightbox gallery_product  mb-3 filter a'>
+                            <img src='./admin/gallery_docs/".$row['files']."'>
+                        </a>
+                    </div>
+                            "; } ?>
             </div>
 
             <a href="#" id="loadMore">Load More</a>
@@ -71,10 +49,10 @@ include "header.php";
 
 <script>
 $(document).ready(function() {
-    $(".content").slice(0, 9).show();
+    $(".content").slice(0, 12).show();
     $("#loadMore").on("click", function(e) {
         e.preventDefault();
-        $(".content:hidden").slice(0, 9).slideDown();
+        $(".content:hidden").slice(0, 12).slideDown();
         if ($(".content:hidden").length == 0) {
             $("#loadMore").text("No Content").addClass("noContent");
         }

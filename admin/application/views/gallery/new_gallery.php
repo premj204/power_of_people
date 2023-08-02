@@ -2,8 +2,21 @@
 <section>
     <div class="card">
         <div class="container p-5">
+            <?php 
+          if(isset($msg) && !empty($msg)){
+            // echo "<pre>";print_r($msg); 
+            if($msg['status']==200){ ?>
+              <div style="display: block;" class="alert alert-success" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php }else{?> 
+              <div style="display: block;" class="alert alert-danger" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php } ?>
+        <?php }else{ ?>
+              <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+              <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
+        <?php } ?>
             <div class="g-upload-box">
-                <form action="" id="gallery_form" name="gallery_form" method="POST">
+                <form id="gallery_form" name="gallery_form" method="POST" enctype="multipart/form-data" onsubmit="return ValidateGalleryFrm(this);"  action="<?php echo base_url() ?>gallery/add_gallery">
+                    
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="mb-3 form-group">
@@ -12,13 +25,15 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
+                            <div class="mb-3 form-group">
                             <label for="tags" class="form-label">Upload Image :</label>
-                                                        <div class="field" align="left">
-                                <input type="file" id="files" class="dragBox" name="files" multiple />
+                            <div class="field" align="left">
+                                <input type="file" id="files" class="dragBox" name="files[]" multiple />
                             </div>
+                           </div>
                         </div>
                         <div class="col-lg-12 text-center mt-5">
-                            <button class="btn btn-outline-success float-end">Upload</button>
+                            <button type = "submit" class="btn btn-outline-success float-end">Upload</button>
                         </div>
 
                     </div>

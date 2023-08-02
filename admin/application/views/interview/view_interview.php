@@ -35,8 +35,7 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="thmb">
-                                <img src="<?php echo base_url(); ?>assets/img/cameraman.png"
-                                    class="mx-auto d-block w-100" alt="">
+                            <img src='<?php echo base_url(); ?>interview_docs/<?php echo $interview[0]['id']?>/photo/<?php echo $interview[0]['uploadFile']?>' alt="">
                                     <p class="fw-bold text-center   ">Thumbnail</p>
                             </div>
                         </div>

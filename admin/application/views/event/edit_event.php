@@ -62,13 +62,13 @@
                     <div class="col-lg-4">
                         <div class="mb-3 form-group mb-3">
                             <label for="date" class="form-label">Date</label>
-                            <input type="date" class="form-control" value="<?php echo $event[0]['date']; ?>" name="date" id="date">
+                            <input type="date" class="form-control" value="" name="date" id="date">
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="mb-3 form-group mb-3">
                             <label for="time" class="form-label">Time</label>
-                            <input type="time" class="form-control" name="time" id="time"value="<?php echo $event[0]['time']; ?>">
+                            <input type="time" class="form-control" name="time" id="time"value="">
                         </div>
                     </div>
 

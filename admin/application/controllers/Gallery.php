@@ -37,8 +37,9 @@
 		$this->load->view('includes/templates',$data);
  	}
     
-     function new_gallery(){
+     function new_gallery($msg=""){
         $data['nav']='gallery';
+        $data['msg']=$msg;
        $data['main_content']='gallery/new_gallery';
        $this->load->view('includes/templates',$data);
     }
@@ -100,27 +101,64 @@
 
 
     function add_gallery(){
-        $title = $this->input->get_post('title'); 
-        $files = $this->input->get_post('files'); 
-               if($title != ""){
-           $galleryData = array(
+        $title = $this->input->get_post('title');  
+        if($title != ""){
+            $galleryData = array(
                'title' => $title,
-               'files' => $files,   
-           );
+            );
+
             $rowId = $this->model->insert_and_return('gallery',$galleryData);
-            if(isset($_FILES) && $_FILES['files']['name']!="" && $_FILES['files']['size']>0){
-                $file = $_FILES["files"]["name"];
-                $tmp_name = $_FILES["files"]["tmp_name"];
-                $uploadData = $this->uploadFiles($rowId, $file, $tmp_name, "files");
-            } 
 
-           $data['status'] = 200;
-           $data[ 'msg'] = 'New gallery Added successfully.';
+            if($rowId > 0){
+               $data['status'] = 200;
+               $data[ 'msg'] = 'New gallery Added successfully.';
 
-           }else{
-               $data['status'] = 400;
-               $data['msg'] = 'Invalid data. Please check with Plan Data.';
-           }
+                $count = count($_FILES['files']['name']);
+
+                for($i=0;$i<$count;$i++){
+            
+                    if(!empty($_FILES['files']['name'][$i])){
+                
+                        $_FILES['file']['name'] = $_FILES['files']['name'][$i];  
+                        $_FILES['file']['type'] = $_FILES['files']['type'][$i];
+                        $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+                        $_FILES['file']['error'] = $_FILES['files']['error'][$i];
+                        $_FILES['file']['size'] = $_FILES['files']['size'][$i];
+              
+                        $config['upload_path'] = 'gallery_docs/';
+
+                        $config['allowed_types'] = 'jpg|jpeg|png|';
+                        $config['files'] = $_FILES['files']['name'][$i];
+
+                        $new_name = time().$_FILES["files"]['name'];
+                        $config['files'] = $new_name;
+                        
+                        $this->load->library('upload',$config); 
+                
+                        if($this->upload->do_upload('file')){
+
+                            $uploadData = $this->upload->data();
+                            $savePath = $uploadData['file_name'];
+
+                            $fileData = array(
+                                'gallery_id' => $rowId,
+                                'files' =>$savePath,
+                                'added_on' => date('Y-m-d H:i:s')
+                            ); 
+                            $this->model->insert_into('gallery_child',$fileData);
+                            $data['status'] = 200;
+                            $data['msg'] = 'New gallery Added successfully.';
+                        }
+                    }
+                }
+
+            }
+            
+
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = 'Invalid data. Please check with Plan Data.';
+        }
         // echo json_encode($data);
            $this->new_gallery($data);
     }

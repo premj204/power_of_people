@@ -20,8 +20,8 @@ include "./database/database.php";
 </section>
 <section class="utf_block_wrapper">
     <div class="container">
- 
-    <?php
+
+        <?php
                 if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
@@ -38,10 +38,11 @@ include "./database/database.php";
                 <div class="single-post">
                     <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">Food</a>
                         <h2 class="utf_post_title"><?php echo" " . $row['details'] ." " ?></h2>
-                        <div class="utf_post_meta"> <span class="utf_post_author"> By <a href="#"> </a> </span>
-                            <span class="utf_post_date"><i class="fa fa-clock-o"></i><?php echo" " . $row['upload_date'] ." " ?></span>
-                             <span class="post-hits"><i class="fa fa-eye"></i> 21</span> <span class="post-comment">
-                             <i class="fa fa-comments-o"></i> <a href="#" class="comments-link"><span>01</span></a></span>
+                        <div class="utf_post_meta"> <span class="utf_post_author"> <i class="fa fa-user"></i> Power Of
+                                People
+                            </span>
+                            <span class="utf_post_date"><i
+                                    class="fa fa-calendar"></i><?php echo" ". date('l d M, Y',strtotime($row['upload_date']))."" ?></span>
                         </div>
                     </div>
 
@@ -49,38 +50,36 @@ include "./database/database.php";
                         <div class="entry-content">
                             <div class="post-media post-video">
                                 <div class="embed-responsive">
-                                    <iframe src="<?php echo" " . $row['video_link'] ." " ?>" width="500"
-                                        height="281" allowfullscreen=""></iframe> <!-- ?autoplay=1  video auto play-->
+                                    <iframe src="<?php echo" " . $row['video_link'] ." " ?>" width="500" height="281"
+                                        allowfullscreen=""></iframe> <!-- ?autoplay=1  video auto play-->
                                 </div>
                             </div>
                             <p><?php echo" " . $row['description'] ." " ?></p>
                         </div>
 
-                        <div class="tags-area clearfix">
-                            <div class="post-tags">
-                                <span>Tags:</span>
-                                <a href="#"># Business</a>
-                                <a href="#"># Corporate</a>
-                                <a href="#"># Services</a>
-                                <a href="#"># Customer</a>
-                            </div>
-                        </div>
 
                         <div class="share-items clearfix">
                             <ul class="post-social-icons unstyled">
-                                <li class="facebook"> <a href="#"> <i class="fa fa-facebook"></i> <span
-                                            class="ts-social-title">Facebook</span></a> </li>
-                                <li class="twitter"> <a href="#"> <i class="fa fa-twitter"></i> <span
-                                            class="ts-social-title">Twitter</span></a> </li>
-                                <li class="gplus"> <a href="#"> <i class="fa fa-google-plus"></i> <span
-                                            class="ts-social-title">Google +</span></a> </li>
-                                <li class="pinterest"> <a href="#"> <i class="fa fa-pinterest"></i> <span
-                                            class="ts-social-title">Pinterest</span></a> </li>
+                                <li class="facebook"> <a href="https://www.facebook.com/profile.php?id=100089729767945">
+                                        <i class="fa fa-facebook"></i> <span class="ts-social-title">Facebook</span></a>
+                                </li>
+
+                                <li class="twitter"> <a href="https://twitter.com/Powerofpeople03"> <i
+                                            class="fa fa-twitter"></i> <span class="ts-social-title">Twitter</span></a>
+                                </li>
+
+                                <li class="instagram"> <a href="https://www.instagram.com/powerofpeople2014/"> <i
+                                            class="fa fa-instagram"></i> <span
+                                            class="ts-social-title">Instagram</span></a> </li>
+
+                                <li class="pinterest"> <a href="https://www.youtube.com/@powerofpeople2014/featured"> <i
+                                            class="fa fa-youtube"></i> <span class="ts-social-title">Youtube</span></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="author-box">
+                <!-- <div class="author-box">
                     <div class="author-img pull-left"> <img src="images/news/author.png" alt=""> </div>
                     <div class="author-info">
                         <h3>Miss Lisa Doe</h3>
@@ -88,7 +87,7 @@ include "./database/database.php";
                             been the industry's standard dummy text ever since It has survived not only five centuries,
                             but also the leap into electronic type setting, remaining essentially unchanged.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-lg-4 col-md-12">
@@ -96,12 +95,18 @@ include "./database/database.php";
                     <div class="widget">
                         <h3 class="utf_block_title"><span class="bg-title-orange">Follow Us</span></h3>
                         <ul class="social-icon">
-                            <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100089729767945" target="_blank"><i
+                                        class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.youtube.com/@powerofpeople2014/featured" target="_blank"><i
+                                        class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://twitter.com/Powerofpeople03" target="_blank"><i
+                                        class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/powerofpeople2014/" target="_blank"><i
+                                        class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/power-of-people-a6146a286/" target="_blank"><i
+                                        class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://in.pinterest.com/powerofpeople2014/" target="_blank"><i
+                                        class="fa fa-pinterest"></i></a></li>
                         </ul>
                     </div>
 
@@ -109,74 +114,36 @@ include "./database/database.php";
                         <h3 class="utf_block_title"><span class="bg-title-green">Popular News</span></h3>
                         <div class="utf_list_post_block">
                             <ul class="utf_list_post">
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/1.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Gadgets</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                <?php
+                                if (!$conn) {
+                 
+                                    die("Connection failed: " . mysqli_connect_error());
+                                     }
+                                     $sql = "SELECT `id`, `video_link`, `details`, `description`, `category`, `uploadFile`, `status`, `upload_date` FROM `interview` where `status` ='1' ORDER BY RAND() LIMIT 5";//(innerjoin)
+                                    $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                     while ($row = mysqli_fetch_assoc($result)) {
+                                     $sno = $sno + 1;
+                                     echo "
 
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/2.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Travel</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/3.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Traveling</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/news/4.jpg" alt=""> </a> <a class="utf_post_cat"
-                                                href="#">Food</a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title title-small"> <a href="#">Zhang social media pop
-                                                    also known when smart innocent...</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i> <a href="#"> </a></span> <span
-                                                    class="utf_post_date"><i class="fa fa-clock-o"></i> 25 Jan,
-                                                    2022</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                     <a href='#'>
+                                     <li class='clearfix'>
+                                         <div class='utf_post_block_style post-float clearfix'>
+                                             <div class='utf_post_thumb'> <img class='img-fluid' src='images/pop_interview.jpg'>
+                                             </div>
+                                             <div class='utf_post_content'>
+                                                 <h2 class='utf_post_title dottss  title-small'>".$row['details']."</h2>
+                                                 <div class='utf_post_meta'><span class='utf_post_date'><i
+                                                             class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['upload_date']))."</span> </div>
+                                             </div>
+                                         </div>
+                                     </li>
+                                 </a>
+                                 "; } ?> </ul>
                         </div>
                     </div>
 
-                    <div class="widget text-center"> <img class="banner img-fluid"
+                    <!-- <div class="widget text-center"> <img class="banner img-fluid"
                             src="images/banner-ads/ad-sidebar.png" alt=""> </div>
                     <div class="widget widget-tags">
                         <h3 class="utf_block_title"><span class="bg-title-orange">Popular Tags</span></h3>
@@ -193,7 +160,7 @@ include "./database/database.php";
                             <li><a href="#">Wordpress</a></li>
                             <li><a href="#">Customer</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
