@@ -2,16 +2,16 @@
 <footer id="footer" class="footer mt-5">
     <div class="utf_footer_main">
         <div class="container">
-            <div class="row"> <div class="col-lg-2 col-sm-12 col-xs-12 footer-widget contact-widget mx-2  "></div>
-                <div class="col-lg-4 col-sm-12 col-xs-12 footer-widget contact-widget mx-2  ">
+            <div class="row">
+                               <div class="col-lg-2"></div>
+                               <div class="col-lg-4 col-sm-12 col-xs-12 footer-widget contact-widget mx-2  ">
                     <h3 class="widget-title">About Us</h3>
                     <ul>
-                        <!-- <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                            Ipsum has been the industry's standard dummy text since has five...</li> -->
-                        <li><i class="fa fa-home"></i>302, Swastik Disa corporate park, Opps Brand Factory, LBS road,
+                        <!-- <li>We are an organization that helps individuals and establishments with greater purpose, clarity, and impact share their story and inspire people with potential. When you share from a place of empathy, it builds trust, establishes mutual understanding, and strengthens human connection. An individual can make, or break an idea, and even shape the future. Tell your story, influence hearts and minds, and make a bigger impact on your world and share your journey to inspire. We help people and brands connect, inspire, and mobilize action for a better world. That is the power of people.</li> -->
+                        <li><i class="fa fa-home icn"></i>302, Swastik Disa corporate park, Opps Brand Factory, LBS road,
                             Ghatkopar (W), Mumbai</li>
-                        <li><i class="fa fa-phone"></i> <a href="#">+91 932 344 6163</a></li>
-                        <li><i class="fa fa-envelope-o"></i> <a href="#">help@doctorsrisk.com</a></li>
+                        <li><i class="fa fa-phone icn"></i> <a href="#">+91 932 344 6163</a></li>
+                        <li><i class="fa fa-envelope-o icn"></i> <a href="#">help@doctorsrisk.com</a></li>
                     </ul>
                     <ul class="unstyled utf_footer_social">
                         <li> <a title="Facebook" href="https://www.facebook.com/profile.php?id=100089729767945"
@@ -33,6 +33,7 @@
                     <h3 class="widget-title">Popular Categories</h3>
                     <ul>
                         <li><i class="fa fa-angle-double-right"></i><a href="index.php">Home</a></li>
+                        <li><i class="fa fa-angle-double-right"></i><a href="about.php">About Us</a></li>
                         <li><i class="fa fa-angle-double-right"></i><a href="event.php">Event</a></li>
                         <li><i class="fa fa-angle-double-right"></i><a href="blog.php">Blog</a></li>
                     </ul>

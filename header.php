@@ -27,6 +27,7 @@ include "./database/database.php";
     <link rel="stylesheet" href="css/glightbox.css">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/font.css">
 
     <!-- Google Fonts -->
     <link href="https://db.onlinewebfonts.com/c/1db72198459b1d419ae5940598a2bad5?family=Paralucent+W00+Bold"
@@ -88,42 +89,26 @@ include "./database/database.php";
                             <div id="navbarSupportedContent"
                                 class="collapse navbar-collapse navbar-responsive-collapse">
                                 <ul class="nav navbar-nav">
-                                    <!-- Power Of Stories start -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                                    <li class="dropdown"> <a href="" class="dropdown-toggle"
                                             data-toggle="dropdown">Power Of Stories <i class="fa fa-angle-down"></i></a>
                                         <ul class="utf_dropdown_menu list-box" role="menu">
+                                            <div class="row">
                                             <?php 
-                                         $select_category = "SELECT `id`, `story_name`, `status`, `added_on` FROM `story_type`";
-                                            $res = mysqli_query($conn, $select_category);
-                                            $i = 0;
-                                            while($result = mysqli_fetch_assoc($res)){
-                                              $i++;
-                                                 ?>
-
-                                            <div class="col-lg-6">
-                                                <li><a href="power_of_story.php"><i
-                                                            class="fa fa-angle-double-right"></i>
+                                             $select_category = "SELECT `id`, `story_name`, `status`, `added_on` FROM `story_type`";
+                                                $res = mysqli_query($conn, $select_category);
+                                                $i = 0;
+                                                while($result = mysqli_fetch_assoc($res)){
+                                                  $i++; ?>
+                                                <div class="col-lg-6">
+                                                    <li><a href="power_of_story.php?id=<?php echo base64_encode($result['id']); ?>"><i class="fa fa-angle-double-right"></i>
                                                         <?php echo $result['story_name']; ?></a>
-                                                </li>
-                                            </div>
-                                            <?php }                                                 
-                                                ?>                                           
+                                                    </li>
+                                                </div>
+                                              
+                                                <?php 
+                                                    }                                                 
+                                                ?> 
+                                            </div>                                          
                                         </ul>
                                     </li>
                                     <li> <a href="video.php">Videos</a> </li>

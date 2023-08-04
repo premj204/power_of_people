@@ -36,7 +36,7 @@ include "./database/database.php";
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="single-post">
-                    <div class="utf_post_title-area"> <a class="utf_post_cat" href="#">Food</a>
+                    <div class="utf_post_title-area"> <a class="utf_post_cat" href="#"><?php echo" " . $row['category'] ." " ?></a>
                         <h2 class="utf_post_title"><?php echo" " . $row['details'] ." " ?></h2>
                         <div class="utf_post_meta"> <span class="utf_post_author"> <i class="fa fa-user"></i> Power Of
                                 People
@@ -129,7 +129,7 @@ include "./database/database.php";
                                      <a href='#'>
                                      <li class='clearfix'>
                                          <div class='utf_post_block_style post-float clearfix'>
-                                             <div class='utf_post_thumb'> <img class='img-fluid' src='images/pop_interview.jpg'>
+                                             <div class='utf_post_thumb fimage3'> <img class='img-fluid' src='images/pop_interview.jpg'>
                                              </div>
                                              <div class='utf_post_content'>
                                                  <h2 class='utf_post_title dottss  title-small'>".$row['details']."</h2>

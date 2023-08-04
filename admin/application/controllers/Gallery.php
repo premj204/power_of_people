@@ -36,7 +36,31 @@
 		$data['main_content']='gallery/gallery';
 		$this->load->view('includes/templates',$data);
  	}
-    
+  
+
+    function view_gallery(){
+        $id = $this->input->get_post('id');
+        $data['gallery'] = array();
+        if(isset($id) && !empty($id)){
+             $data['gallery'] = $this->model->getData('gallery',array('id'=> $id));
+        }
+       $data['nav']='gallery';
+       $data['main_content']='gallery/view_gallery';
+       $this->load->view('includes/templates',$data);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
      function new_gallery($msg=""){
         $data['nav']='gallery';
         $data['msg']=$msg;

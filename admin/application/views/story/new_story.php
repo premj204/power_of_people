@@ -35,14 +35,17 @@
                             <div class="col-lg-6">
                                 <div class="mb-3 form-group">
                                     <label for="type" class="form-label">Type :</label>
-                                    <select id="type" name="type" class="form-select"
+                                    <select id="type" name="story_type_id" class="form-select"
                                         aria-label="Default select example">
                                         <option selected disabled>select type</option>
-                                        <option value="Power Of Words">Power Of Words</option>
-                                        <option value="Power Of Action" >Power Of Action</option>
-                                        <option value="Power Of Charity">Power Of Charity</option>
-                                        <option value="Power Of Health">Power Of Health</option>
-                                        <option value="Power Of Life's Work">Power Of Life's Work</option>
+                                        <?php 
+                                         if(isset($story_type) && !empty($story_type)){
+                                            foreach($story_type as $val){ ?>
+                                                <option value="<?php echo $val['id']; ?>"><?php echo $val['story_name']; ?></option>
+                                           <?php
+                                            }
+                                         }
+                                        ?>
                                     </select>
                                 </div>
                             </div>

@@ -40,28 +40,17 @@
                             <div class="col-lg-6">
                                 <div class="mb-3 form-group">
                                     <label for="type" class="form-label">Type :</label>
-                                    <select id="type" name="type" class="form-select"
+                                    <select id="type" name="story_type_id" class="form-select"
                                         aria-label="Default select example">
-                                        <option disabled>Select Category </option>
-                                        <option value="Power Of Words"
-                                            <?php if($story[0]['category'] == 'Power Of Words'){ echo "selected";} ?>>
-                                            Power Of Words
-                                        </option>
-                                        <option value="Power Of Action"
-                                            <?php if($story[0]['category'] == 'Power Of Action'){ echo "selected"; } ?>>
-                                            Power Of Action
-                                        </option>
-                                        <option value="Power Of Charity"
-                                            <?php if($story[0]['category'] == 'Power Of Charity'){ echo "selected"; } ?>>
-                                            Power Of Charity</option>
-
-                                        <option value="Power Of Health"
-                                            <?php if($story[0]['category'] == 'Power Of Health'){ echo "selected"; } ?>>
-                                            Power Of Health</option>
-
-                                        <option value="Power Of Life's Work"
-                                            <?php if($story[0]['category'] == 'Power Of Lifes Work'){ echo "selected"; } ?>>
-                                            Power Of Life's Work</option>
+                                        <option disabled>Select type </option>
+                                        <?php 
+                                         if(isset($story_type) && !empty($story_type)){
+                                            foreach($story_type as $val){ ?>
+                                                <option value="<?php echo $val['id']; ?>" <?php if($val['id'] == $story[0]['story_type_id']){ echo "selected"; } ?>><?php echo $val['story_name']; ?></option>
+                                           <?php
+                                            }
+                                         }
+                                        ?>
                                     </select>
                                 </div>
                             </div>

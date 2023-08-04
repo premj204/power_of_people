@@ -2,6 +2,11 @@
 include "header.php";
 include "./database/database.php";
 
+ $id = base64_decode($_GET['id']); 
+ $select = "SELECT story_name FROM story_type where id = $id"; 
+ $res = mysqli_query($conn,$select);
+ $data = mysqli_fetch_assoc($res); 
+
 ?>
 <section>
     <div class='page-title'>
@@ -10,7 +15,7 @@ include "./database/database.php";
                 <div class='col-md-12'>
                     <ul class='breadcrumb'>
                         <li><a href='#'>Home</a></li>
-                        <li>Power Of Story</li>
+                        <li><?php echo $data['story_name']; ?></li>
                     </ul>
                 </div>
             </div>
@@ -19,13 +24,13 @@ include "./database/database.php";
 </section>
 <section class='utf_block_wrapper'>
 
-    <div class='container-fluid'>
+    <div class='container'>
         <div class='row'>
 
             <?php
                 if (!$conn) {                 
                     die("Connection failed: " . mysqli_connect_error());}
-                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1' ORDER BY id DESC";//(innerjoin)
+                       $sql = "SELECT `id`, `story_type_id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1' AND `story_type_id` = $id  ORDER BY id DESC";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          while ($row = mysqli_fetch_assoc($result)) {

@@ -35,7 +35,10 @@
 		$data['main_content']='story/story';
 		$this->load->view('includes/templates',$data);
  	}
-     function new_story($msg=""){
+
+    function new_story($msg=""){
+        $data['story_type'] = $this->model->getAllData('story_type');
+        // print_view($data['story_type']); exit;
  		$data['nav']='story';
         $data['msg']=$msg;
 		$data['main_content']='story/new_story';
@@ -81,7 +84,7 @@
     function add_story(){
         $title = $this->input->get_post('title'); 
         $description = $this->input->get_post('description'); 
-         $type = $this->input->get_post('type'); 
+         $story_type_id = $this->input->get_post('story_type_id'); 
         $category = $this->input->get_post('category'); 
         // $tags = $this->input->get_post('tags'); 
 
@@ -89,7 +92,7 @@
            $storyData = array(
                'title' => $title,
                'description' => $description,   
-                'type' => $type, 
+               'story_type_id' => $story_type_id, 
                'category' => $category, 
             //    'tags' => $tags, 
            );
@@ -111,6 +114,7 @@
     }
 
      function edit_story(){
+         $data['story_type'] = $this->model->getAllData('story_type');
         $id = $this->input->get_post('id');
         $data['story'] = array();
         if(isset($id) && !empty($id)){

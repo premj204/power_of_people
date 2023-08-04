@@ -29,7 +29,7 @@ include "./database/database.php";
                             <div class='col-md-6 pad-r-small mb-1'>
                             <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
                         <div class='utf_post_overaly_style contentTop utf_hot_post_bottom clearfix'>
-                            <div class='utf_post_thumb'><img class='img-fluid'
+                            <div class='utf_post_thumb fimage'><img class='img-fluid'
                                          src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' alt='" . $row['title'] ."' /></div>
                             <div class='utf_post_content'> <div class='utf_post_cat'>" . $row['category'] ."</div>
                                 <h2 class='utf_post_title title-medium dottss text-white'title='". $row['title'] ."'> " . $row['title'] ."</h2>
@@ -49,10 +49,8 @@ include "./database/database.php";
         <div class="utf_latest_news block color-red">
             <h3 class="utf_block_title"><span>Blogs</span></h3>
             <div id="utf_latest_news_slide" class="owl-carousel owl-theme utf_latest_news_slide">
-
                 <?php
-                if (!$conn) {
-                 
+                if (!$conn) {                 
                     die("Connection failed: " . mysqli_connect_error());
                      }
                        $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog` where `status` ='1'ORDER BY id DESC";//(innerjoin)
@@ -63,8 +61,7 @@ include "./database/database.php";
                             $sno = $sno + 1;
                             echo "
                           <div class='item'>
-                    <ul class='utf_list_post'>
-                        
+                    <ul class='utf_list_post'>                        
                     <a href='blog_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> 
                     <li class='clearfix'>
                             <div class='utf_post_block_style clearfix'>
@@ -262,7 +259,7 @@ include "./database/database.php";
                                 href="power_of_story.php" class="float-right">See More</a></span></h3>
                     <div class="row">
                         <?php
-                if (!$conn) {
+                   if (!$conn) {
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
@@ -274,7 +271,7 @@ include "./database/database.php";
                             echo "
                         <div class='col-lg-3 col-md-6'>
                             <div class='utf_post_block_style clearfix'>
-                            <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> <div class='utf_post_thumb'><img src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."'/> </div>
+                            <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> <div class='utf_post_thumb fimage2'><img src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."'/> </div>
                                 <div class='utf_post_cat'>".$row['category']."</div>
                                 <div class='utf_post_content'>
                                     <h2 class='utf_post_title dottss title-medium' title='".$row['title']."'> ".$row['title']." </h2>
@@ -288,9 +285,9 @@ include "./database/database.php";
                             <div class="utf_list_post_block">
                                 <ul class="utf_list_post">
                                     <?php
-                        if (!$conn) {                 
-                    die("Connection failed: " . mysqli_connect_error());
-                     }
+                          if (!$conn) {                 
+                       die("Connection failed: " . mysqli_connect_error());
+                       }
                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() LIMIT 3";
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
@@ -300,7 +297,7 @@ include "./database/database.php";
                             <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
                             <li class='clearfix'>
                             <div class='utf_post_block_style post-float clearfix'>
-                                <div class='utf_post_thumb'> <img class='img-fluid'
+                                <div class='utf_post_thumb fimage3'> <img class='img-fluid'
                                             src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /> </div>
                                 <div class='utf_post_content'>
                                     <h2 class='utf_post_title dottss  title-small'> ".$row['title']."</h2>
@@ -371,7 +368,7 @@ include "./database/database.php";
                                         echo "
                                                <a href='power_of_story_view.php?id=" . $row['id'] . "'> <li class='clearfix'>
                                                     <div class='utf_post_block_style post-float clearfix'>
-                                                        <div class='utf_post_thumb'> <img class='img-fluid'
+                                                        <div class='utf_post_thumb fimage3'> <img class='img-fluid'
                                                                         src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' />
                                                                                                                         </div>
                                                         <div class='utf_post_content'>
@@ -409,7 +406,7 @@ include "./database/database.php";
                                         </h2>
                                         <div class='utf_post_meta'> <span class='utf_post_date'><i
                                                     class='fa fa-calendar'></i>
-                                                <?php echo"". date('d M, Y',strtotime($row['upload_date']))."" ?></span>
+                                                <?php echo"". date('l d M, Y',strtotime($row['upload_date']))."" ?></span>
                                         </div>
                                     </div>
                                 </div>
@@ -430,7 +427,7 @@ include "./database/database.php";
                                         <a href='interviews_view.php?id=" . $row['id'] . "'>
                                     <li class='clearfix'>
                                              <div class='utf_post_block_style post-float clearfix'>
-                                             <div class='utf_post_thumb'><img class='img-fluid'
+                                             <div class='utf_post_thumb fimage3'><img class='img-fluid'
                                              src='./admin/interview_docs/".$row['id']."/photo/".$row['uploadFile']."'>
                                             <div class='video-icon video-icon-small'> <i class='fa fa-play'></i> </div></div>
                                                  <div class='utf_post_content'>
@@ -507,395 +504,263 @@ include "./database/database.php";
                         <div class="cooming_soon border mb-3">
                             <h3>Coming Soon...</h3>
                         </div>
-                    </div>
-
-                    <div class="widget color-default m-bottom-0">
-                        <h3 class="utf_block_title"><span class="bg-title-green">Gallery</span></h3>
-                        <div id="utf_post_slide" class="owl-carousel owl-theme utf_post_slide">
-                            <?php
-                if (!$conn) {
-                 
-                    die("Connection failed: " . mysqli_connect_error());
-                     }
-                       $sql = "SELECT `id`, `gallery_id`, `files`, `status`, `added_on`, `updated_on` FROM `gallery_child` where `status` ='1' ORDER BY id DESC";//(innerjoin)
-                       $result = mysqli_query($conn, $sql);
-                         $sno = 0;
-                         while ($row = mysqli_fetch_assoc($result)) {
-                            $sno = $sno + 1;
-                            echo " 
-                            <div class='item'><img src='./admin/gallery_docs/".$row['files']."'></div>
-                            "; } ?>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- 1rd Block Wrapper End -->
 
-<!-- 2rd Block Wrapper Start -->
 <section class="utf_block_wrapper p-bottom-0">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="block ">
-                    <h3 class="utf_block_title"><span class="bg-title-green">Power Of Words</span> <span><a href=""
-                                class="float-right">See More</a></span></h3>
-                    <?php
-                        if (!$conn) {                 
-                                      die("Connection failed: " . mysqli_connect_error());
-                            }
-                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `status`, `added_on` FROM `story` where `status` ='1'ORDER BY id DESC";//(innerjoin)
-                        $result = mysqli_query($conn, $sql);
-                         $sno = 0;
-                         $row = mysqli_fetch_assoc($result) 
-                            ?>
-                    <a href="<?php echo"power_of_story_view.php?id=" . $row['id'] . "" ?>">
-                        <div class="utf_post_overaly_style clearfix">
-                            <div class="utf_post_thumb"> <img class="img-fluid th-img2"
-                                    src='<?php echo"./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."" ?>'
-                                    alt="" />
-                            </div>
-                            <div class="utf_post_content">
-                                <h2 class="utf_post_title hdr text-white"><?php echo"" . $row['title'] .""?></h2>
-                                <div class="utf_post_meta"><span class="utf_post_date"><i
-                                            class="fa fa-calendar"></i><?php echo"". date('l d M, Y',strtotime($row['added_on']))."" ?></span>
-                                    <span class="span_utf_post_cat"><?php echo"" . $row['category'] ."" ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="utf_list_post_block">
-                        <ul class="utf_list_post">
-                            <?php
-                            if (!$conn) {                 
-                             die("Connection failed: " . mysqli_connect_error());
-                                  }
-                                  $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1'ORDER BY id DESC LIMIT 3";//(innerjoin)
-                                 $result = mysqli_query($conn, $sql);
-                                    $sno = 0;
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $sno = $sno + 1;
-                                        echo "                                        
-                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
-                                        <li class='clearfix'>
-                                            <div class='utf_post_block_style post-float clearfix'>
-                                                <div class='utf_post_thumb'> <img class='img-fluid'
-                                                            src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /></div>
-                                                <div class='utf_post_content'>
-                                                    <h2 class='utf_post_title hdr1 title-small'> " . $row['title'] ."</h2>
-                                                    <div class='utf_post_meta'>
-                                                        <span class='utf_post_date'><i class='fa fa-calendar'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
-                                                         </div>
-                                                            </div>
-                                                        </div>
-                                                        </li>
-                                                        </a>
-                                                        "; } ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3">
-                <div class="block">
-                    <h3 class="utf_block_title"><span class="bg-title-orange">Power Of Charity</span> <span><a href=""
-                                class="float-right">See More</a></span></h3>
-                    <?php
-                        if (!$conn) {                 
-                                      die("Connection failed: " . mysqli_connect_error());
-                            }
-                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1'ORDER BY id DESC";//(innerjoin)
-                        $result = mysqli_query($conn, $sql);
-                         $sno = 0;
-                         $row = mysqli_fetch_assoc($result) 
-                            ?>
-                    <a href="<?php echo"power_of_story_view.php?id=" . $row['id'] . "" ?>">
-                        <div class="utf_post_overaly_style clearfix">
-                            <div class="utf_post_thumb"> <img class="img-fluid th-img2"
-                                    src='<?php echo"./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."" ?>'
-                                    alt="" />
-                            </div>
-                            <div class="utf_post_content">
-                                <h2 class="utf_post_title hdr text-white"><?php echo"" . $row['title'] .""?></h2>
-                                <div class="utf_post_meta"><span class="utf_post_date"><i
-                                            class="fa fa-calendar"></i><?php echo"". date('l d M, Y',strtotime($row['added_on']))."" ?></span>
-                                    <span class="span_utf_post_cat"><?php echo"" . $row['category'] ."" ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="utf_list_post_block">
-                        <ul class="utf_list_post">
-                            <?php
-                            if (!$conn) {                 
-                             die("Connection failed: " . mysqli_connect_error());
-                                  }
-                                  $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1'ORDER BY id DESC LIMIT 3";//(innerjoin)
-                                 $result = mysqli_query($conn, $sql);
-                                    $sno = 0;
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $sno = $sno + 1;
-                                        echo "                                        
-                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'>
-                                        <li class='clearfix'>
-                                            <div class='utf_post_block_style post-float clearfix'>
-                                                <div class='utf_post_thumb'> <img class='img-fluid'
-                                                            src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /></div>
-                                                <div class='utf_post_content'>
-                                                    <h2 class='utf_post_title hdr1 title-small'> " . $row['title'] ."</h2>
-                                                    <div class='utf_post_meta'>
-                                                        <span class='utf_post_date'><i class='fa fa-calendar'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
-                                                         </div>
-                                                            </div>
-                                                        </div>
-                                                        </li>
-                                                        </a>
-                                                        "; } ?>
-                        </ul>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3">
-                <div class="block">
-                    <h3 class="utf_block_title"><span class="bg-title-green">Power Of Health</span> <span><a href=""
-                                class="float-right">See More</a></span></h3>
-                    <?php
-                        if (!$conn) {                 
-                                      die("Connection failed: " . mysqli_connect_error());
-                            }
-                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1'ORDER BY id DESC";//(innerjoin)
-                        $result = mysqli_query($conn, $sql);
-                         $sno = 0;
-                         $row = mysqli_fetch_assoc($result) 
-                            ?>
-                    <a href="<?php echo"power_of_story_view.php?id=" . $row['id'] . "" ?>">
-                        <div class="utf_post_overaly_style clearfix">
-                            <div class="utf_post_thumb"> <img class="img-fluid th-img2"
-                                    src='<?php echo"./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."" ?>'
-                                    alt="" />
-                            </div>
-                            <div class="utf_post_content">
-                                <h2 class="utf_post_title hdr text-white"><?php echo"" . $row['title'] .""?></h2>
-                                <div class="utf_post_meta"><span class="utf_post_date"><i
-                                            class="fa fa-calendar"></i><?php echo"". date('l d M, Y',strtotime($row['added_on']))."" ?></span>
-                                    <span class="span_utf_post_cat"><?php echo"" . $row['category'] ."" ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="utf_list_post_block">
-                        <ul class="utf_list_post">
-                            <?php
-                            if (!$conn) {                 
-                             die("Connection failed: " . mysqli_connect_error());
-                                  }
-                                  $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1'ORDER BY id DESC LIMIT 3";//(innerjoin)
-                                 $result = mysqli_query($conn, $sql);
-                                    $sno = 0;
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $sno = $sno + 1;
-                                        echo "                                        
-                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'>
-                                        <li class='clearfix'>
-                                      <div class='utf_post_block_style post-float clearfix'>
-                                      <div class='utf_post_thumb'> <img class='img-fluid'
-                                        src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /></div>
-                                    <div class='utf_post_content'>
-                                   <h2 class='utf_post_title hdr1 title-small'> " . $row['title'] ."</h2>
-                                <div class='utf_post_meta'>
-                                <span class='utf_post_date'><i class='fa fa-calendar'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
-                                </div>
-                                    </div>
-                                  </div>
-                                 </li>
-                               </a>
-                                "; } ?>
-                        </ul>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3">
-                <div class="block">
-                    <h3 class="utf_block_title"><span class="bg-title-orange">POWER OF LIFE'S WORK</span> <span><a
-                                href="" class="float-right">See More</a></span></h3>
-                    <?php
-                        if (!$conn) {                 
-                                      die("Connection failed: " . mysqli_connect_error());
-                            }
-                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1' ORDER BY id DESC";//(innerjoin)
-                        $result = mysqli_query($conn, $sql);
-                         $sno = 0;
-                         $row = mysqli_fetch_assoc($result) 
-                            ?>
-                    <a href="<?php echo"power_of_story_view.php?id=" . $row['id'] . "" ?>">
-                        <div class="utf_post_overaly_style clearfix">
-                            <div class="utf_post_thumb"> <img class="img-fluid th-img2"
-                                    src='<?php echo"./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."" ?>'
-                                    alt="" />
-                            </div>
-                            <div class="utf_post_content">
-                                <h2 class="utf_post_title hdr text-white"><?php echo"" . $row['title'] .""?></h2>
-                                <div class="utf_post_meta"><span class="utf_post_date"><i
-                                            class="fa fa-calendar"></i><?php echo"". date('l d M, Y',strtotime($row['added_on']))."" ?></span>
-                                    <span class="span_utf_post_cat"><?php echo"" . $row['category'] ."" ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="utf_list_post_block">
-                        <ul class="utf_list_post">
-                            <?php
-                            if (!$conn) {                 
-                             die("Connection failed: " . mysqli_connect_error());
-                                  }
-                                  $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story`where `status` ='1'ORDER BY id DESC LIMIT 3";//(innerjoin)
-                                 $result = mysqli_query($conn, $sql);
-                                    $sno = 0;
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $sno = $sno + 1;
-                                        echo "                                        
-                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'>
-                                        <li class='clearfix'>
-                                            <div class='utf_post_block_style post-float clearfix'>
-                                                <div class='utf_post_thumb'> <img class='img-fluid'
-                                                            src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /></div>
-                                                <div class='utf_post_content'>
-                                                    <h2 class='utf_post_title hdr1 title-small'> " . $row['title'] ."</h2>
-                                                    <div class='utf_post_meta'>
-                                                        <span class='utf_post_date hdr1'><i class='fa fa-calendar '></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
-                                                            </div>
-                                                        </div>
-                                                        </li>
-                                                        </a>
-                                                        "; } ?>
-                        </ul>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</section>
-<!-- 2rd Block Wrapper End -->
-
-<!-- 3rd Block Wrapper Start -->
-<!-- <section class="utf_block_wrapper p-bottom-0">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="utf_more_news block color-default">
-                    <h3 class="utf_block_title"><span class="bg-title-green">Author</span></h3>
+                    <h3 class="utf_block_title bg-title-hed" style="border-bottom:none"><span class="">Power Of Stories</span></h3>
                     <div id="utf_more_news_slide" class="owl-carousel owl-theme utf_more_news_slide">
                         <div class="item">
-                            <div class="utf_post_block_style utf_post_float_half clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/health5.jpg" alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Video</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Ratcliffe to be Director of
-                                            intelligence Trump ignored smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-calendar"></i> 25 Jan,
-                                            2022</span> </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy text since
-                                        has five...</p>
-                                </div>
-                            </div>
-
-                            <div class="utf_post_block_style utf_post_float_half clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/health5.jpg" alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Health</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Ratcliffe to be Director of
-                                            intelligence Trump ignored smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-calendar"></i> 25 Jan,
-                                            2022</span> </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy text since
-                                        has five...</p>
-                                </div>
-                            </div>
-
-                            <div class="utf_post_block_style utf_post_float_half clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/health5.jpg" alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Health</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Zhang social media pop also known
-                                            when smart innocent...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-calendar"></i> 25 Jan,
-                                            2022</span> </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy text since
-                                        has five...</p>
+                            <div class="utf_featured_tab">
+                                <h3 class="utf_block_title"><span class="bg-title-green">POWER OF WORDS</span>
+                                    <span><a href="power_of_story.php" class="float-right">See More</a></span></h3>
+                                <div class="row">
+                                    <?php
+                               if (!$conn) {
+                 
+                               die("Connection failed: " . mysqli_connect_error());
+                                }
+                                 $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY id DESC LIMIT 2";
+                                  $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                   while ($row = mysqli_fetch_assoc($result)) {
+                                         $sno = $sno + 1;
+                                        echo "
+                                    <div class='col-lg-3 col-md-6'>
+                                                 <div class='utf_post_block_style clearfix'>
+                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> <div class='utf_post_thumb fimage2'><img src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."'/> </div>
+                                                   <div class='utf_post_cat'>".$row['category']."</div>
+                                     <div class='utf_post_content'>
+                                    <h2 class='utf_post_title dottss title-medium' title='".$row['title']."'> ".$row['title']." </h2>
+                                    <div class='utf_post_meta'> <span class='utf_post_date'><i
+                                                class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                    </div>
+                                       </div>
+                                        </div>
+                                  </div>"; } ?>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="utf_list_post_block">
+                                            <ul class="utf_list_post">
+                                                <?php
+                                            if (!$conn) {                 
+                                        die("Connection failed: " . mysqli_connect_error());
+                                        }
+                                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() LIMIT 3";
+                                        $result = mysqli_query($conn, $sql);
+                                            $sno = 0;
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $sno = $sno + 1;
+                                                echo "
+                                                <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
+                                                <li class='clearfix'>
+                                                <div class='utf_post_block_style post-float clearfix'>
+                                                    <div class='utf_post_thumb fimage3'> <img class='img-fluid'
+                                                                src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /> </div>
+                                                    <div class='utf_post_content'>
+                                                        <h2 class='utf_post_title dottss  title-small'> ".$row['title']."</h2>
+                                                        <div class='utf_post_meta'> 
+                                                        <span class='utf_post_date'><i class='fa fa-calendar'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                                        <span class='span_utf_post_cat'>".$row['category']."</span>
+                                                </div>
+                                                 </div>
+                                                   </div>
+                                         </li></a> "; } ?>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="item">                           
+                          <div class="utf_featured_tab">
+                                <h3 class="utf_block_title"><span class="bg-title-orange">POWER OF CHARITY</span>
+                                    <span><a href="power_of_story.php" class="float-right">See More</a></span></h3>
+                                <div class="row">
+                                    <?php
+                               if (!$conn) {
+                 
+                               die("Connection failed: " . mysqli_connect_error());
+                                }
+                                 $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY id DESC LIMIT 2";
+                                  $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                   while ($row = mysqli_fetch_assoc($result)) {
+                                         $sno = $sno + 1;
+                                        echo "
+                                    <div class='col-lg-3 col-md-6'>
+                                                 <div class='utf_post_block_style clearfix'>
+                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> <div class='utf_post_thumb fimage2'><img src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."'/> </div>
+                                                   <div class='utf_post_cat'>".$row['category']."</div>
+                                     <div class='utf_post_content'>
+                                    <h2 class='utf_post_title dottss title-medium' title='".$row['title']."'> ".$row['title']." </h2>
+                                    <div class='utf_post_meta'> <span class='utf_post_date'><i
+                                                class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                    </div>
+                                       </div>
+                                        </div>
+                                  </div>"; } ?>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="utf_list_post_block">
+                                            <ul class="utf_list_post">
+                                                <?php
+                                            if (!$conn) {                 
+                                        die("Connection failed: " . mysqli_connect_error());
+                                        }
+                                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() LIMIT 3";
+                                        $result = mysqli_query($conn, $sql);
+                                            $sno = 0;
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $sno = $sno + 1;
+                                                echo "
+                                                <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
+                                                <li class='clearfix'>
+                                                <div class='utf_post_block_style post-float clearfix'>
+                                                    <div class='utf_post_thumb fimage3'> <img class='img-fluid'
+                                                                src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /> </div>
+                                                    <div class='utf_post_content'>
+                                                        <h2 class='utf_post_title dottss  title-small'> ".$row['title']."</h2>
+                                                        <div class='utf_post_meta'> 
+                                                        <span class='utf_post_date'><i class='fa fa-calendar'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                                        <span class='span_utf_post_cat'>".$row['category']."</span>
+                                                    </div>
+                                                 </div>
+                                                   </div>
+                                                  </li></a> "; } ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="item">
-                            <div class="utf_post_block_style utf_post_float_half clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/health5.jpg" alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Video</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Breeze through 17 locations in
-                                            Europe in this breathtaking v…</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-calendar"></i> 25 Jan,
-                                            2022</span> </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy text since
-                                        has five...</p>
+                            <div class="utf_featured_tab">
+                                <h3 class="utf_block_title"><span class="bg-title-green">POWER OF HEALTH</span>
+                                    <span><a href="power_of_story.php" class="float-right">See More</a></span></h3>
+                                <div class="row">
+                                    <?php
+                               if (!$conn) {
+                 
+                               die("Connection failed: " . mysqli_connect_error());
+                                }
+                                 $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY id DESC LIMIT 2";
+                                  $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                   while ($row = mysqli_fetch_assoc($result)) {
+                                         $sno = $sno + 1;
+                                        echo "
+                                    <div class='col-lg-3 col-md-6'>
+                                                 <div class='utf_post_block_style clearfix'>
+                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> <div class='utf_post_thumb fimage2'><img src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."'/> </div>
+                                                   <div class='utf_post_cat'>".$row['category']."</div>
+                                     <div class='utf_post_content'>
+                                    <h2 class='utf_post_title dottss title-medium' title='".$row['title']."'> ".$row['title']." </h2>
+                                    <div class='utf_post_meta'> <span class='utf_post_date'><i
+                                                class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                    </div>
+                                       </div>
+                                        </div>
+                                  </div>"; } ?>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="utf_list_post_block">
+                                            <ul class="utf_list_post">
+                                                <?php
+                                            if (!$conn) {                 
+                                        die("Connection failed: " . mysqli_connect_error());
+                                        }
+                                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() LIMIT 3";
+                                        $result = mysqli_query($conn, $sql);
+                                            $sno = 0;
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $sno = $sno + 1;
+                                                echo "
+                                                <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
+                                                <li class='clearfix'>
+                                                <div class='utf_post_block_style post-float clearfix'>
+                                                    <div class='utf_post_thumb fimage3'> <img class='img-fluid'
+                                                                src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /> </div>
+                                                    <div class='utf_post_content'>
+                                                        <h2 class='utf_post_title dottss  title-small'> ".$row['title']."</h2>
+                                                        <div class='utf_post_meta'> 
+                                                        <span class='utf_post_date'><i class='fa fa-calendar'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                                        <span class='span_utf_post_cat'>".$row['category']."</span>
+                                                </div>
+                                                 </div>
+                                                   </div>
+                                         </li></a> "; } ?>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="utf_post_block_style utf_post_float_half clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/health5.jpg" alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Architecture</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Science meets architecture in
-                                            robotically woven, solar...</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-calendar"></i> 25 Jan,
-                                            2022</span> </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy text since
-                                        has five...</p>
-                                </div>
-                            </div>
-
-                            <div class="utf_post_block_style utf_post_float_half clearfix">
-                                <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                            src="images/news/health5.jpg" alt="" /> </a> </div>
-                                <a class="utf_post_cat" href="#">Traveling</a>
-                                <div class="utf_post_content">
-                                    <h2 class="utf_post_title"> <a href="#">Historical heroes and robot
-                                            dinosaurs: New games on our…</a> </h2>
-                                    <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i>
-                                            <a href="#"> </a></span> <span class="utf_post_date"><i
-                                                class="fa fa-calendar"></i> 25 Jan,
-                                            2022</span> </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                        industry. Lorem Ipsum has been the industry's standard dummy text since
-                                        has five...</p>
+                        <div class="item">                           
+                          <div class="utf_featured_tab">
+                                <h3 class="utf_block_title"><span class="bg-title-orange">POWER OF LIFE'S WORK</span>
+                                    <span><a href="power_of_story.php" class="float-right">See More</a></span></h3>
+                                <div class="row">
+                                    <?php
+                               if (!$conn) {
+                 
+                               die("Connection failed: " . mysqli_connect_error());
+                                }
+                                 $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY id DESC LIMIT 2";
+                                  $result = mysqli_query($conn, $sql);
+                                    $sno = 0;
+                                   while ($row = mysqli_fetch_assoc($result)) {
+                                         $sno = $sno + 1;
+                                        echo "
+                                    <div class='col-lg-3 col-md-6'>
+                                                 <div class='utf_post_block_style clearfix'>
+                                        <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'> <div class='utf_post_thumb fimage2'><img src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."'/> </div>
+                                                   <div class='utf_post_cat'>".$row['category']."</div>
+                                     <div class='utf_post_content'>
+                                    <h2 class='utf_post_title dottss title-medium' title='".$row['title']."'> ".$row['title']." </h2>
+                                    <div class='utf_post_meta'> <span class='utf_post_date'><i
+                                                class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                    </div>
+                                       </div>
+                                        </div>
+                                  </div>"; } ?>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="utf_list_post_block">
+                                            <ul class="utf_list_post">
+                                                <?php
+                                            if (!$conn) {                 
+                                        die("Connection failed: " . mysqli_connect_error());
+                                        }
+                                        $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY RAND() LIMIT 3";
+                                        $result = mysqli_query($conn, $sql);
+                                            $sno = 0;
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $sno = $sno + 1;
+                                                echo "
+                                                <a href='power_of_story_view.php?id=" . $row['id'] . "'?id=" . $row['id'] . "'>
+                                                <li class='clearfix'>
+                                                <div class='utf_post_block_style post-float clearfix'>
+                                                    <div class='utf_post_thumb fimage3'> <img class='img-fluid'
+                                                                src='./admin/story_docs/".$row['id']."/photo/".$row['uploadFile']."' /> </div>
+                                                    <div class='utf_post_content'>
+                                                        <h2 class='utf_post_title dottss  title-small'> ".$row['title']."</h2>
+                                                        <div class='utf_post_meta'> 
+                                                        <span class='utf_post_date'><i class='fa fa-calendar'></i> ". date('l d M, Y',strtotime($row['added_on']))."</span>
+                                                        <span class='span_utf_post_cat'>".$row['category']."</span>
+                                                    </div>
+                                                 </div>
+                                                   </div>
+                                                  </li></a> "; } ?>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -904,37 +769,27 @@ include "./database/database.php";
             </div>
 
             <div class="col-lg-4 col-sm-12">
-                <div class="sidebar utf_sidebar_right">
-                    <div class="widget color-default">
-                        <h3 class="utf_block_title"><span class="bg-title-orange">Blog</span> <span><a href="blog.php"
-                                    class="float-right">See More</a></span></h3>
-                        <div class="utf_list_post_block">
-                            <ul class="utf_list_post review-post-list">
-                                <li class="clearfix">
-                                    <div class="utf_post_block_style post-float clearfix">
-                                        <div class="utf_post_thumb"> <a href="#"> <img class="img-fluid"
-                                                    src="images/blog/Two_Young_Doctors.webp" alt="" /> </a> </div>
-                                        <div class="utf_post_content">
-                                            <h2 class="utf_post_title"> <a href="detailsview.php">A Success Story of Two
-                                                    Young
-                                                    Doctors</a> </h2>
-                                            <div class="utf_post_meta"> <span class="utf_post_author"><i
-                                                        class="fa fa-user"></i>
-                                                    <a href="#">Eriyouth</a></span> <span class="utf_post_date"><i
-                                                        class="fa fa-calendar"></i> xx xx xx</span> </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-
-                            </ul>
+            <div class="widget color-default m-bottom-0">
+                        <h3 class="utf_block_title"><span class="bg-title-green">Gallery</span></h3>
+                        <div id="utf_post_slide" class="owl-carousel owl-theme utf_post_slide">
+                            <?php
+                            if (!$conn) {
+                             die("Connection failed: " . mysqli_connect_error());
+                              }
+                                $sql = "SELECT `id`, `gallery_id`, `files`, `status`, `added_on`, `updated_on` FROM `gallery_child` where `status` ='1' ORDER BY id DESC";//(innerjoin)
+                                   $result = mysqli_query($conn, $sql);
+                                   $sno = 0;
+                                   while ($row = mysqli_fetch_assoc($result)) {
+                            $sno = $sno + 1;
+                            echo " 
+                            <div class='item'><img src='./admin/gallery_docs/".$row['files']."'></div>
+                            "; } ?>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
 <!-- 3rd Block Wrapper End -->
 
 

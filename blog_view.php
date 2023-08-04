@@ -196,26 +196,25 @@ include "./database/database.php";
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
-                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog` where `status` ='1' ORDER BY RAND() LIMIT 7";//(innerjoin)
+                       $sql = "SELECT `id`, `headline`, `description`, `uploadFile`, `category`, `status`, `added_on` FROM `blog` where `status` ='1' ORDER BY RAND() LIMIT 5";//(innerjoin)
                        $result = mysqli_query($conn, $sql);
 
                          $sno = 0;
                          while ($row = mysqli_fetch_assoc($result)) {
                             $sno = $sno + 1;
                             echo "
+                            <a href='blog_view.php?id=".$row['id'] ."'?id=". $row['id'] ."'>
                             <li class='clearfix'>
                             <div class='utf_post_block_style post-float clearfix'>
-                                <div class='utf_post_thumb'> <a href='#'> <img class='img-fluid'
-                                            src='./admin/blog_docs/".$row['id']."/photo/".$row['uploadFile']."' alt=''> </a> <a class='utf_post_cat'
-                                        href='#'>".$row['category']."</a> </div>
+                                <div class='utf_post_thumb fimage3'> <img class='img-fluid '
+                                            src='./admin/blog_docs/".$row['id']."/photo/".$row['uploadFile']."'></div>
                                 <div class='utf_post_content'>
-                                    <h2 class='utf_post_title title-small'> <a href='#'>".$row['headline']."</a> </h2>
-                                    <div class='utf_post_meta'>  <span
-                                            class='utf_post_date'><i class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span><span class='utf_post_author'><i
-                                            class='fa fa-user'></i> <a href='#'> </a></span> </div>
+                                    <h2 class='utf_post_title title-small dottss'> ".$row['headline']." </h2>
+                                    <div class='utf_post_meta'>  
+                                    <span class='utf_post_date'><i class='fa fa-calendar'></i>". date('l d M, Y',strtotime($row['added_on']))."</span> </div>
                                 </div>
                             </div>
-                        </li>
+                        </li></a>
                             "; } ?>
 
                                 
