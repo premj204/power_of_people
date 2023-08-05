@@ -11,6 +11,18 @@
 </section>
 <input type="hidden" name="id" id="id" value="<?php echo $staff[0]['id']; ?>">
 <section class="section profile">
+<?php 
+          if(isset($msg) && !empty($msg)){
+            // echo "<pre>";print_r($msg); 
+            if($msg['status']==200){ ?>
+              <div style="display: block;" class="alert alert-success" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php }else{?> 
+              <div style="display: block;" class="alert alert-danger" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php } ?>
+        <?php }else{ ?>
+              <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+              <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
+        <?php } ?>
     <div class="row">
         <div class="col-xl-4">
             <div class="card">

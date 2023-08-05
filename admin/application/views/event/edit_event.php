@@ -6,6 +6,18 @@
             <div class="mb-3">
                 <h3>Edit Event</h3>
             </div>
+            <?php 
+          if(isset($msg) && !empty($msg)){
+            // echo "<pre>";print_r($msg); 
+            if($msg['status']==200){ ?>
+              <div style="display: block;" class="alert alert-success" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php }else{?> 
+              <div style="display: block;" class="alert alert-danger" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php } ?>
+        <?php }else{ ?>
+              <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+              <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
+        <?php } ?>
             <form method="POST" onsubmit="return ValidateEditevent(this);" id="editEventFrm" name="editEventFrm">
             <input type="hidden" name="id" id="id" value="<?php echo $event[0]['id']; ?>">
                     <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>

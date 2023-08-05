@@ -49,18 +49,6 @@
        $this->load->view('includes/templates',$data);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
      function new_gallery($msg=""){
         $data['nav']='gallery';
         $data['msg']=$msg;

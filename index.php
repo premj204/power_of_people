@@ -20,7 +20,10 @@ include "./database/database.php";
                  
                     die("Connection failed: " . mysqli_connect_error());
                      }
-                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY id DESC LIMIT 4";//(innerjoin)
+
+
+                    // $sql = "SELECT * FROM `story` INNER JOIN `blog` ON story.id = blog.id where blog.status ='1' AND story.status='1' ORDER BY blog.id AND story.id DESC LIMIT 4";
+                       $sql = "SELECT `id`, `title`, `description`, `uploadFile`, `type`, `category`, `tags`, `status`, `added_on` FROM `story` where `status` ='1' ORDER BY id DESC LIMIT 4";
                        $result = mysqli_query($conn, $sql);
                          $sno = 0;
                          while ($row = mysqli_fetch_assoc($result)) {

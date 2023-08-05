@@ -5,7 +5,6 @@
             </span></strong>. All Rights Reserved | Designed by <a href="https://mobisoftseo.com/" target="_">Mobisoftseo Technologies</a>
     </div>
 </footer>
-
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
 <i class="bi bi-arrow-up-short"></i></a>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>

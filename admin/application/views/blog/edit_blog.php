@@ -15,6 +15,18 @@
 <section>
     <div class="card py-5">
         <div class="card-body">
+        <?php 
+          if(isset($msg) && !empty($msg)){
+            // echo "<pre>";print_r($msg); 
+            if($msg['status']==200){ ?>
+              <div style="display: block;" class="alert alert-success" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php }else{?> 
+              <div style="display: block;" class="alert alert-danger" role="alert"><span><?php echo $msg['msg']; ?></span></div>
+            <?php } ?>
+        <?php }else{ ?>
+              <div style="display: none;" class="alert alert-success" role="alert"><span></span></div>
+              <div style="display: none;" class="alert alert-danger" role="alert"><span></span></div>
+        <?php } ?>
                     <form method="POST" onsubmit="return ValidateEditblog(this);" id="frmEditblog" name="frmEditblog">
                 <div class="row g-3">
                     <input type="hidden" name="id" id="id" value="<?php echo $blog[0]['id']; ?>">
